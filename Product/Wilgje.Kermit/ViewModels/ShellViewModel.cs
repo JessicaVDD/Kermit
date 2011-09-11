@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.Composition;
+﻿using System.ComponentModel;
+using System.ComponentModel.Composition;
 using Willow.Kermit.ViewModels.Interfaces;
 
 namespace Willow.Kermit.ViewModels 
 {
     [Export(typeof(IShell))]
-    public class ShellViewModel : IShell, IShellViewModel {
+    public class ShellViewModel : Caliburn.Micro.PropertyChangedBase ,IShell, IShellViewModel {
 
         public ShellViewModel()
         {
@@ -20,10 +21,39 @@ namespace Willow.Kermit.ViewModels
             ActionTabs = action_tabs;
         }
 
-        public INavigationViewModel Navigation { get; set; }
-        public ISearchViewModel Search { get; set; }
-        public IArtViewModel Art { get; set; }
-        public IStatusViewModel Status { get; set; }
-        public IActionTabViewModel ActionTabs { get; set; }
+        INavigationViewModel navigation;
+        public INavigationViewModel Navigation
+        {
+            get { return navigation; }
+            set { navigation = value;  NotifyOfPropertyChange(() => Navigation);}
+        }
+
+        ISearchViewModel search;
+        public ISearchViewModel Search
+        {
+            get { return search; }
+            set { search = value; NotifyOfPropertyChange(() => Search); }
+        }
+
+        IArtViewModel art;
+        public IArtViewModel Art
+        {
+            get { return art; }
+            set { art = value; NotifyOfPropertyChange(() => Art); }
+        }
+
+        IStatusViewModel status;
+        public IStatusViewModel Status
+        {
+            get { return status; }
+            set { status = value; NotifyOfPropertyChange(() => Status); }
+        }
+
+        IActionTabViewModel action_tabs;
+        public IActionTabViewModel ActionTabs
+        {
+            get { return action_tabs; }
+            set { action_tabs = value; NotifyOfPropertyChange(() => ActionTabs); }
+        }
     }
 }
