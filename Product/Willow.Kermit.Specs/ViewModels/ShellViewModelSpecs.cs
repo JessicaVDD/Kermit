@@ -2,7 +2,6 @@
 using Willow.Kermit.ViewModels;
 using Willow.Kermit.ViewModels.Interfaces;
 using developwithpassion.specifications.rhino;
-using developwithpassion.specifications.extensions;
 
 namespace Willow.Kermit.Specs.ViewModels
 {   
@@ -15,27 +14,27 @@ namespace Willow.Kermit.Specs.ViewModels
         }
 
         [Subject(typeof(ShellViewModel))]
-        public class when_initializing : concern
+        public class when_using_the_view : concern
         {
             Establish c = () =>
             {
-                navigation_model = An<INavigationViewModel>();
-                search_model = An<ISearchViewModel>();
-                art_model = An<IArtViewModel>();
-                status_model = An<IStatusViewModel>();
-                action_tab_view_model = An<IActionTabViewModel>();
-
-                sut.setup(x => x.Navigation).Return(navigation_model);
-                sut.setup(x => x.Search).Return(search_model);
-                sut.setup(x => x.Art).Return(art_model);
-                sut.setup(x => x.Status).Return(status_model);
-                sut.setup(x => x.ActionTabs).Return(action_tab_view_model);
+                navigation_model = an<INavigationViewModel>();
+                search_model = an<ISearchViewModel>();
+                art_model = an<IArtViewModel>();
+                status_model = an<IStatusViewModel>();
+                action_tab_view_model = an<IActionTabViewModel>();
             };
 
 
+            Because b = () => { };
 
-            It should_create_the_other_view_models = () =>
+            It should_have_all_child_views_initialized = () =>
             {
+                sut.ActionTabs.ShouldNotBeNull();
+                sut.Search.ShouldNotBeNull();
+                sut.Art.ShouldNotBeNull();
+                sut.Status.ShouldNotBeNull();
+                sut.Navigation.ShouldNotBeNull();
             };
 
             static INavigationViewModel navigation_model;
