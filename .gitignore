@@ -15,7 +15,6 @@ artifacts
 [Pp]roduct/docs/Help/*.*
 [Pp]roduct/*/obj
 [Pp]roduct/*/bin
-[Pp]roduct/config/app.config
 [Pp]roduct/config/our_custom_config.txt
 [Pp]roduct/config/log4net.config.xml
 [Pp]roduct/config/hibernate.cfg.xml
@@ -24,5 +23,3 @@ artifacts
 [Pp]roduct/*.web.ui/*.config
 [Pp]roduct/*.web.ui/*.txt
 *.orig
-local_properties.rb
-connection_details.rb
