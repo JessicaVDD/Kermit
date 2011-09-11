@@ -22,4 +22,5 @@ artifacts
 [Pp]roduct/*.web.ui/*.xml
 [Pp]roduct/*.web.ui/*.config
 [Pp]roduct/*.web.ui/*.txt
+*.dbmdl
 *.orig
