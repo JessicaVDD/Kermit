@@ -7,7 +7,7 @@ namespace Willow.Kermit.ViewModels
     [Export(typeof(IShell))]
     public class ShellViewModel : Caliburn.Micro.PropertyChangedBase ,IShell, IShellViewModel {
 
-        public ShellViewModel()
+        public ShellViewModel() : this(null, null, new ArtViewModel(), null, null)
         {
             
         }

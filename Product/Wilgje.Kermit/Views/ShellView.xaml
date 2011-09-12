@@ -7,14 +7,14 @@
             <ContentControl Name="Navigation" DockPanel.Dock="Left"/>
             <ContentControl Name="Search" DockPanel.Dock="Right" />            
         </DockPanel>
-        <DockPanel DockPanel.Dock="Left" LastChildFill="True" Width="150">
+        <DockPanel DockPanel.Dock="Left" LastChildFill="True" Width="200">
             <ContentControl Name="Art"/>
         </DockPanel>
         <DockPanel LastChildFill="True">
             <DockPanel DockPanel.Dock="Top">
-                <ContentControl Name="Status" Width="400" Height="40"/>
+                <ContentControl Name="Status" MinWidth="400" Height="40"/>
             </DockPanel>
-            <TabControl Name="ActionTabs" Margin="-40,0,0,0" Height="300" TabStripPlacement="Left"/>
+            <TabControl Name="ActionTabs" Margin="-40,0,0,0" MinHeight="300" TabStripPlacement="Left"/>
         </DockPanel>
     </DockPanel>
 </Window>

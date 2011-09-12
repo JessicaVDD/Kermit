@@ -59,5 +59,12 @@ namespace Willow.Kermit.Properties {
                 resourceCulture = value;
             }
         }
+        
+        internal static System.Drawing.Bitmap Jaidee {
+            get {
+                object obj = ResourceManager.GetObject("Jaidee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
