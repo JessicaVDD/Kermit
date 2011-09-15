@@ -1,9 +1,10 @@
 ﻿ using System;
- using System.Drawing;
  using Machine.Specifications;
  using Willow.Kermit.ViewModels;
  using Willow.Kermit.ViewModels.Interfaces;
  using developwithpassion.specifications.rhino;
+using System.Windows.Media.Imaging;
+
 
 namespace Willow.Kermit.Specs.ViewModels
 {   
@@ -34,7 +35,7 @@ namespace Willow.Kermit.Specs.ViewModels
             It should_fire_a_notify_property_changed = () =>
             {
                 property_changed = null;
-                sut.Kid = new Bitmap(40,40);
+                sut.Kid = new BitmapImage();
                 property_changed.ShouldEqual("Kid");
             };
         }

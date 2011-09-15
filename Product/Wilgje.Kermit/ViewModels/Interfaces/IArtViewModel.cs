@@ -1,10 +1,11 @@
+using System;
 using System.ComponentModel;
-using System.Drawing;
+using System.Windows.Media.Imaging;
 
 namespace Willow.Kermit.ViewModels.Interfaces
 {
     public interface IArtViewModel : INotifyPropertyChanged
     {
-        Bitmap Kid { get; set; }
+        BitmapImage Kid { get; set; }
     }
 }

@@ -1,0 +1,10 @@
+﻿<UserControl x:Class="Willow.Kermit.Views.SearchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <DockPanel Width="234">
+        <TextBox Name="SearchText" Height="32" Width="200"></TextBox>
+        <Button Name="GoButton" Width="32" Height="32">
+            <Image Width="24" Height="24" Stretch="Fill" Margin="0,0,0,0" Source="{Binding Path=Search}" />
+        </Button>
+    </DockPanel>
+</UserControl>

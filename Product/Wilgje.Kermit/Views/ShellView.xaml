@@ -5,10 +5,10 @@
     <DockPanel LastChildFill="True">
         <DockPanel DockPanel.Dock="Top" LastChildFill="True" Height="64">
             <ContentControl Name="Navigation" DockPanel.Dock="Left"/>
-            <ContentControl Name="Search" DockPanel.Dock="Right" />            
+            <ContentControl HorizontalAlignment="Right" Name="Search" DockPanel.Dock="Right" Margin="0,0, 32, 0" />            
         </DockPanel>
-        <DockPanel DockPanel.Dock="Left" LastChildFill="True" Width="200">
-            <ContentControl Name="Art"/>
+        <DockPanel DockPanel.Dock="Left" LastChildFill="True" VerticalAlignment="Center" Width="200">
+            <ContentControl Name="Art" />
         </DockPanel>
         <DockPanel LastChildFill="True">
             <DockPanel DockPanel.Dock="Top">

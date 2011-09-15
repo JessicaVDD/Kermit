@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.Composition;
+﻿using System.ComponentModel.Composition;
 using Willow.Kermit.ViewModels.Interfaces;
 
 namespace Willow.Kermit.ViewModels 
@@ -7,7 +6,7 @@ namespace Willow.Kermit.ViewModels
     [Export(typeof(IShell))]
     public class ShellViewModel : Caliburn.Micro.PropertyChangedBase ,IShell, IShellViewModel {
 
-        public ShellViewModel() : this(null, null, new ArtViewModel(), null, null)
+        public ShellViewModel() : this(new NavigationViewModel(), new SearchViewModel(), new ArtViewModel(), null, null)
         {
             
         }

@@ -60,10 +60,66 @@ namespace Willow.Kermit.Properties {
             }
         }
         
+        internal static System.Drawing.Icon Help {
+            get {
+                object obj = ResourceManager.GetObject("Help", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon Home {
+            get {
+                object obj = ResourceManager.GetObject("Home", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Jaidee {
             get {
                 object obj = ResourceManager.GetObject("Jaidee", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon LeftArrowBlue {
+            get {
+                object obj = ResourceManager.GetObject("LeftArrowBlue", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon LeftArrowGrey {
+            get {
+                object obj = ResourceManager.GetObject("LeftArrowGrey", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon RightArrowBlue {
+            get {
+                object obj = ResourceManager.GetObject("RightArrowBlue", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon RightArrowGrey {
+            get {
+                object obj = ResourceManager.GetObject("RightArrowGrey", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon Search {
+            get {
+                object obj = ResourceManager.GetObject("Search", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Icon Settings {
+            get {
+                object obj = ResourceManager.GetObject("Settings", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
     }
