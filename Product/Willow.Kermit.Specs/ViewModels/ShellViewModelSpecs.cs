@@ -1,48 +1,76 @@
-﻿using Machine.Specifications;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using Machine.Specifications;
 using Willow.Kermit.ViewModels;
 using Willow.Kermit.ViewModels.Interfaces;
 using developwithpassion.specifications.rhino;
-using developwithpassion.specifications.extensions;
 
 namespace Willow.Kermit.Specs.ViewModels
 {   
     public class ShellViewModelSpecs
     {
-        public abstract class concern : Observes<IShellViewModel,
-                                            ShellViewModel>
-        {
-        
-        }
-
-        [Subject(typeof(ShellViewModel))]
-        public class when_initializing : concern
+        public abstract class concern : Observes<IShellViewModel, ShellViewModel>
         {
             Establish c = () =>
             {
-                navigation_model = An<INavigationViewModel>();
-                search_model = An<ISearchViewModel>();
-                art_model = An<IArtViewModel>();
-                status_model = An<IStatusViewModel>();
-                action_tab_view_model = An<IActionTabViewModel>();
-
-                sut.setup(x => x.Navigation).Return(navigation_model);
-                sut.setup(x => x.Search).Return(search_model);
-                sut.setup(x => x.Art).Return(art_model);
-                sut.setup(x => x.Status).Return(status_model);
-                sut.setup(x => x.ActionTabs).Return(action_tab_view_model);
+                navigation_model = an<INavigationViewModel>();
+                search_model = an<ISearchViewModel>();
+                art_model = an<IArtViewModel>();
+                status_model = an<IStatusViewModel>();
+                action_tab_view_model = an<IActionTabViewModel>();
             };
 
+            protected static INavigationViewModel navigation_model;
+            protected static ISearchViewModel search_model;
+            protected static IArtViewModel art_model;
+            protected static IStatusViewModel status_model;
+            protected static IActionTabViewModel action_tab_view_model;
+        }
 
+        [Subject(typeof(ShellViewModel))]
+        public class when_using_the_view : concern
+        {
+            Because b = () => { };
 
-            It should_create_the_other_view_models = () =>
+            It should_have_all_child_views_initialized = () =>
             {
+                sut.ActionTabs.ShouldNotBeNull();
+                sut.Search.ShouldNotBeNull();
+                sut.Art.ShouldNotBeNull();
+                sut.Status.ShouldNotBeNull();
+                sut.Navigation.ShouldNotBeNull();
+            };
+        }
+
+
+        [Subject(typeof(ShellViewModel))]
+        public class when_changing_a_property : concern
+        {
+            Establish c = () =>
+            {
+                property_changed_received_list = new List<string>();
             };
 
-            static INavigationViewModel navigation_model;
-            static ISearchViewModel search_model;
-            static IArtViewModel art_model;
-            static IStatusViewModel status_model;
-            static IActionTabViewModel action_tab_view_model;
+            Because b = () => { sut.PropertyChanged += sut_PropertyChanged; };
+
+            static void sut_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+            {
+                property_changed_received_list.Add(e.PropertyName);
+            }
+
+            It should_fire_a_notify_property_changed = () =>
+            {
+                var props = typeof(IShellViewModel).GetProperties();
+                foreach (var info in props)
+                {
+                    Debug.WriteLine(info.Name);
+                    property_changed_received_list.Clear();
+                    info.SetValue(sut, null, null);
+                    property_changed_received_list.ShouldContainOnly(info.Name);
+                }
+            };
+
+            static IList<string> property_changed_received_list;
         }
     }
 }
