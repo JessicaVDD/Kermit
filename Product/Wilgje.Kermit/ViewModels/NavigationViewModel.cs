@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Media.Imaging;
+using Willow.Kermit.Util;
 using Willow.Kermit.ViewModels.Interfaces;
 
 namespace Willow.Kermit.ViewModels
@@ -8,11 +9,12 @@ namespace Willow.Kermit.ViewModels
     {
         public NavigationViewModel()
         {
-            Home = new BitmapImage(new Uri("file:///C:/Users/vandepe/My%20Sources/Persoonlijk/Blydhove/Kermit/Product/Wilgje.Kermit/Resources/Home.ico"));
-            ArrowBack = new BitmapImage(new Uri("file:///C:/Users/vandepe/My%20Sources/Persoonlijk/Blydhove/Kermit/Product/Wilgje.Kermit/Resources/LeftArrowBlue.ico"));
-            ArrowForward = new BitmapImage(new Uri("file:///C:/Users/vandepe/My%20Sources/Persoonlijk/Blydhove/Kermit/Product/Wilgje.Kermit/Resources/RightArrowBlue.ico"));
-            Settings = new BitmapImage(new Uri("file:///C:/Users/vandepe/My%20Sources/Persoonlijk/Blydhove/Kermit/Product/Wilgje.Kermit/Resources/Settings.ico"));
-            Help = new BitmapImage(new Uri("file:///C:/Users/vandepe/My%20Sources/Persoonlijk/Blydhove/Kermit/Product/Wilgje.Kermit/Resources/Help.ico"));
+            var uriResolver = new UriResolver();
+            Home = new BitmapImage(uriResolver.Resolve("Home.ico"));
+            ArrowBack = new BitmapImage(uriResolver.Resolve("LeftArrowBlue.ico"));
+            ArrowForward = new BitmapImage(uriResolver.Resolve("RightArrowBlue.ico"));
+            Settings = new BitmapImage(uriResolver.Resolve("Settings.ico"));
+            Help = new BitmapImage(uriResolver.Resolve("Help.ico"));
         }
         public BitmapImage Home { get; set; }
         public BitmapImage ArrowBack { get; set; }

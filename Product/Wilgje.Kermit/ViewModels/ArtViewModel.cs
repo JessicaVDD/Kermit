@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Media.Imaging;
 using Caliburn.Micro;
+using Willow.Kermit.Util;
 using Willow.Kermit.ViewModels.Interfaces;
 
 namespace Willow.Kermit.ViewModels
@@ -11,7 +12,7 @@ namespace Willow.Kermit.ViewModels
         BitmapImage _defaultPicture;
         public ArtViewModel()
         {
-            _defaultPicture = new BitmapImage(new Uri("file:///C:/Users/vandepe/My%20Sources/Persoonlijk/Blydhove/Kermit/Product/Wilgje.Kermit/Resources/Jaidee.png"));
+            _defaultPicture = new BitmapImage(new UriResolver().Resolve("Jaidee.png")); 
             _kid = _defaultPicture;
         }
 

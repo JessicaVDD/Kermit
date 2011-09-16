@@ -8,7 +8,7 @@ namespace Willow.Kermit.ViewModels
     {
         public SearchViewModel()
         {
-            Search = new BitmapImage(new Uri("file:///C:/Users/vandepe/My%20Sources/Persoonlijk/Blydhove/Kermit/Product/Wilgje.Kermit/Resources/Search.ico"));
+            Search = new BitmapImage(new Uri("/Search.ico", UriKind.Relative));
             SearchText = null;
         }
 

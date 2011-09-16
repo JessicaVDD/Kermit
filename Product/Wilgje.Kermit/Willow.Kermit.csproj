@@ -62,6 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Util\IUriResolver.cs" />
+    <Compile Include="Util\UriResolver.cs" />
     <Compile Include="ViewModels\ArtViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IActionTabViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IArtViewModel.cs" />
@@ -126,33 +128,49 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Jaidee.png">
+    <Content Include="Resources\Jaidee.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Help.ico" />
+    <Content Include="Resources\Help.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Home.ico" />
+    <Content Include="Resources\Home.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\LeftArrowBlue.ico" />
+    <Content Include="Resources\LeftArrowBlue.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\LeftArrowGrey.ico" />
+    <Content Include="Resources\LeftArrowGrey.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\RightArrowBlue.ico" />
+    <Content Include="Resources\RightArrowBlue.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\RightArrowGrey.ico" />
+    <Content Include="Resources\RightArrowGrey.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Search.ico" />
+    <Content Include="Resources\Search.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Settings.ico" />
+    <Content Include="Resources\Settings.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
