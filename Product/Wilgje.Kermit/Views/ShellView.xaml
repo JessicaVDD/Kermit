@@ -14,7 +14,7 @@
             <DockPanel DockPanel.Dock="Top">
                 <ContentControl Name="Status" MinWidth="400" Height="40"/>
             </DockPanel>
-            <TabControl Name="ActionTabs" Margin="-40,0,0,0" MinHeight="300" TabStripPlacement="Left"/>
+            <ContentControl Name="ActionTabs" Margin="-40,8,8,8" MinHeight="300" />
         </DockPanel>
     </DockPanel>
 </Window>

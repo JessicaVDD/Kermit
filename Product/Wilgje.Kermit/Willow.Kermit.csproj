@@ -62,11 +62,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Messages\IShowHomeMessage.cs" />
+    <Compile Include="Messages\ShowHomeMessage.cs" />
     <Compile Include="Util\IUriResolver.cs" />
     <Compile Include="Util\UriResolver.cs" />
+    <Compile Include="ViewModels\ActionTabsViewModel.cs" />
     <Compile Include="ViewModels\ArtViewModel.cs" />
-    <Compile Include="ViewModels\Interfaces\IActionTabViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\IActionTabsViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IArtViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\IHomeViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\INavigationViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\ISearchViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IShellViewModel.cs" />
@@ -75,8 +80,14 @@
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="IShell.cs" />
+    <Compile Include="Views\ActionTabsView.xaml.cs">
+      <DependentUpon>ActionTabsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ArtView.xaml.cs">
       <DependentUpon>ArtView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NavigationView.xaml.cs">
       <DependentUpon>NavigationView.xaml</DependentUpon>
@@ -84,7 +95,15 @@
     <Compile Include="Views\SearchView.xaml.cs">
       <DependentUpon>SearchView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\ActionTabsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ArtView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

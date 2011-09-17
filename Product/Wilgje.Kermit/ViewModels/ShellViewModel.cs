@@ -6,12 +6,12 @@ namespace Willow.Kermit.ViewModels
     [Export(typeof(IShell))]
     public class ShellViewModel : Caliburn.Micro.PropertyChangedBase ,IShell, IShellViewModel {
 
-        public ShellViewModel() : this(new NavigationViewModel(), new SearchViewModel(), new ArtViewModel(), null, null)
+        public ShellViewModel() : this(new NavigationViewModel(), new SearchViewModel(), new ArtViewModel(), null, new ActionTabsViewModel())
         {
             
         }
 
-        public ShellViewModel(INavigationViewModel navigation, ISearchViewModel search, IArtViewModel art, IStatusViewModel status, IActionTabViewModel action_tabs)
+        public ShellViewModel(INavigationViewModel navigation, ISearchViewModel search, IArtViewModel art, IStatusViewModel status, IActionTabsViewModel action_tabs)
         {
             Navigation = navigation;
             Search = search;
@@ -48,8 +48,8 @@ namespace Willow.Kermit.ViewModels
             set { status = value; NotifyOfPropertyChange(() => Status); }
         }
 
-        IActionTabViewModel action_tabs;
-        public IActionTabViewModel ActionTabs
+        IActionTabsViewModel action_tabs;
+        public IActionTabsViewModel ActionTabs
         {
             get { return action_tabs; }
             set { action_tabs = value; NotifyOfPropertyChange(() => ActionTabs); }
