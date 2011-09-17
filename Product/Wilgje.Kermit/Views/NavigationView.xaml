@@ -4,7 +4,7 @@
     <DockPanel>
         <DockPanel>
             <Button Name="GoHome" Height="56" Width="56" Margin="4,4,4,4" >
-                <Image Width="48" Height="48" Stretch="Fill" Source="{Binding Path=Home}"/>
+                <Image Width="48" Height="48" Stretch="Fill" Source="{Binding Home}"/>
             </Button>
             <Button Name="GoBack" Height="56" Width="56" Margin="4,4,4,4" >
                 <Image Width="48" Height="48" Stretch="Fill" Source="{Binding Path=ArrowBack}"/>
