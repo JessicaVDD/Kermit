@@ -1,4 +1,5 @@
-﻿using Willow.Kermit.ViewModels.Interfaces;
+﻿using Caliburn.Micro;
+using Willow.Kermit.ViewModels.Interfaces;
 
 namespace Willow.Kermit.ViewModels
 {
