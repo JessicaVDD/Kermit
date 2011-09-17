@@ -12,7 +12,6 @@ namespace Willow.Kermit.Specs.ViewModels
     {
         public abstract class concern : Observes<IArtViewModel, ArtViewModel>
         {
-        
         }
 
         [Subject(typeof(ArtViewModel))]
@@ -24,7 +23,15 @@ namespace Willow.Kermit.Specs.ViewModels
         [Subject(typeof(ArtViewModel))]
         public class when_changing_the_picture : concern
         {
-            Because b = () => sut.PropertyChanged += Sut_PropertyChanged;
+            private Establish e = () => create_sut_using(() =>
+                                                             {
+                                                                 var theSut = new ArtViewModel();
+                                                                 theSut.PropertyChanged +=
+                                                                     Sut_PropertyChanged;
+                                                                 return theSut;
+                                                             });
+
+            Because b = () => sut.Kid = new BitmapImage();
 
             static string property_changed;
             static void Sut_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -32,12 +39,7 @@ namespace Willow.Kermit.Specs.ViewModels
                 property_changed = e.PropertyName;
             }
 
-            It should_fire_a_notify_property_changed = () =>
-            {
-                property_changed = null;
-                sut.Kid = new BitmapImage();
-                property_changed.ShouldEqual("Kid");
-            };
+            It should_fire_a_notify_property_changed = () => property_changed.ShouldEqual("Kid");
         }
 
         [Subject(typeof(ArtViewModel))]
