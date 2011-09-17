@@ -14,7 +14,7 @@ namespace Willow.Kermit.ViewModels
             ArrowBack = new BitmapImage(uriResolver.Resolve("LeftArrowBlue.ico"));
             ArrowForward = new BitmapImage(uriResolver.Resolve("RightArrowBlue.ico"));
             Settings = new BitmapImage(uriResolver.Resolve("Settings.ico"));
-            Help = new BitmapImage(uriResolver.Resolve("Help.ico"));
+            Help = new BitmapImage(uriResolver.Resolve("Help.png"));
         }
         public BitmapImage Home { get; set; }
         public BitmapImage ArrowBack { get; set; }

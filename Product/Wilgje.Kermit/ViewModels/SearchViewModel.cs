@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Media.Imaging;
+using Willow.Kermit.Util;
 using Willow.Kermit.ViewModels.Interfaces;
 
 namespace Willow.Kermit.ViewModels
@@ -8,7 +9,7 @@ namespace Willow.Kermit.ViewModels
     {
         public SearchViewModel()
         {
-            Search = new BitmapImage(new Uri("/Search.ico", UriKind.Relative));
+            Search = new BitmapImage(new UriResolver().Resolve("Search.ico"));
             SearchText = null;
         }
 
