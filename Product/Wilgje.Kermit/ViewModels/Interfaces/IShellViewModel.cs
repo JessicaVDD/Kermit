@@ -8,6 +8,6 @@ namespace Willow.Kermit.ViewModels.Interfaces
         ISearchViewModel Search { get; set; }
         IArtViewModel Art { get; set; }
         IStatusViewModel Status { get; set; }
-        IActionTabViewModel ActionTabs { get; set; }
+        IActionTabsViewModel ActionTabs { get; set; }
     }
 }

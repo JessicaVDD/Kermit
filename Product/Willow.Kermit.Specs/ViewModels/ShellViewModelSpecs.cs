@@ -18,14 +18,14 @@ namespace Willow.Kermit.Specs.ViewModels
                 search_model = an<ISearchViewModel>();
                 art_model = an<IArtViewModel>();
                 status_model = an<IStatusViewModel>();
-                action_tab_view_model = an<IActionTabViewModel>();
+                action_tabs_view_model = an<IActionTabsViewModel>();
             };
 
             protected static INavigationViewModel navigation_model;
             protected static ISearchViewModel search_model;
             protected static IArtViewModel art_model;
             protected static IStatusViewModel status_model;
-            protected static IActionTabViewModel action_tab_view_model;
+            protected static IActionTabsViewModel action_tabs_view_model;
         }
 
         [Subject(typeof(ShellViewModel))]

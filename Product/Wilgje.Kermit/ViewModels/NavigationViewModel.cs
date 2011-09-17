@@ -1,5 +1,7 @@
 using System;
 using System.Windows.Media.Imaging;
+using Caliburn.Micro;
+using Willow.Kermit.Messages;
 using Willow.Kermit.Util;
 using Willow.Kermit.ViewModels.Interfaces;
 
@@ -7,19 +9,33 @@ namespace Willow.Kermit.ViewModels
 {
     public class NavigationViewModel : INavigationViewModel
     {
-        public NavigationViewModel()
+        private IEventAggregator _events;
+
+        public NavigationViewModel() : this(new EventAggregator())
         {
+        }
+
+        public NavigationViewModel(IEventAggregator events)
+        {
+            _events = events;
+
             var uriResolver = new UriResolver();
             Home = new BitmapImage(uriResolver.Resolve("Home.ico"));
             ArrowBack = new BitmapImage(uriResolver.Resolve("LeftArrowBlue.ico"));
             ArrowForward = new BitmapImage(uriResolver.Resolve("RightArrowBlue.ico"));
             Settings = new BitmapImage(uriResolver.Resolve("Settings.ico"));
-            Help = new BitmapImage(uriResolver.Resolve("Help.png"));
+            Help = new BitmapImage(uriResolver.Resolve("Help.png"));            
         }
+
         public BitmapImage Home { get; set; }
         public BitmapImage ArrowBack { get; set; }
         public BitmapImage ArrowForward { get; set; }
         public BitmapImage Settings { get; set; }
         public BitmapImage Help { get; set; }
+        
+        public void GoHome()
+        {
+            _events.Publish(new ShowHomeMessage());
+        }
     }
 }

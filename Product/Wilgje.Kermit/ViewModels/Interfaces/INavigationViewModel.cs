@@ -9,5 +9,6 @@ namespace Willow.Kermit.ViewModels.Interfaces
         BitmapImage ArrowForward { get; set; }
         BitmapImage Settings { get; set; }
         BitmapImage Help { get; set; }
+        void GoHome();
     }
 }
