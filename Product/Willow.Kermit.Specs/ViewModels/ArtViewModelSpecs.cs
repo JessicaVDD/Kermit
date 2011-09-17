@@ -1,5 +1,6 @@
 ﻿ using System;
  using Machine.Specifications;
+ using Willow.Kermit.Specs.Utils;
  using Willow.Kermit.ViewModels;
  using Willow.Kermit.ViewModels.Interfaces;
  using developwithpassion.specifications.rhino;
@@ -10,7 +11,7 @@ namespace Willow.Kermit.Specs.ViewModels
 {   
     public class ArtViewModelSpecs
     {
-        public abstract class concern : Observes<IArtViewModel, ArtViewModel>
+        public abstract class concern : ObservesWithINPC<IArtViewModel, ArtViewModel>
         {
         }
 
@@ -23,23 +24,16 @@ namespace Willow.Kermit.Specs.ViewModels
         [Subject(typeof(ArtViewModel))]
         public class when_changing_the_picture : concern
         {
-            private Establish e = () => create_sut_using(() =>
-                                                             {
-                                                                 var theSut = new ArtViewModel();
-                                                                 theSut.PropertyChanged +=
-                                                                     Sut_PropertyChanged;
-                                                                 return theSut;
-                                                             });
+            Establish e = () => 
+            {
+            };
 
             Because b = () => sut.Kid = new BitmapImage();
 
-            static string property_changed;
-            static void Sut_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+            It should_fire_a_notify_property_changed = () => 
             {
-                property_changed = e.PropertyName;
-            }
-
-            It should_fire_a_notify_property_changed = () => property_changed.ShouldEqual("Kid");
+                property_helper.has_fired(x => x.Kid).ShouldBeTrue();
+            };
         }
 
         [Subject(typeof(ArtViewModel))]
