@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using Machine.Specifications;
+using Willow.Kermit.Specs.Utils;
 using Willow.Kermit.ViewModels;
 using Willow.Kermit.ViewModels.Interfaces;
 using developwithpassion.specifications.rhino;
@@ -9,7 +10,7 @@ namespace Willow.Kermit.Specs.ViewModels
 {   
     public class ShellViewModelSpecs
     {
-        public abstract class concern : Observes<IShellViewModel, ShellViewModel>
+        public abstract class concern : ObservesWithINPC<IShellViewModel, ShellViewModel>
         {
             Establish c = () =>
             {
@@ -46,31 +47,16 @@ namespace Willow.Kermit.Specs.ViewModels
         [Subject(typeof(ShellViewModel))]
         public class when_changing_a_property : concern
         {
-            Establish c = () =>
-            {
-                property_changed_received_list = new List<string>();
-            };
-
-            Because b = () => { sut.PropertyChanged += sut_PropertyChanged; };
-
-            static void sut_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-            {
-                property_changed_received_list.Add(e.PropertyName);
-            }
+            Because b = () => { property_helper.trigger_all_properties(); };
 
             It should_fire_a_notify_property_changed = () =>
             {
-                var props = typeof(IShellViewModel).GetProperties();
-                foreach (var info in props)
-                {
-                    Debug.WriteLine(info.Name);
-                    property_changed_received_list.Clear();
-                    info.SetValue(sut, null, null);
-                    property_changed_received_list.ShouldContainOnly(info.Name);
-                }
+                property_helper.has_fired(x => x.ActionTabs).ShouldBeTrue();
+                property_helper.has_fired(x => x.Art).ShouldBeTrue();
+                property_helper.has_fired(x => x.Navigation).ShouldBeTrue();
+                property_helper.has_fired(x => x.Search).ShouldBeTrue();
+                property_helper.has_fired(x => x.Status).ShouldBeTrue();
             };
-
-            static IList<string> property_changed_received_list;
         }
     }
 }
