@@ -10,10 +10,6 @@ namespace Willow.Kermit.ViewModels
     {
         public ActionTabsViewModel()
         {
-            for (int i = 0; i < 5; i++)
-            {
-                Items.Add(new NavigationViewModel());
-            }
             Items.Add(new HomeViewModel());
         }
 
@@ -28,7 +24,7 @@ namespace Willow.Kermit.ViewModels
             ActivateItem(homeViewModel);
         }
 
-        public void CloseItem(IDeactivate anItem)
+        public void CloseItem(ITabViewModel anItem)
         {
             DeactivateItem(anItem, true);
         }

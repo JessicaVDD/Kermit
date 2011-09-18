@@ -6,6 +6,46 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TextBlock Text="TEEEEEEST" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*" />
+            <RowDefinition Height="50*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*" />
+            <ColumnDefinition Width="30*" />
+            <ColumnDefinition Width="30*" />
+        </Grid.ColumnDefinitions>
+        <Button x:Name="CreateNewKid" Margin="8" Padding="5" Grid.Column="0" Grid.Row="0">
+            <Button.Content>
+                <DockPanel LastChildFill="True">
+                    <TextBlock Text="Nieuw" FontFamily="Andy" FontSize="20" VerticalAlignment="Top" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="3"/>
+                    <Image x:Name="NewKid" Margin="5" /> 
+                </DockPanel>
+            </Button.Content>        
+        </Button>
+        <Button x:Name="DoSearch" Margin="8" Grid.Row="0" Grid.Column="1">
+            <Button.Content>
+                <DockPanel LastChildFill="True">
+                    <TextBlock Text="Zoek" FontFamily="Andy" FontSize="20" VerticalAlignment="Top" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="3"/>  
+                    <Image x:Name="Search" Margin="5" />
+                </DockPanel>
+            </Button.Content>        
+        </Button>
+        <Button x:Name="ManageDoctors" Margin="8" Grid.Row="0" Grid.Column="2">
+            <Button.Content>
+                <DockPanel LastChildFill="True">
+                    <TextBlock Text="Dokters" FontFamily="Andy" FontSize="20" VerticalAlignment="Top" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="3"/>
+                    <Image x:Name="Doctors" Margin="5" />
+                </DockPanel>
+            </Button.Content>
+        </Button>
+        <Button x:Name="ViewCalendar" Margin="8" Grid.Row="1" Grid.Column="0">
+            <Button.Content>
+                <DockPanel LastChildFill="True">
+                    <TextBlock Text="Kalender" FontFamily="Andy" FontSize="20" VerticalAlignment="Top" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="3"/>
+                    <Image x:Name="Calendar" Margin="5" />
+                </DockPanel>
+            </Button.Content>
+        </Button>
     </Grid>
 </UserControl>

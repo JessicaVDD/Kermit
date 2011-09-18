@@ -9,7 +9,7 @@ namespace Willow.Kermit.ViewModels
     {
         public SearchViewModel()
         {
-            Search = new BitmapImage(new UriResolver().Resolve("Search.ico"));
+            Search = new ImageGetter().Get("Search.ico");
             SearchText = null;
         }
 

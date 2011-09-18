@@ -76,6 +76,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ActionTabsViewModelSpecs.cs" />
     <Compile Include="ViewModels\ArtViewModelSpecs.cs" />
+    <Compile Include="ViewModels\HomeViewModelSpecs.cs" />
     <Compile Include="ViewModels\NavigationViewModelSpecs.cs" />
     <Compile Include="ViewModels\SearchViewModelSpecs.cs" />
     <Compile Include="ViewModels\ShellViewModelSpecs.cs" />

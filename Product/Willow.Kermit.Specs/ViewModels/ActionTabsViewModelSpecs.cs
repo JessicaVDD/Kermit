@@ -66,21 +66,31 @@ namespace Willow.Kermit.Specs.ViewModels
             };
         }
 
-        //[Subject(typeof (ActionTabsViewModel))]
-        //public class when_a_tab_is_asked_to_close : concern
-        //{
-        //    private Establish ctx = () =>
-        //    {
-        //        deactivated_item = An<IDeactivate>();
-        //    };
-        //    Because b = () => { sut.CloseItem(deactivated_item); };
+        [Subject(typeof(ActionTabsViewModel))]
+        public class when_a_tab_is_asked_to_close : concern
+        {
+            private Establish ctx = () =>
+            {
+                item_to_deactivate = An<ITabViewModel>();
+                create_sut_using(() =>
+                {
+                    var thesut = new ActionTabsViewModel();
+                    thesut.Items.Add(item_to_deactivate);
+                    return thesut;
+                });
+            };
 
-        //    It should_deactivate_the_item = () =>
-        //    {
-        //        deactivated_item.WasToldTo(item => item.Deactivate(true)).OnlyOnce();
-        //    };
+            Because b = () =>
+            {
+                sut.CloseItem(item_to_deactivate);
+            };
 
-        //    private static IDeactivate deactivated_item;
-        //}
+            It should_deactivate_the_item = () =>
+            {
+                sut.Items.Contains(item_to_deactivate).ShouldBeFalse();
+            };
+
+            private static ITabViewModel item_to_deactivate;
+        }
     }
 }

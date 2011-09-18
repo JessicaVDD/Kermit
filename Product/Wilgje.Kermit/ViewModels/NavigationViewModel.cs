@@ -19,12 +19,12 @@ namespace Willow.Kermit.ViewModels
         {
             _events = events;
 
-            var uriResolver = new UriResolver();
-            Home = new BitmapImage(uriResolver.Resolve("Home.ico"));
-            ArrowBack = new BitmapImage(uriResolver.Resolve("LeftArrowBlue.ico"));
-            ArrowForward = new BitmapImage(uriResolver.Resolve("RightArrowBlue.ico"));
-            Settings = new BitmapImage(uriResolver.Resolve("Settings.ico"));
-            Help = new BitmapImage(uriResolver.Resolve("Help.png"));            
+            var imageGetter = new ImageGetter();
+            Home = imageGetter.Get("Home.ico");
+            ArrowBack = imageGetter.Get("LeftArrowBlue.ico");
+            ArrowForward = imageGetter.Get("RightArrowBlue.ico");
+            Settings = imageGetter.Get("Settings.ico");
+            Help = imageGetter.Get("Help.png"); 
         }
 
         public BitmapImage Home { get; set; }
