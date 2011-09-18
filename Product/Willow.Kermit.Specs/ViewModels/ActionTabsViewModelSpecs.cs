@@ -30,7 +30,7 @@ namespace Willow.Kermit.Specs.ViewModels
         [Subject(typeof(ActionTabsViewModel))]
         public class when_a_show_home_message_is_published : concern
         {
-            Because b = () => sut.Handle(An<IShowHomeMessage>());
+            Because b = () => sut.Handle(An<ShowHomeMessage>());
 
             It should_activate_the_home_view_model = () =>
             {
@@ -57,7 +57,7 @@ namespace Willow.Kermit.Specs.ViewModels
                 });
             };
 
-            private Because b = () => sut.Handle(an<IShowHomeMessage>());
+            private Because b = () => sut.Handle(an<ShowHomeMessage>());
 
             private It should_activate_the_home_view_model = () =>
             {

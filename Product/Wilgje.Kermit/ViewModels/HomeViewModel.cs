@@ -12,9 +12,9 @@ namespace Willow.Kermit.ViewModels
         {
             var imageGetter = new ImageGetter();
             NewKid = imageGetter.Get("Jaidee.png");
-            Search = imageGetter.Get("Search.ico");
+            Search = imageGetter.Get("Search2.ico");
             Doctors = imageGetter.Get("Doctor.png");
-            Calendar = imageGetter.Get("Calendar.jpg");
+            Calendar = imageGetter.Get("Calendar.png");
         }
 
         public BitmapImage NewKid { get; set; }

@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using Caliburn.Micro;
 using Machine.Specifications;
 using Willow.Kermit.Specs.Utils;
 using Willow.Kermit.ViewModels;
 using Willow.Kermit.ViewModels.Interfaces;
 using developwithpassion.specifications.rhino;
+using developwithpassion.specifications.extensions;
+
 
 namespace Willow.Kermit.Specs.ViewModels
 {   
@@ -14,11 +17,13 @@ namespace Willow.Kermit.Specs.ViewModels
         {
             Establish c = () =>
             {
-                navigation_model = an<INavigationViewModel>();
-                search_model = an<ISearchViewModel>();
-                art_model = an<IArtViewModel>();
-                status_model = an<IStatusViewModel>();
-                action_tabs_view_model = an<IActionTabsViewModel>();
+                events = an<IEventAggregator>();
+                navigation_model = the_dependency<INavigationViewModel>();
+                navigation_model.setup(x => x.Events).Return(events);
+                search_model = the_dependency<ISearchViewModel>();
+                art_model = the_dependency<IArtViewModel>();
+                status_model = the_dependency<IStatusViewModel>();
+                action_tabs_view_model = the_dependency<IActionTabsViewModel>();
             };
 
             protected static INavigationViewModel navigation_model;
@@ -26,6 +31,7 @@ namespace Willow.Kermit.Specs.ViewModels
             protected static IArtViewModel art_model;
             protected static IStatusViewModel status_model;
             protected static IActionTabsViewModel action_tabs_view_model;
+            protected static IEventAggregator events;
         }
 
         [Subject(typeof(ShellViewModel))]
@@ -40,6 +46,11 @@ namespace Willow.Kermit.Specs.ViewModels
                 sut.Art.ShouldNotBeNull();
                 sut.Status.ShouldNotBeNull();
                 sut.Navigation.ShouldNotBeNull();
+            };
+
+            It should_subscribe_the_action_tabs_to_the_navigation_events = () =>
+            {
+                events.received(x => x.Subscribe(action_tabs_view_model)).OnlyOnce();
             };
         }
 

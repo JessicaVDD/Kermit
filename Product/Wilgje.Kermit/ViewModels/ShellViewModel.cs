@@ -6,7 +6,7 @@ namespace Willow.Kermit.ViewModels
     [Export(typeof(IShell))]
     public class ShellViewModel : Caliburn.Micro.PropertyChangedBase ,IShell, IShellViewModel {
 
-        public ShellViewModel() : this(new NavigationViewModel(), new SearchViewModel(), new ArtViewModel(), null, new ActionTabsViewModel())
+        public ShellViewModel() : this(new NavigationViewModel(), new SearchViewModel(), new ArtViewModel(), new StatusViewModel(), new ActionTabsViewModel())
         {
             
         }
@@ -18,6 +18,7 @@ namespace Willow.Kermit.ViewModels
             Art = art;
             Status = status;
             ActionTabs = action_tabs;
+            Navigation.Events.Subscribe(ActionTabs);
         }
 
         INavigationViewModel navigation;

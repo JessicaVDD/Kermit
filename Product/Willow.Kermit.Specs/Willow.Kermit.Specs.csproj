@@ -82,6 +82,7 @@
     <Compile Include="ViewModels\NavigationViewModelSpecs.cs" />
     <Compile Include="ViewModels\SearchViewModelSpecs.cs" />
     <Compile Include="ViewModels\ShellViewModelSpecs.cs" />
+    <Compile Include="ViewModels\StatusViewModelSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wilgje.Kermit\Willow.Kermit.csproj">

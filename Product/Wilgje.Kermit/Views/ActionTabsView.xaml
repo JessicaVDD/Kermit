@@ -16,11 +16,11 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>-->
         
-        <TabControl x:Name="Items" TabStripPlacement="Left">
+        <TabControl x:Name="Items" TabStripPlacement="Left" BorderBrush="Black" BorderThickness="1" Padding="0,0,0,0">
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <Button Content="X" cal:Message.Attach="CloseItem($dataContext)" />
+                        <Button Content="X" cal:Message.Attach="CloseItem($dataContext)"/>
                     </StackPanel>
                 </DataTemplate>
             </TabControl.ItemTemplate>

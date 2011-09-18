@@ -9,15 +9,13 @@ namespace Willow.Kermit.ViewModels
 {
     public class NavigationViewModel : INavigationViewModel
     {
-        private IEventAggregator _events;
-
         public NavigationViewModel() : this(new EventAggregator())
         {
         }
 
         public NavigationViewModel(IEventAggregator events)
         {
-            _events = events;
+            Events = events;
 
             var imageGetter = new ImageGetter();
             Home = imageGetter.Get("Home.ico");
@@ -32,10 +30,12 @@ namespace Willow.Kermit.ViewModels
         public BitmapImage ArrowForward { get; set; }
         public BitmapImage Settings { get; set; }
         public BitmapImage Help { get; set; }
-        
+
+        public IEventAggregator Events { get; private set; }
+
         public void GoHome()
         {
-            _events.Publish(new ShowHomeMessage());
+            Events.Publish(new ShowHomeMessage());
         }
     }
 }

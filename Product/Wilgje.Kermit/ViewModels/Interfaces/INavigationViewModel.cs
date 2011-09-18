@@ -1,4 +1,5 @@
 using System.Windows.Media.Imaging;
+using Caliburn.Micro;
 
 namespace Willow.Kermit.ViewModels.Interfaces
 {
@@ -9,6 +10,7 @@ namespace Willow.Kermit.ViewModels.Interfaces
         BitmapImage ArrowForward { get; set; }
         BitmapImage Settings { get; set; }
         BitmapImage Help { get; set; }
+        IEventAggregator Events { get; }
         void GoHome();
     }
 }
