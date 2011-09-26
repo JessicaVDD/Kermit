@@ -1,7 +1,8 @@
+using System;
 using System.Linq;
-using Caliburn.Micro;
+using Rhino.Mocks;
+using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhino;
-using Machine.Fakes;
 using Machine.Specifications;
 using Willow.Kermit.Messages;
 using Willow.Kermit.ViewModels;
@@ -30,7 +31,7 @@ namespace Willow.Kermit.Specs.ViewModels
         [Subject(typeof(ActionTabsViewModel))]
         public class when_a_show_home_message_is_published : concern
         {
-            Because b = () => sut.Handle(An<ShowHomeMessage>());
+            Because b = () => sut.Handle(an<ShowHomeMessage>());
 
             It should_activate_the_home_view_model = () =>
             {
@@ -49,19 +50,14 @@ namespace Willow.Kermit.Specs.ViewModels
         {
             private Establish ctx = () =>
             {
-                create_sut_using(() =>
-                {
-                    var thesut = new ActionTabsViewModel();
-                    thesut.Items.Clear();
-                    return thesut;
-                });
+                add_pipeline_behaviour_against_sut(x => x.Items.Clear());
             };
 
             private Because b = () => sut.Handle(an<ShowHomeMessage>());
 
             private It should_activate_the_home_view_model = () =>
             {
-                sut.Items.Any(tab => typeof(IHomeViewModel).IsAssignableFrom(tab.GetType())).ShouldBeTrue();
+                sut.Items.Any(tab => tab is IHomeViewModel).ShouldBeTrue();
                 sut.ActiveItem.ShouldBeOfType(typeof(IHomeViewModel));
             };
         }
@@ -71,13 +67,8 @@ namespace Willow.Kermit.Specs.ViewModels
         {
             private Establish ctx = () =>
             {
-                item_to_deactivate = An<ITabViewModel>();
-                create_sut_using(() =>
-                {
-                    var thesut = new ActionTabsViewModel();
-                    thesut.Items.Add(item_to_deactivate);
-                    return thesut;
-                });
+                item_to_deactivate = an<ITabViewModel>();
+                add_pipeline_behaviour_against_sut(x => x.ActivateItem(item_to_deactivate));
             };
 
             Because b = () =>
@@ -85,12 +76,60 @@ namespace Willow.Kermit.Specs.ViewModels
                 sut.CloseItem(item_to_deactivate);
             };
 
-            It should_deactivate_the_item = () =>
+            It should_ask_the_item_if_it_can_close = () =>
             {
-                sut.Items.Contains(item_to_deactivate).ShouldBeFalse();
+                item_to_deactivate.received(x => x.CanClose(Arg<Action<bool>>.Is.Anything)).OnlyOnce();
             };
 
             private static ITabViewModel item_to_deactivate;
+        }
+
+        [Subject(typeof(ActionTabsViewModel))]
+        public class when_a_tab_asks_to_be_closed : concern
+        {
+            Establish c = () =>
+            {
+                a_close_message = an<ICloseTabMessage>();
+                a_tab_view_model = an<ITabViewModel>();
+                a_close_message.Item = a_tab_view_model;
+            };
+
+            Because b = () =>
+            {
+                sut.Handle(a_close_message);
+            };
+
+            It should_try_to_close_the_view_model_in_the_message = () =>
+            {
+                a_tab_view_model.received(x => x.CanClose(Arg<Action<bool>>.Is.Anything)).OnlyOnce();
+            };
+
+            static ICloseTabMessage a_close_message;
+            static ITabViewModel a_tab_view_model;
+        }
+
+        [Subject(typeof(ActionTabsViewModel))]
+        public class when_a_new_view_must_be_shown : concern
+        {
+            Establish c = () =>
+            {
+                a_tab_view = an<ITabViewModel>();
+                a_show_tab_view_message = an<IShowTabViewMessage>();
+                a_show_tab_view_message.Item = a_tab_view;
+            };
+
+            Because b = () =>
+            {
+                sut.Handle(a_show_tab_view_message);
+            };
+
+            It should_activate_the_new_view = () =>
+            {
+                sut.Items.Contains(a_tab_view).ShouldBeTrue();
+            };
+
+            static ITabViewModel a_tab_view;
+            static IShowTabViewMessage a_show_tab_view_message;
         }
     }
 }

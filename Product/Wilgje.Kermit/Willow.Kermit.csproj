@@ -62,8 +62,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Messages\CloseTabMessage.cs" />
+    <Compile Include="Messages\ICloseTabMessage.cs" />
     <Compile Include="Messages\IShowHomeMessage.cs" />
+    <Compile Include="Messages\IShowTabViewMessage.cs" />
     <Compile Include="Messages\ShowHomeMessage.cs" />
+    <Compile Include="Messages\ShowTabViewMessage.cs" />
     <Compile Include="Util\ImageGetter.cs" />
     <Compile Include="Util\IUriResolver.cs" />
     <Compile Include="Util\UriResolver.cs" />
@@ -75,11 +79,13 @@
     <Compile Include="ViewModels\Interfaces\IArtViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IHomeViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\INavigationViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\INewKidViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\ISearchViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IShellViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IStatusViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IViewModel.cs" />
     <Compile Include="ViewModels\NavigationViewModel.cs" />
+    <Compile Include="ViewModels\NewKidViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="IShell.cs" />
@@ -95,6 +101,9 @@
     </Compile>
     <Compile Include="Views\NavigationView.xaml.cs">
       <DependentUpon>NavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewKidView.xaml.cs">
+      <DependentUpon>NewKidView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SearchView.xaml.cs">
       <DependentUpon>SearchView.xaml</DependentUpon>
@@ -115,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewKidView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -16,6 +16,7 @@
 
     <Grid Background="{StaticResource KermitBrush}">
         <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
             <RowDefinition Height="50*" />
             <RowDefinition Height="50*" />
         </Grid.RowDefinitions>
@@ -24,7 +25,12 @@
             <ColumnDefinition Width="30*" />
             <ColumnDefinition Width="30*" />
         </Grid.ColumnDefinitions>
-        <Button x:Name="CreateNewKid" Margin="8" Padding="5" Grid.Column="0" Grid.Row="0">
+        <Button Name="Close" Grid.Column="3" Grid.Row="0" Width="32" HorizontalAlignment="Right" VerticalAlignment="Center" Background="{StaticResource KermitBrush}" Margin="4,2,8,2" BorderThickness="1" BorderBrush="Black">
+            <Button.Content>
+                <TextBlock Text="X" VerticalAlignment="Center" Foreground="Crimson" FontWeight="Bold" FontStretch="UltraExpanded"/>
+            </Button.Content>
+        </Button>
+        <Button x:Name="CreateNewKid" Margin="8" Padding="5" Grid.Column="0" Grid.Row="1">
             <Button.Content>
                 <DockPanel LastChildFill="True">
                     <TextBlock Text="Nieuw" FontFamily="Andy" FontSize="20" VerticalAlignment="Top" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="3"/>
@@ -32,7 +38,7 @@
                 </DockPanel>
             </Button.Content>        
         </Button>
-        <Button x:Name="DoSearch" Margin="8" Grid.Row="0" Grid.Column="1">
+        <Button x:Name="DoSearch" Margin="8" Grid.Row="1" Grid.Column="1">
             <Button.Content>
                 <DockPanel LastChildFill="True">
                     <TextBlock Text="Zoek" FontFamily="Andy" FontSize="20" VerticalAlignment="Top" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="3"/>  
@@ -40,7 +46,7 @@
                 </DockPanel>
             </Button.Content>        
         </Button>
-        <Button x:Name="ManageDoctors" Margin="8" Grid.Row="0" Grid.Column="2">
+        <Button x:Name="ManageDoctors" Margin="8" Grid.Row="1" Grid.Column="2">
             <Button.Content>
                 <DockPanel LastChildFill="True">
                     <TextBlock Text="Hulpverleners" FontFamily="Andy" FontSize="20" VerticalAlignment="Top" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="3"/>
@@ -48,7 +54,7 @@
                 </DockPanel>
             </Button.Content>
         </Button>
-        <Button x:Name="ViewCalendar" Margin="8" Grid.Row="1" Grid.Column="0">
+        <Button x:Name="ViewCalendar" Margin="8" Grid.Row="21" Grid.Column="0">
             <Button.Content>
                 <DockPanel LastChildFill="True">
                     <TextBlock Text="Kalender" FontFamily="Andy" FontSize="20" VerticalAlignment="Top" DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="3"/>

@@ -80,6 +80,7 @@
     <Compile Include="ViewModels\ArtViewModelSpecs.cs" />
     <Compile Include="ViewModels\HomeViewModelSpecs.cs" />
     <Compile Include="ViewModels\NavigationViewModelSpecs.cs" />
+    <Compile Include="ViewModels\NewKidViewModelSpecs.cs" />
     <Compile Include="ViewModels\SearchViewModelSpecs.cs" />
     <Compile Include="ViewModels\ShellViewModelSpecs.cs" />
     <Compile Include="ViewModels\StatusViewModelSpecs.cs" />

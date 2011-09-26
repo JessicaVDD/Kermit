@@ -3,11 +3,14 @@ using Willow.Kermit.Messages;
 
 namespace Willow.Kermit.ViewModels.Interfaces
 {
-    public interface IActionTabsViewModel
+    public interface IActionTabsViewModel : IConductor,
+        IHandle<IShowHomeMessage>,
+        IHandle<IShowTabViewMessage>,
+        IHandle<ICloseTabMessage>
+
     {
-        IObservableCollection<object> Items { get; }
-        object ActiveItem { get; set; }
-        void Handle(IShowHomeMessage message);
+        IObservableCollection<IScreen> Items { get; }
+        IScreen ActiveItem { get; set; }
         void CloseItem(ITabViewModel anItem);
     }
 }

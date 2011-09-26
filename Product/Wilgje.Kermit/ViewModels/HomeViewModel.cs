@@ -1,6 +1,6 @@
-﻿using System;
-using System.Windows.Media.Imaging;
+﻿using System.Windows.Media.Imaging;
 using Caliburn.Micro;
+using Willow.Kermit.Messages;
 using Willow.Kermit.Util;
 using Willow.Kermit.ViewModels.Interfaces;
 
@@ -8,6 +8,8 @@ namespace Willow.Kermit.ViewModels
 {
     public class HomeViewModel : Screen, IHomeViewModel
     {
+        public IEventAggregator Events { get; set; }
+
         public HomeViewModel()
         {
             var imageGetter = new ImageGetter();
@@ -21,5 +23,31 @@ namespace Willow.Kermit.ViewModels
         public BitmapImage Search { get; set; }
         public BitmapImage Doctors { get; set; }
         public BitmapImage Calendar { get; set; }
+
+
+        public void Close()
+        {
+            if (Events != null)
+                Events.Publish(new CloseTabMessage {Item = this});
+        }
+
+        public void CreateNewKid()
+        {
+            ShowTab(new NewKidViewModel());
+        }
+
+        public void ShowTab(ITabViewModel view_model)
+        {
+            if (Events != null) 
+                Events.Publish(new ShowTabViewMessage {Item = view_model});
+        }
+    }
+
+    public enum HomeViewButtons
+    {
+        NewKid,
+        Search,
+        Doctors,
+        Calendar
     }
 }
