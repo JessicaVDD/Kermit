@@ -12,6 +12,7 @@ namespace Willow.Kermit.ViewModels
 
         public HomeViewModel()
         {
+            Caption = "Home";
             var imageGetter = new ImageGetter();
             NewKid = imageGetter.Get("Jaidee.png");
             Search = imageGetter.Get("Search2.ico");
@@ -24,6 +25,12 @@ namespace Willow.Kermit.ViewModels
         public BitmapImage Doctors { get; set; }
         public BitmapImage Calendar { get; set; }
 
+        string tab_name;
+        public string Caption
+        {
+            get { return tab_name; }
+            set { tab_name = value; NotifyOfPropertyChange(() => tab_name); }
+        }
 
         public void Close()
         {

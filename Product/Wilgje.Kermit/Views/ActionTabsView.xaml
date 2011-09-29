@@ -24,7 +24,7 @@
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <Label Name="TabName" Content="tab"/>
+                        <Label Name="TabName" Content="{Binding Path=Caption}"/>
                     </StackPanel>
                 </DataTemplate>
             </TabControl.ItemTemplate>

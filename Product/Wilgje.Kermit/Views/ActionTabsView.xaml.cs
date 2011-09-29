@@ -23,5 +23,12 @@ namespace Willow.Kermit.Views
         {
             InitializeComponent();
         }
+
+        private void TabName_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.MiddleButton == MouseButtonState.Pressed)
+            {
+            }
+        }
     }
 }
