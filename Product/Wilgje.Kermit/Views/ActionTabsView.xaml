@@ -14,13 +14,15 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>-->
-        
-        <TabControl x:Name="Items" TabStripPlacement="Left" BorderBrush="Black" BorderThickness="1" Padding="0,0,0,0" >
-            <!--<i:EventTrigger EventName="MouseDoubleClick">
-                <cal:ActionMessage MethodName="CloseItem">
-                    <cal:Parameter Value="{Binding ElementName=Items, Path=SelectedItem}"/>
-                </cal:ActionMessage>
-            </i:EventTrigger>-->
+
+        <TabControl x:Name="Items" TabStripPlacement="Left" BorderBrush="Black" BorderThickness="1" Padding="0,0,0,0">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <cal:ActionMessage MethodName="CloseItem">
+                        <cal:Parameter Value="{Binding ElementName=Items, Path=SelectedItem}" />
+                    </cal:ActionMessage>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">

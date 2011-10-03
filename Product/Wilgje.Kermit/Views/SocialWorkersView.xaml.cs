@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Willow.Kermit.Views
 {
     /// <summary>
-    /// Interaction logic for NewKidView.xaml
+    /// Interaction logic for SocialWorkersView.xaml
     /// </summary>
-    public partial class NewKidView : UserControl
+    public partial class SocialWorkersView : UserControl
     {
-        public NewKidView()
+        public SocialWorkersView()
         {
             InitializeComponent();
         }

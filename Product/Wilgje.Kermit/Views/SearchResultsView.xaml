@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="Willow.Kermit.Views.SearchResultsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Resources>
+        <LinearGradientBrush x:Key="KermitBrush" StartPoint="0,0" EndPoint="1,1">
+            <GradientStopCollection>
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="DarkGray" Offset="0"/>
+            </GradientStopCollection>
+        </LinearGradientBrush>
+    </UserControl.Resources>
+
+    <DockPanel Background="{StaticResource KermitBrush}" LastChildFill="True">
+        <Button DockPanel.Dock="Top" Name="Close" Width="32" Height="16" HorizontalAlignment="Right" VerticalAlignment="Center" Background="{StaticResource KermitBrush}" Margin="4,2,8,2" BorderThickness="1" BorderBrush="Black">
+            <Button.Content>
+                <TextBlock Text="X" VerticalAlignment="Center" Foreground="Crimson" FontWeight="Bold" FontStretch="UltraExpanded"/>
+            </Button.Content>
+        </Button>
+
+        <Grid>
+
+        </Grid>
+    </DockPanel>
+</UserControl>

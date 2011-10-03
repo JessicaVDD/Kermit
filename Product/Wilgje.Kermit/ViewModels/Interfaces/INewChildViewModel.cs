@@ -1,6 +1,6 @@
 namespace Willow.Kermit.ViewModels.Interfaces
 {
-    public interface INewKidViewModel : ITabViewModel
+    public interface INewChildViewModel : ITabViewModel
     {
     }
 }

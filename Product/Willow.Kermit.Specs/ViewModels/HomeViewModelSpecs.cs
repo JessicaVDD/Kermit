@@ -11,10 +11,7 @@ namespace Willow.Kermit.Specs.ViewModels
 {
     public class HomeViewModelSpecs
     {
-        public abstract class concern : Observes<IHomeViewModel, HomeViewModel>
-        {
-
-        }
+        public abstract class concern : Observes<IHomeViewModel, HomeViewModel> { }
 
         [Subject(typeof (HomeViewModel))]
         public class when_home_initializes : concern
@@ -28,15 +25,15 @@ namespace Willow.Kermit.Specs.ViewModels
 
             private It should_initialize_the_quick_start_buttons = () =>
             {
-                sut.NewKid.ShouldNotBeNull();
+                sut.NewChild.ShouldNotBeNull();
                 sut.Search.ShouldNotBeNull();
-                sut.Doctors.ShouldNotBeNull();
+                sut.SocialWorkers.ShouldNotBeNull();
                 sut.Calendar.ShouldNotBeNull();
             };
         }
 
         [Subject(typeof(HomeViewModel))]
-        public class when_closing_the_view : concern
+        public class when_clicking_the_buttons : concern
         {
             Establish c = () =>
             {
@@ -46,12 +43,16 @@ namespace Willow.Kermit.Specs.ViewModels
 
             Because b = () =>
             {
-                sut.Close();
+                sut.ShowNewChild();
+                sut.ShowSearchResults();
+                sut.ShowSocialWorkers();
             };
 
-            It should_publish_a_close_request_for_itself = () =>
+            It should_publish_a_open_request_for_each_of_the_buttons = () =>
             {
-                events.received(x => x.Publish(Arg<ICloseTabMessage>.Matches(msg => ReferenceEquals(msg.Item, sut)))).OnlyOnce();
+                events.received(x => x.Publish(Arg<IShowTabViewMessage>.Matches(msg => msg.Item is INewChildViewModel))).OnlyOnce();
+                events.received(x => x.Publish(Arg<IShowTabViewMessage>.Matches(msg => msg.Item is ISearchResultsViewModel))).OnlyOnce();
+                events.received(x => x.Publish(Arg<IShowTabViewMessage>.Matches(msg => msg.Item is ISocialWorkersViewModel))).OnlyOnce();
             };
 
             static IEventAggregator events;

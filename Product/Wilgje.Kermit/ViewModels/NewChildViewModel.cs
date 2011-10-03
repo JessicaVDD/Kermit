@@ -4,9 +4,9 @@ using Willow.Kermit.ViewModels.Interfaces;
 
 namespace Willow.Kermit.ViewModels
 {
-    public class NewKidViewModel : Screen, INewKidViewModel
+    public class NewChildViewModel : Screen, INewChildViewModel
     {
-        public NewKidViewModel()
+        public NewChildViewModel()
         {
             Caption = "Nieuw";
         }
@@ -23,7 +23,5 @@ namespace Willow.Kermit.ViewModels
             if (Events != null)
                 Events.Publish(new CloseTabMessage {Item = this});
         }
-
-
     }
 }

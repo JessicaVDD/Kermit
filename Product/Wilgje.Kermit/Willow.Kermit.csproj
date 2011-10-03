@@ -74,21 +74,26 @@
     <Compile Include="Util\WindowsSecurity.cs" />
     <Compile Include="ViewModels\ActionTabsViewModel.cs" />
     <Compile Include="ViewModels\ArtViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewButtons.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IActionTabsViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IArtViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IHomeViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\INavigationViewModel.cs" />
-    <Compile Include="ViewModels\Interfaces\INewKidViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\INewChildViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\ISearchResultsViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\ISearchViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IShellViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\ISocialWorkersViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IStatusViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IViewModel.cs" />
     <Compile Include="ViewModels\NavigationViewModel.cs" />
-    <Compile Include="ViewModels\NewKidViewModel.cs" />
+    <Compile Include="ViewModels\NewChildViewModel.cs" />
+    <Compile Include="ViewModels\SearchResultsViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="IShell.cs" />
+    <Compile Include="ViewModels\SocialWorkersViewModel.cs" />
     <Compile Include="ViewModels\StatusViewModel.cs" />
     <Compile Include="Views\ActionTabsView.xaml.cs">
       <DependentUpon>ActionTabsView.xaml</DependentUpon>
@@ -102,11 +107,17 @@
     <Compile Include="Views\NavigationView.xaml.cs">
       <DependentUpon>NavigationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewKidView.xaml.cs">
-      <DependentUpon>NewKidView.xaml</DependentUpon>
+    <Compile Include="Views\NewChildView.xaml.cs">
+      <DependentUpon>NewChildView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SearchResultsView.xaml.cs">
+      <DependentUpon>SearchResultsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SearchView.xaml.cs">
       <DependentUpon>SearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SocialWorkersView.xaml.cs">
+      <DependentUpon>SocialWorkersView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StatusView.xaml.cs">
       <DependentUpon>StatusView.xaml</DependentUpon>
@@ -127,7 +138,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NewKidView.xaml">
+    <Page Include="Views\NewChildView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SearchResultsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,6 +153,10 @@
     <Page Include="Views\ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SocialWorkersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\StatusView.xaml">
       <SubType>Designer</SubType>

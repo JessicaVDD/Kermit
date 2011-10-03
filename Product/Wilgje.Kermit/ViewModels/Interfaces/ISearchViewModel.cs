@@ -1,4 +1,5 @@
 using System.Windows.Media.Imaging;
+using Caliburn.Micro;
 
 namespace Willow.Kermit.ViewModels.Interfaces
 {
@@ -6,5 +7,7 @@ namespace Willow.Kermit.ViewModels.Interfaces
     {
         string SearchText { get; set; }
         BitmapImage Search { get; set; }
+        IEventAggregator Events { get; }
+        void DoSearch();
     }
 }

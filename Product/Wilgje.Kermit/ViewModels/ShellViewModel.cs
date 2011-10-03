@@ -1,14 +1,24 @@
 ﻿using System.ComponentModel.Composition;
+using Caliburn.Micro;
 using Willow.Kermit.ViewModels.Interfaces;
 
 namespace Willow.Kermit.ViewModels 
 {
     [Export(typeof(IShell))]
-    public class ShellViewModel : Caliburn.Micro.PropertyChangedBase ,IShell, IShellViewModel {
+    public class ShellViewModel : PropertyChangedBase ,IShell, IShellViewModel
+    {
+        IEventAggregator _events = new EventAggregator();
 
-        public ShellViewModel() : this(new NavigationViewModel(), new SearchViewModel(), new ArtViewModel(), new StatusViewModel(), new ActionTabsViewModel())
+        public ShellViewModel()
         {
-            
+            Navigation = new NavigationViewModel(_events);
+            Search = new SearchViewModel(_events);
+            Art = new ArtViewModel();
+            Status = new StatusViewModel();
+            ActionTabs = new ActionTabsViewModel();
+
+            Navigation.Events.Subscribe(ActionTabs);
+            Search.Events.Subscribe(ActionTabs);
         }
 
         public ShellViewModel(INavigationViewModel navigation, ISearchViewModel search, IArtViewModel art, IStatusViewModel status, IActionTabsViewModel action_tabs)

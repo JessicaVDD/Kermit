@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Willow.Kermit.Views
 {
     /// <summary>
-    /// Interaction logic for ActionTabsView.xaml
+    /// Interaction logic for SearchResultsView.xaml
     /// </summary>
-    public partial class ActionTabsView : UserControl
+    public partial class SearchResultsView : UserControl
     {
-        public ActionTabsView()
+        public SearchResultsView()
         {
             InitializeComponent();
         }

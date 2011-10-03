@@ -14,15 +14,15 @@ namespace Willow.Kermit.ViewModels
         {
             Caption = "Home";
             var imageGetter = new ImageGetter();
-            NewKid = imageGetter.Get("Jaidee.png");
+            NewChild = imageGetter.Get("Jaidee.png");
             Search = imageGetter.Get("Search2.ico");
-            Doctors = imageGetter.Get("Doctor.png");
+            SocialWorkers = imageGetter.Get("Doctor.png");
             Calendar = imageGetter.Get("Calendar.png");
         }
 
-        public BitmapImage NewKid { get; set; }
+        public BitmapImage NewChild { get; set; }
         public BitmapImage Search { get; set; }
-        public BitmapImage Doctors { get; set; }
+        public BitmapImage SocialWorkers { get; set; }
         public BitmapImage Calendar { get; set; }
 
         string tab_name;
@@ -32,29 +32,28 @@ namespace Willow.Kermit.ViewModels
             set { tab_name = value; NotifyOfPropertyChange(() => tab_name); }
         }
 
-        public void Close()
+        public void ShowNewChild()
         {
-            if (Events != null)
-                Events.Publish(new CloseTabMessage {Item = this});
+            ShowTab(new NewChildViewModel());
         }
 
-        public void CreateNewKid()
+        public void ShowSearchResults()
         {
-            ShowTab(new NewKidViewModel());
+            ShowTab(new SearchResultsViewModel());
         }
+
+        public void ShowSocialWorkers()
+        {
+            ShowTab(new SocialWorkersViewModel());
+        }
+
 
         public void ShowTab(ITabViewModel view_model)
         {
             if (Events != null) 
                 Events.Publish(new ShowTabViewMessage {Item = view_model});
         }
-    }
 
-    public enum HomeViewButtons
-    {
-        NewKid,
-        Search,
-        Doctors,
-        Calendar
+        void ITabViewModel.Close() { }
     }
 }
