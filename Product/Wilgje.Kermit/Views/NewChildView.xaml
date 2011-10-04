@@ -16,32 +16,42 @@
                 <TextBlock Text="X" VerticalAlignment="Center" Foreground="Crimson" FontWeight="Bold" FontStretch="UltraExpanded"/>
             </Button.Content>
         </Button>
-        <DockPanel Background="Transparent">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="50*" />
-                    <ColumnDefinition Width="200*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="12*"/>
-                    <RowDefinition Height="12*"/>
-                    <RowDefinition Height="12*"/>
-                    <RowDefinition Height="12*"/>
-                    <RowDefinition Height="12*"/>
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Text="nieuwe kleine!"   VerticalAlignment="Center" HorizontalAlignment="Center" />
-                <Label Grid.Column="1" Grid.Row="0" Name="LastnameLabel" Content="Familienaam:"/>
-                <TextBox Grid.Column="2" Grid.Row="0" Name="Lastname" MinWidth="150"/>
-                <Label Grid.Column="1" Grid.Row="1" Name="FirstnameLabel" Content="Voornaam:"/>
-                <TextBox Grid.Column="2" Grid.Row="1" Name="FirstName" MinWidth="150"/>
-                <Label Grid.Column="1" Grid.Row="2" Name="DateOfBirthLAbel" Content="Geboortedatum:"/>
-                <TextBox Grid.Column="2" Grid.Row="2" Name="DateOfBirth" MinWidth="150"/>
-                <Label Grid.Column="1" Grid.Row="3" Name="StreetLabel" Content="Straat en huisnr:"/>
-                <TextBox Grid.Column="2" Grid.Row="3" Name="Street" MinWidth="150"/>
-                <Label Grid.Column="1" Grid.Row="4" Name="CityLabel" Content="Postcode en gemeente:"/>
-                <TextBox Grid.Column="2" Grid.Row="4" Name="City" MinWidth="150"/>
-            </Grid>
+        <DockPanel Background="Transparent" LastChildFill="True">
+            <Label Name="LeftSide" Content="Left" DockPanel.Dock="Left" />
+            <Label Name="RightSide" Content="Right" DockPanel.Dock="Right" />
+            <DockPanel LastChildFill="True">
+                <Label Name="FirstNameTitle" DockPanel.Dock="Top"/>
+                <TabControl TabStripPlacement="Bottom">
+                    <TabItem Header="Algemeen">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="50*" />
+                                <ColumnDefinition Width="200*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="12*"/>
+                                <RowDefinition Height="12*"/>
+                                <RowDefinition Height="12*"/>
+                                <RowDefinition Height="12*"/>
+                                <RowDefinition Height="12*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Text="nieuwe kleine!"   VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            <Label Grid.Column="1" Grid.Row="0" Name="LastnameLabel" Content="Naam:"/>
+                            <TextBox Grid.Column="2" Grid.Row="0" Name="Lastname" MinWidth="150"/>
+                            <Label Grid.Column="1" Grid.Row="1" Name="FirstnameLabel" Content="Voornamen:"/>
+                            <TextBox Grid.Column="2" Grid.Row="1" Name="FirstName" MinWidth="150"/>
+                            <Label Grid.Column="1" Grid.Row="2" Name="DateOfBirthLAbel" Content="Geboortedatum:"/>
+                            <TextBox Grid.Column="2" Grid.Row="2" Name="DateOfBirth" MinWidth="150"/>
+                            <Label Grid.Column="1" Grid.Row="3" Name="StreetLabel" Content="Straat en huisnr:"/>
+                            <TextBox Grid.Column="2" Grid.Row="3" Name="Street" MinWidth="150"/>
+                            <Label Grid.Column="1" Grid.Row="4" Name="CityLabel" Content="Postcode en gemeente:"/>
+                            <TextBox Grid.Column="2" Grid.Row="4" Name="City" MinWidth="150"/>
+                        </Grid>
+
+                    </TabItem>
+                </TabControl>
+            </DockPanel>
         </DockPanel>
     </DockPanel>
             

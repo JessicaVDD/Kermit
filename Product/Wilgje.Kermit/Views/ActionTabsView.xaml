@@ -4,17 +4,6 @@
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" >
     <Grid>
-        <!--<ItemsControl x:Name="Items">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Content="X"
-                                cal:Message.Attach="CloseItem($dataContext)" />
-                    </StackPanel>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>-->
-
         <TabControl x:Name="Items" TabStripPlacement="Left" BorderBrush="Black" BorderThickness="1" Padding="0,0,0,0">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">

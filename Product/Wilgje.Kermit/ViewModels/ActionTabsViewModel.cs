@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using System.Linq;
-using System.Windows;
+﻿using System.Linq;
 using Caliburn.Micro;
 using Willow.Kermit.Messages;
 using Willow.Kermit.ViewModels.Interfaces;

@@ -9,7 +9,7 @@ namespace Willow.Kermit.Util
         public Uri Resolve(string path)
         {
             var assembly = new FileInfo(Assembly.GetExecutingAssembly().Location);
-            return new Uri(string.Format("{0}/Resources/{1}", assembly.Directory.FullName , path), UriKind.RelativeOrAbsolute);
+            return assembly.Directory == null ? null :  new Uri(string.Format("{0}/Resources/{1}", assembly.Directory.FullName , path), UriKind.RelativeOrAbsolute);
         }
     }
 }

@@ -18,7 +18,7 @@
         </Button>
 
         <Grid>
-
+            <Label Name="SearchString" Grid.Column="0" Grid.Row="0" />
         </Grid>
     </DockPanel>
 </UserControl>
