@@ -20,39 +20,70 @@
             <Label Name="LeftSide" Content="Left" DockPanel.Dock="Left" />
             <Label Name="RightSide" Content="Right" DockPanel.Dock="Right" />
             <DockPanel LastChildFill="True">
-                <Label Name="FirstNameTitle" DockPanel.Dock="Top"/>
-                <TabControl TabStripPlacement="Bottom">
+                <Label Name="FirstNameTitle" DockPanel.Dock="Top" Content="Ons Jefke" Foreground="CornflowerBlue" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="20,8,20,8"/>
+                <TabControl TabStripPlacement="Bottom" Background="Transparent">
                     <TabItem Header="Algemeen">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100" />
-                                <ColumnDefinition Width="50*" />
-                                <ColumnDefinition Width="200*" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="12*"/>
-                                <RowDefinition Height="12*"/>
-                                <RowDefinition Height="12*"/>
-                                <RowDefinition Height="12*"/>
-                                <RowDefinition Height="12*"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Text="nieuwe kleine!"   VerticalAlignment="Center" HorizontalAlignment="Center" />
-                            <Label Grid.Column="1" Grid.Row="0" Name="LastnameLabel" Content="Naam:"/>
-                            <TextBox Grid.Column="2" Grid.Row="0" Name="Lastname" MinWidth="150"/>
-                            <Label Grid.Column="1" Grid.Row="1" Name="FirstnameLabel" Content="Voornamen:"/>
-                            <TextBox Grid.Column="2" Grid.Row="1" Name="FirstName" MinWidth="150"/>
-                            <Label Grid.Column="1" Grid.Row="2" Name="DateOfBirthLAbel" Content="Geboortedatum:"/>
-                            <TextBox Grid.Column="2" Grid.Row="2" Name="DateOfBirth" MinWidth="150"/>
-                            <Label Grid.Column="1" Grid.Row="3" Name="StreetLabel" Content="Straat en huisnr:"/>
-                            <TextBox Grid.Column="2" Grid.Row="3" Name="Street" MinWidth="150"/>
-                            <Label Grid.Column="1" Grid.Row="4" Name="CityLabel" Content="Postcode en gemeente:"/>
-                            <TextBox Grid.Column="2" Grid.Row="4" Name="City" MinWidth="150"/>
-                        </Grid>
-
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Name="NamePanel" Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
+                                <Label Name="Name" MinWidth="100" Content="Naam" Opacity="100"/>
+                                <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}">
+                                    <TextBox Name="Firstname" MinWidth="100" Text="Voornaam" Margin="0, 4, 8, 4"/>
+                                    <TextBox Name="Lastname" MinWidth="200" Text="Achternaam"  Margin="0, 4, 8, 4"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Name="BirthPanel" Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
+                                <Label Name="Birth" MinWidth="100"  Content="Geboorte"/>
+                                <StackPanel Orientation="Horizontal">
+                                <CheckBox Name="BirthEstimation" IsChecked="False" Content="Schatting" Margin="0, 4, 8, 4" VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                                <DatePicker Name="DateOfBirth" MinWidth="50"  Margin="0, 4, 8, 4" VerticalContentAlignment="Center" VerticalAlignment="Center" DataContext="{Binding}" />
+                                <TextBox Name="Birthplace" MinWidth="100" Text="Geboorteplaats"  Margin="0, 4, 8, 4" VerticalContentAlignment="Center" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Name="GenderPanel" Orientation="Horizontal" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
+                                <Label Name="Geslacht" MinWidth="100" Content="Geslacht" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
+                                <RadioButton Name="Male" Content="Jongen" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Margin="8,4,8,4"/>
+                                <RadioButton Name="Female" Content="Meisje" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Margin="8,4,8,4"/>
+                            </StackPanel>
+                            <StackPanel Name="EmergencyPanel" Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
+                                <Label Name="Noodnummers" MinWidth="100" Content="Noodnummers" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
+                                <TextBlock Text="--- Geen noodnummers bekend ---"  Margin="0,0,0,4" />
+                            </StackPanel>
+                            <StackPanel Name="MedicalPanel" Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
+                                <Label Name="Huisarts" MinWidth="100" Content="Artsen" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
+                                <TextBlock Text="--- Geen huisarts bekend ---"  Margin="0,0,0,4" />
+                            </StackPanel>
+                            <StackPanel Name="Permissions" Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
+                                <Label Name="Toestemmingen" MinWidth="100" Content="Toestemmingen" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
+                                <TextBlock Text="Mag gefotografeerd worden" />
+                                <TextBlock Text="Mag mee op uitstappen" />
+                                <TextBlock Text="Mag verzorgd worden door verzorgers in opleiding" Margin="0,0,0,4" />
+                            </StackPanel>
+                        </StackPanel>
                     </TabItem>
+                    <TabItem Header="Contact">
+                        <Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Relaties">
+                        <Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Medisch">
+                        <Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Tijdslijn">
+                        <Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Blydhove">
+                        <Grid>
+                        </Grid>
+                    </TabItem>
+
                 </TabControl>
             </DockPanel>
         </DockPanel>
     </DockPanel>
-            
+
 </UserControl>
