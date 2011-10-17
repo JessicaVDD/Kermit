@@ -1,4 +1,9 @@
-﻿namespace Willow.Kermit.Views
+﻿using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Media;
+
+namespace Willow.Kermit.Views
 {
     /// <summary>
     /// Interaction logic for NewKidView.xaml
