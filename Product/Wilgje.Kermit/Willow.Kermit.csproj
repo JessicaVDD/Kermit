@@ -62,103 +62,103 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Messages\CloseTabMessage.cs" />
-    <Compile Include="Messages\ICloseTabMessage.cs" />
-    <Compile Include="Messages\IShowHomeMessage.cs" />
-    <Compile Include="Messages\IShowTabViewMessage.cs" />
-    <Compile Include="Messages\ShowHomeMessage.cs" />
-    <Compile Include="Messages\ShowTabViewMessage.cs" />
+    <Compile Include="General\Messages\CloseTabMessage.cs" />
+    <Compile Include="General\Messages\ICloseTabMessage.cs" />
+    <Compile Include="General\Messages\IShowHomeMessage.cs" />
+    <Compile Include="General\Messages\IShowTabViewMessage.cs" />
+    <Compile Include="General\Messages\ShowHomeMessage.cs" />
+    <Compile Include="General\Messages\ShowTabViewMessage.cs" />
     <Compile Include="Util\ImageGetter.cs" />
     <Compile Include="Util\IUriResolver.cs" />
     <Compile Include="Util\UriResolver.cs" />
     <Compile Include="Util\WindowsSecurity.cs" />
-    <Compile Include="ViewModels\ActionTabsViewModel.cs" />
-    <Compile Include="ViewModels\ArtViewModel.cs" />
-    <Compile Include="ViewModels\HomeViewButtons.cs" />
-    <Compile Include="ViewModels\HomeViewModel.cs" />
-    <Compile Include="ViewModels\Interfaces\IActionTabsViewModel.cs" />
-    <Compile Include="ViewModels\Interfaces\IArtViewModel.cs" />
-    <Compile Include="ViewModels\Interfaces\IHomeViewModel.cs" />
-    <Compile Include="ViewModels\Interfaces\INavigationViewModel.cs" />
-    <Compile Include="ViewModels\Interfaces\INewChildViewModel.cs" />
-    <Compile Include="ViewModels\Interfaces\ISearchResultsViewModel.cs" />
-    <Compile Include="ViewModels\Interfaces\ISearchViewModel.cs" />
-    <Compile Include="ViewModels\Interfaces\IShellViewModel.cs" />
-    <Compile Include="ViewModels\Interfaces\ISocialWorkersViewModel.cs" />
-    <Compile Include="ViewModels\Interfaces\IStatusViewModel.cs" />
-    <Compile Include="ViewModels\Interfaces\IViewModel.cs" />
-    <Compile Include="ViewModels\NavigationViewModel.cs" />
-    <Compile Include="ViewModels\NewChildViewModel.cs" />
-    <Compile Include="ViewModels\SearchResultsViewModel.cs" />
-    <Compile Include="ViewModels\SearchViewModel.cs" />
-    <Compile Include="ViewModels\ShellViewModel.cs" />
-    <Compile Include="IShell.cs" />
-    <Compile Include="ViewModels\SocialWorkersViewModel.cs" />
-    <Compile Include="ViewModels\StatusViewModel.cs" />
-    <Compile Include="Views\ActionTabsView.xaml.cs">
+    <Compile Include="General\ViewModels\ActionTabsViewModel.cs" />
+    <Compile Include="General\ViewModels\ArtViewModel.cs" />
+    <Compile Include="General\ViewModels\HomeViewButtons.cs" />
+    <Compile Include="General\ViewModels\HomeViewModel.cs" />
+    <Compile Include="General\Interfaces\IActionTabsViewModel.cs" />
+    <Compile Include="General\Interfaces\IArtViewModel.cs" />
+    <Compile Include="General\Interfaces\IHomeViewModel.cs" />
+    <Compile Include="General\Interfaces\INavigationViewModel.cs" />
+    <Compile Include="Child\Interfaces\INewChildViewModel.cs" />
+    <Compile Include="Search\Interfaces\ISearchResultsViewModel.cs" />
+    <Compile Include="General\Interfaces\ISearchViewModel.cs" />
+    <Compile Include="Shell\Interfaces\IShellViewModel.cs" />
+    <Compile Include="SocialWorkers\Interfaces\ISocialWorkersViewModel.cs" />
+    <Compile Include="General\Interfaces\IStatusViewModel.cs" />
+    <Compile Include="General\Interfaces\ITabViewModel.cs" />
+    <Compile Include="General\ViewModels\NavigationViewModel.cs" />
+    <Compile Include="Child\ViewModels\NewChildViewModel.cs" />
+    <Compile Include="Search\ViewModels\SearchResultsViewModel.cs" />
+    <Compile Include="General\ViewModels\SearchViewModel.cs" />
+    <Compile Include="Shell\ViewModels\ShellViewModel.cs" />
+    <Compile Include="Shell\Interfaces\IShell.cs" />
+    <Compile Include="SocialWorkers\ViewModels\SocialWorkersViewModel.cs" />
+    <Compile Include="General\ViewModels\StatusViewModel.cs" />
+    <Compile Include="General\Views\ActionTabsView.xaml.cs">
       <DependentUpon>ActionTabsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ArtView.xaml.cs">
+    <Compile Include="General\Views\ArtView.xaml.cs">
       <DependentUpon>ArtView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HomeView.xaml.cs">
+    <Compile Include="General\Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NavigationView.xaml.cs">
+    <Compile Include="General\Views\NavigationView.xaml.cs">
       <DependentUpon>NavigationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NewChildView.xaml.cs">
+    <Compile Include="Child\Views\NewChildView.xaml.cs">
       <DependentUpon>NewChildView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SearchResultsView.xaml.cs">
+    <Compile Include="Search\Views\SearchResultsView.xaml.cs">
       <DependentUpon>SearchResultsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SearchView.xaml.cs">
+    <Compile Include="General\Views\SearchView.xaml.cs">
       <DependentUpon>SearchView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SocialWorkersView.xaml.cs">
+    <Compile Include="SocialWorkers\Views\SocialWorkersView.xaml.cs">
       <DependentUpon>SocialWorkersView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\StatusView.xaml.cs">
+    <Compile Include="General\Views\StatusView.xaml.cs">
       <DependentUpon>StatusView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\ActionTabsView.xaml">
+    <Page Include="General\Views\ActionTabsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ArtView.xaml">
+    <Page Include="General\Views\ArtView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HomeView.xaml">
+    <Page Include="General\Views\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NavigationView.xaml">
+    <Page Include="General\Views\NavigationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NewChildView.xaml">
+    <Page Include="Child\Views\NewChildView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SearchResultsView.xaml">
+    <Page Include="Search\Views\SearchResultsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SearchView.xaml">
+    <Page Include="General\Views\SearchView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ShellView.xaml">
+    <Page Include="Shell\Views\ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\SocialWorkersView.xaml">
+    <Page Include="SocialWorkers\Views\SocialWorkersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\StatusView.xaml">
+    <Page Include="General\Views\StatusView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -261,6 +261,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

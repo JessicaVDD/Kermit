@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="Willow.Kermit.General.Views.SearchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" >
+    <DockPanel Width="234">
+        <TextBox Name="SearchText" Height="32" Width="200" cal:Message.Attach="[Event KeyDown] = [Action DoSearchWithEnter($eventArgs)]" />
+        <Button Name="DoSearch" Width="32" Height="32">
+            <Image Width="24" Height="24" Stretch="Fill" Margin="0,0,0,0" Source="{Binding Path=Search}" />
+        </Button>
+    </DockPanel>
+</UserControl>

@@ -75,21 +75,25 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\ObservesWithINPC.cs" />
-    <Compile Include="ViewModels\ActionTabsViewModelSpecs.cs" />
+    <Compile Include="General\ActionTabsViewModelSpecs.cs" />
     <Compile Include="Utils\PropertyChangedHelper.cs" />
-    <Compile Include="ViewModels\ArtViewModelSpecs.cs" />
-    <Compile Include="ViewModels\HomeViewModelSpecs.cs" />
-    <Compile Include="ViewModels\NavigationViewModelSpecs.cs" />
-    <Compile Include="ViewModels\NewKidViewModelSpecs.cs" />
-    <Compile Include="ViewModels\SearchViewModelSpecs.cs" />
-    <Compile Include="ViewModels\ShellViewModelSpecs.cs" />
-    <Compile Include="ViewModels\StatusViewModelSpecs.cs" />
+    <Compile Include="General\ArtViewModelSpecs.cs" />
+    <Compile Include="General\HomeViewModelSpecs.cs" />
+    <Compile Include="General\NavigationViewModelSpecs.cs" />
+    <Compile Include="Child\NewKidViewModelSpecs.cs" />
+    <Compile Include="General\SearchViewModelSpecs.cs" />
+    <Compile Include="Shell\ShellViewModelSpecs.cs" />
+    <Compile Include="General\StatusViewModelSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wilgje.Kermit\Willow.Kermit.csproj">
       <Project>{2204B55B-427F-4922-8E3D-90DB891E373B}</Project>
       <Name>Willow.Kermit</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Search\" />
+    <Folder Include="SocialWorkers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

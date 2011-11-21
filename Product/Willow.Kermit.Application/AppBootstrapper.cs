@@ -4,6 +4,7 @@ using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using Caliburn.Micro;
+using Willow.Kermit.Shell.Interfaces;
 
 namespace Willow.Kermit.Application
 {
