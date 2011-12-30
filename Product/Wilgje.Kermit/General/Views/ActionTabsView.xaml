@@ -15,7 +15,15 @@
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <Label Name="TabName" Content="{Binding Path=Caption}"/>
+                        <Canvas Height="40" Width="80">
+                            <Image Name="TabImage" Stretch="Uniform" Height="40" Width="80" Source="{Binding Path=Image}" />
+                            <TextBlock Name="TabNameBlur" Text="{Binding Path=Caption}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" TextAlignment="Center" Canvas.Bottom="0" Width="80" FontWeight="Bold" Foreground="White">
+                                <TextBlock.Effect>
+                                    <BlurEffect Radius="2" KernelType="Box"/>
+                                </TextBlock.Effect>
+                            </TextBlock>
+                            <TextBlock Name="TabNameFirm" Text="{Binding Path=Caption}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" TextAlignment="Center" Canvas.Bottom="0" Width="80" FontWeight="Bold" />
+                        </Canvas>
                     </StackPanel>
                 </DataTemplate>
             </TabControl.ItemTemplate>

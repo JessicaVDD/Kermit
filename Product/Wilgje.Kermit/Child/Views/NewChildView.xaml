@@ -47,7 +47,10 @@
             <DockPanel LastChildFill="True">
                 <Label Name="FirstNameTitle" DockPanel.Dock="Top" Content="Ons Jefke" Foreground="CornflowerBlue" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="20,8,20,8"/>
                 <TabControl TabStripPlacement="Bottom" Background="Transparent">
-                    <TabItem Header="Algemeen">
+                    <TabItem Margin="5,0,5,0">
+                        <TabItem.Header>
+                            <Label Name="NamePanelHeader" Content="Algemeen" Margin="5,10,5,10" />
+                        </TabItem.Header>
                         <StackPanel Orientation="Vertical">
                             <StackPanel Name="NamePanel" Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
                                 <Label Name="Name" MinWidth="100" Content="Naam" Opacity="100"/>
@@ -85,23 +88,38 @@
                             </StackPanel>
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="Contact">
+                    <TabItem Margin="5,0,5,0">
+                        <TabItem.Header>
+                            <Label Name="ContactPanelHeader" Content="Contact" Margin="5,10,5,10" />
+                        </TabItem.Header>
                         <Grid>
                         </Grid>
                     </TabItem>
-                    <TabItem Header="Relaties">
+                    <TabItem Margin="5,0,5,0">
+                        <TabItem.Header>
+                            <Label Name="RelatiesPanelHeader" Content="Relaties" Margin="5,10,5,10" />
+                        </TabItem.Header>
                         <Grid>
                         </Grid>
                     </TabItem>
-                    <TabItem Header="Medisch">
+                    <TabItem Margin="5,0,5,0">
+                        <TabItem.Header>
+                            <Label Name="MedischPanelHeader" Content="Medisch" Margin="5,10,5,10" />
+                        </TabItem.Header>
                         <Grid>
                         </Grid>
                     </TabItem>
-                    <TabItem Header="Tijdslijn">
+                    <TabItem Margin="5,0,5,0">
+                        <TabItem.Header>
+                            <Label Name="TijdslijnPanelHeader" Content="Tijdslijn" Margin="5,10,5,10" />
+                        </TabItem.Header>
                         <Grid>
                         </Grid>
                     </TabItem>
-                    <TabItem Header="Blydhove">
+                    <TabItem Margin="5,0,5,0">
+                        <TabItem.Header>
+                            <Label Name="BlydhovePanelHeader" Content="Blydhove" Margin="5,10,5,10" />
+                        </TabItem.Header>
                         <Grid>
                         </Grid>
                     </TabItem>

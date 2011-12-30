@@ -1,6 +1,8 @@
+using System.Windows.Media.Imaging;
 using Caliburn.Micro;
 using Willow.Kermit.Child.Interfaces;
 using Willow.Kermit.General.Messages;
+using Willow.Kermit.Util;
 
 namespace Willow.Kermit.Child.ViewModels
 {
@@ -9,7 +11,11 @@ namespace Willow.Kermit.Child.ViewModels
         public NewChildViewModel()
         {
             Caption = "Nieuw";
+            var imageGetter = new ImageGetter();
+            Image = imageGetter.Get("Jaidee.png");
         }
+
+        public BitmapImage Image { get; set; }
         public IEventAggregator Events { get; set; }
 
         string _caption;

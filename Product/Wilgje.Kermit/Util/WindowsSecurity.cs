@@ -12,7 +12,7 @@ namespace Willow.Kermit.Util
     public static class WindowsSecurity
     {
         #region Interop Definitions
-        public enum EXTENDED_NAME_FORMAT
+        public enum NameFormattingOption
         {
             NameUnknown = 0,
             NameFullyQualifiedDN = 1,
@@ -27,10 +27,10 @@ namespace Willow.Kermit.Util
         }
 
         [System.Runtime.InteropServices.DllImport("secur32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
-        public static extern int GetUserNameEx(int nameFormat, StringBuilder userName, ref int userNameSize);
+        private static extern int GetUserNameEx(int nameFormat, StringBuilder userName, ref int userNameSize);
         #endregion
 
-        public static string GetUserName(EXTENDED_NAME_FORMAT nameFormat)
+        public static string GetUserName(NameFormattingOption nameFormat)
         {
             if (Environment.OSVersion.Platform != PlatformID.Win32NT) { return null; }
             var userName = new StringBuilder(1024);
@@ -45,7 +45,7 @@ namespace Willow.Kermit.Util
 
         public static string GetUserFullName()
         {
-            return GetUserName(EXTENDED_NAME_FORMAT.NameDisplay);
+            return GetUserName(NameFormattingOption.NameDisplay);
         }
     }
 }

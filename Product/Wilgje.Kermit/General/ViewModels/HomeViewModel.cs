@@ -11,12 +11,17 @@ namespace Willow.Kermit.General.ViewModels
 {
     public class HomeViewModel : Screen, IHomeViewModel
     {
+        public BitmapImage Image { get; set; }
+
         public IEventAggregator Events { get; set; }
 
         public HomeViewModel()
         {
             Caption = "Home";
+            
             var imageGetter = new ImageGetter();
+            
+            Image = imageGetter.Get("Home.ico");
             NewChild = imageGetter.Get("Jaidee.png");
             Search = imageGetter.Get("Search2.ico");
             SocialWorkers = imageGetter.Get("Doctor.png");
