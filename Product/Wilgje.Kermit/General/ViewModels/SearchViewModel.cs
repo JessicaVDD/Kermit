@@ -14,8 +14,8 @@ namespace Willow.Kermit.General.ViewModels
 
         public SearchViewModel(IEventAggregator events)
         {
-            this._events = events;
-            Search = new ImageGetter().Get("Search.ico");
+            _events = events;
+            Search = ImageGetter.SearchIcon;
             SearchText = null;
         }
 

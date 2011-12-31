@@ -12,9 +12,7 @@ namespace Willow.Kermit.Search.ViewModels
         {
             Caption = "Zoeken";
 
-            var imageGetter = new ImageGetter();
-
-            Image = imageGetter.Get("Search.ico");
+            Image = ImageGetter.Search;
 
         }
 

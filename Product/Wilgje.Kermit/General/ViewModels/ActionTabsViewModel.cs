@@ -40,7 +40,7 @@ namespace Willow.Kermit.General.ViewModels
 
         public void Handle(IShowHomeMessage message)
         {
-            var homeViewModel = Items.Where(vm => vm is IHomeViewModel).FirstOrDefault() ?? new HomeViewModel();
+            var homeViewModel = Items.FirstOrDefault(vm => vm is IHomeViewModel) ?? new HomeViewModel();
             ActivateItem(homeViewModel);
         }
 

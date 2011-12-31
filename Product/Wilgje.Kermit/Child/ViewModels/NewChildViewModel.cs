@@ -11,8 +11,7 @@ namespace Willow.Kermit.Child.ViewModels
         public NewChildViewModel()
         {
             Caption = "Nieuw";
-            var imageGetter = new ImageGetter();
-            Image = imageGetter.Get("Jaidee.png");
+            Image = ImageGetter.Baby;
         }
 
         public BitmapImage Image { get; set; }
