@@ -3,8 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro" >
+    <UserControl.Resources>
+        <LinearGradientBrush x:Key="KermitBrush" StartPoint="0,0" EndPoint="1,1">
+            <GradientStopCollection>
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="DarkGray" Offset="0"/>
+            </GradientStopCollection>
+        </LinearGradientBrush>
+    </UserControl.Resources>
     <Grid>
-        <TabControl x:Name="Items" TabStripPlacement="Left" BorderBrush="Black" BorderThickness="1" Padding="0,0,0,0">
+        <TabControl Background="{StaticResource KermitBrush}" x:Name="Items" TabStripPlacement="Left" BorderBrush="Black" BorderThickness="1" Padding="0,0,0,0">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
                     <cal:ActionMessage MethodName="CloseItem">

@@ -18,7 +18,7 @@ namespace Willow.Kermit.Util
 
         public static BitmapImage Baby
         {
-            get { return new ImageGetter().Get("Baby.jpg"); }
+            get { return new ImageGetter().Get("Baby.png"); }
         }
 
         public static BitmapImage BabyBoy
