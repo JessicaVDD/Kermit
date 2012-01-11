@@ -62,23 +62,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="General\Controls\ImageButton.xaml.cs">
+      <DependentUpon>ImageButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="General\Messages\CloseTabMessage.cs" />
     <Compile Include="General\Messages\ICloseTabMessage.cs" />
     <Compile Include="General\Messages\IShowHomeMessage.cs" />
     <Compile Include="General\Messages\IShowTabViewMessage.cs" />
     <Compile Include="General\Messages\ShowHomeMessage.cs" />
     <Compile Include="General\Messages\ShowTabViewMessage.cs" />
-    <Compile Include="General\ViewModels\HomeViewButton.cs" />
-    <Compile Include="General\Views\HomeViewButton.xaml.cs">
-      <DependentUpon>HomeViewButton.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="General\ViewModels\ImageButton.cs" />
     <Compile Include="Util\ImageGetter.cs" />
     <Compile Include="Util\IUriResolver.cs" />
     <Compile Include="Util\UriResolver.cs" />
     <Compile Include="Util\WindowsSecurity.cs" />
     <Compile Include="General\ViewModels\ActionTabsViewModel.cs" />
     <Compile Include="General\ViewModels\ArtViewModel.cs" />
-    <Compile Include="General\ViewModels\HomeViewButtons.cs" />
     <Compile Include="General\ViewModels\HomeViewModel.cs" />
     <Compile Include="General\Interfaces\IActionTabsViewModel.cs" />
     <Compile Include="General\Interfaces\IArtViewModel.cs" />
@@ -126,6 +125,10 @@
     <Compile Include="General\Views\StatusView.xaml.cs">
       <DependentUpon>StatusView.xaml</DependentUpon>
     </Compile>
+    <Page Include="General\Controls\ImageButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="General\Views\ActionTabsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -135,10 +138,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="General\Views\HomeView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="General\Views\HomeViewButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

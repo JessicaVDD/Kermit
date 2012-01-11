@@ -1,4 +1,6 @@
-﻿using System.Windows.Media.Imaging;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows.Media.Imaging;
 using Caliburn.Micro;
 using Willow.Kermit.Child.ViewModels;
 using Willow.Kermit.General.Interfaces;
@@ -20,16 +22,17 @@ namespace Willow.Kermit.General.ViewModels
             Caption = "Home";
             
             Image = ImageGetter.Home;
-            NewChild = ImageGetter.Baby;
-            Search = ImageGetter.Search;
-            SocialWorkers = ImageGetter.SocialWorkers;
-            Calendar = ImageGetter.Calendar;
+
+            AvailableButtons = new List<ImageButton>
+            {
+                new ImageButton {Text = "Nieuw kindjes", Image = ImageGetter.Baby},
+                new ImageButton {Text = "Zoeken", Image = ImageGetter.Search},
+                new ImageButton {Text = "Hulpverleners", Image = ImageGetter.SocialWorkers},
+                new ImageButton {Text = "Kalender", Image = ImageGetter.Calendar}
+            };
         }
 
-        public BitmapImage NewChild { get; set; }
-        public BitmapImage Search { get; set; }
-        public BitmapImage SocialWorkers { get; set; }
-        public BitmapImage Calendar { get; set; }
+        public IList<ImageButton> AvailableButtons { get; private set; }
 
         string tab_name;
         public string Caption

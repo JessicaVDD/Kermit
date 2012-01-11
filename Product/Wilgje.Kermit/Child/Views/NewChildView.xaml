@@ -53,7 +53,7 @@
                         </TabItem.Header>
                         <StackPanel Orientation="Vertical">
                             <StackPanel Name="NamePanel" Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
-                                <Label Name="Name" MinWidth="100" Content="Naam" Opacity="100"/>
+                                <Label Name="FullName" MinWidth="100" Content="Naam" Opacity="100"/>
                                 <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}">
                                     <TextBox Name="Firstname" MinWidth="100" Text="Voornaam" Margin="0, 4, 8, 4"/>
                                     <TextBox Name="Lastname" MinWidth="200" Text="Achternaam"  Margin="0, 4, 8, 4"/>

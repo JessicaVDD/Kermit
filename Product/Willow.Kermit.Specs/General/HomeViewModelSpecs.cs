@@ -28,10 +28,7 @@ namespace Willow.Kermit.Specs.General
 
             private It should_initialize_the_quick_start_buttons = () =>
             {
-                sut.NewChild.ShouldNotBeNull();
-                sut.Search.ShouldNotBeNull();
-                sut.SocialWorkers.ShouldNotBeNull();
-                sut.Calendar.ShouldNotBeNull();
+                sut.AvailableButtons.Count.ShouldEqual(4);
             };
         }
 

@@ -1,14 +1,11 @@
-﻿using System.Windows.Media.Imaging;
+﻿using System.Collections.Generic;
+using Willow.Kermit.General.ViewModels;
 
 namespace Willow.Kermit.General.Interfaces
 {
     public interface IHomeViewModel : ITabViewModel
     {
-        BitmapImage NewChild { get; set; }
-        BitmapImage Search { get; set; }
-        BitmapImage SocialWorkers { get; set; }
-        BitmapImage Calendar { get; set; }
-
+        IList<ImageButton> AvailableButtons { get; }
         void ShowTab(ITabViewModel view_model);
         void ShowNewChild();
         void ShowSearchResults();
