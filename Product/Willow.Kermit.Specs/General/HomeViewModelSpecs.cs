@@ -1,14 +1,12 @@
 using Caliburn.Micro;
 using Rhino.Mocks;
-using Willow.Kermit.Child.Interfaces;
 using Willow.Kermit.General.Interfaces;
 using Willow.Kermit.General.Messages;
 using Willow.Kermit.General.ViewModels;
-using Willow.Kermit.Search.Interfaces;
-using Willow.Kermit.SocialWorkers.Interfaces;
 using developwithpassion.specifications.rhino;
 using developwithpassion.specifications.extensions;
 using Machine.Specifications;
+using Action = System.Action;
 
 namespace Willow.Kermit.Specs.General
 {
@@ -28,34 +26,31 @@ namespace Willow.Kermit.Specs.General
 
             private It should_initialize_the_quick_start_buttons = () =>
             {
-                sut.AvailableButtons.Count.ShouldEqual(4);
+                sut.AvailableButtons.Count.ShouldBeGreaterThan(0);
             };
         }
 
         [Subject(typeof(HomeViewModel))]
-        public class when_clicking_the_buttons : concern
+        public class when_asking_to_show_a_new_view : concern
         {
             Establish c = () =>
             {
-                events = an<IEventAggregator>();
-                add_pipeline_behaviour_against_sut(x => x.Events = events);
+                do_click = an<Action>();
+                image_button = new ImageButton {DoClick = do_click};
             };
 
             Because b = () =>
             {
-                sut.ShowNewChild();
-                sut.ShowSearchResults();
-                sut.ShowSocialWorkers();
+                sut.DoShow(image_button);
             };
 
-            It should_publish_a_open_request_for_each_of_the_buttons = () =>
+            It should_call_the_DoClick_on_the_clicked_button = () =>
             {
-                events.received(x => x.Publish(Arg<IShowTabViewMessage>.Matches(msg => msg.Item is INewChildViewModel))).OnlyOnce();
-                events.received(x => x.Publish(Arg<IShowTabViewMessage>.Matches(msg => msg.Item is ISearchResultsViewModel))).OnlyOnce();
-                events.received(x => x.Publish(Arg<IShowTabViewMessage>.Matches(msg => msg.Item is ISocialWorkersViewModel))).OnlyOnce();
+                do_click.received(x => x()).OnlyOnce();
             };
 
-            static IEventAggregator events;
+            static ImageButton image_button;
+            static Action do_click;
         }
 
         [Subject(typeof(HomeViewModel))]

@@ -1,5 +1,5 @@
+using System;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace Willow.Kermit.General.Controls
@@ -7,11 +7,19 @@ namespace Willow.Kermit.General.Controls
     /// <summary>
     /// Interaction logic for HomeViewButtion.xaml
     /// </summary>
-    public partial class ImageButton : UserControl
+    public partial class ImageButton
     {
+        public static RoutedEvent ClickEvent = EventManager.RegisterRoutedEvent("Click", RoutingStrategy.Direct, typeof(EventHandler), typeof(ImageButton));
         public ImageButton()
         {
             InitializeComponent();
+            BehindButton.Click += (sender, args) => RaiseEvent(new RoutedEventArgs {RoutedEvent = ClickEvent});
+        }
+
+        public event EventHandler Click
+        {
+            add{ AddHandler(ClickEvent, value);}
+            remove {RemoveHandler(ClickEvent, value);}
         }
 
         public ImageSource Image

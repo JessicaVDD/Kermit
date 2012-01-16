@@ -1,4 +1,5 @@
-﻿using System.Windows.Media.Imaging;
+﻿using System;
+using System.Windows.Media.Imaging;
 
 namespace Willow.Kermit.General.ViewModels
 {
@@ -6,5 +7,6 @@ namespace Willow.Kermit.General.ViewModels
     {
         public BitmapImage Image { get; set; }
         public string Text { get; set; }
+        public Action DoClick { get; set; }
     }
 }

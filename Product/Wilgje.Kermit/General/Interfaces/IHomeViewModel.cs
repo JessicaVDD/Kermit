@@ -7,8 +7,6 @@ namespace Willow.Kermit.General.Interfaces
     {
         IList<ImageButton> AvailableButtons { get; }
         void ShowTab(ITabViewModel view_model);
-        void ShowNewChild();
-        void ShowSearchResults();
-        void ShowSocialWorkers();
+        void DoShow(ImageButton ib);
     }
 }

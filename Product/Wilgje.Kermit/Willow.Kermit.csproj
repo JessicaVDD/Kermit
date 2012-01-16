@@ -197,6 +197,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Kermit.ico" />
     <Content Include="Resources\Baby.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Windows.Media.Imaging;
 using Caliburn.Micro;
 using Willow.Kermit.Child.ViewModels;
@@ -25,10 +24,10 @@ namespace Willow.Kermit.General.ViewModels
 
             AvailableButtons = new List<ImageButton>
             {
-                new ImageButton {Text = "Nieuw kindjes", Image = ImageGetter.Baby},
-                new ImageButton {Text = "Zoeken", Image = ImageGetter.Search},
-                new ImageButton {Text = "Hulpverleners", Image = ImageGetter.SocialWorkers},
-                new ImageButton {Text = "Kalender", Image = ImageGetter.Calendar}
+                new ImageButton {Text = "Nieuw kindjes", Image = ImageGetter.Baby, DoClick = () => ShowTab(new NewChildViewModel())},
+                new ImageButton {Text = "Zoeken", Image = ImageGetter.Search, DoClick = () => ShowTab(new SearchResultsViewModel())},
+                new ImageButton {Text = "Hulpverleners", Image = ImageGetter.SocialWorkers, DoClick = () => ShowTab(new SocialWorkersViewModel())},
+                new ImageButton {Text = "Kalender", Image = ImageGetter.Calendar, DoClick = () => { }}
             };
         }
 
@@ -41,21 +40,10 @@ namespace Willow.Kermit.General.ViewModels
             set { tab_name = value; NotifyOfPropertyChange(() => tab_name); }
         }
 
-        public void ShowNewChild()
+        public void DoShow(ImageButton ib)
         {
-            ShowTab(new NewChildViewModel());
+            ib.DoClick();
         }
-
-        public void ShowSearchResults()
-        {
-            ShowTab(new SearchResultsViewModel());
-        }
-
-        public void ShowSocialWorkers()
-        {
-            ShowTab(new SocialWorkersViewModel());
-        }
-
 
         public void ShowTab(ITabViewModel view_model)
         {

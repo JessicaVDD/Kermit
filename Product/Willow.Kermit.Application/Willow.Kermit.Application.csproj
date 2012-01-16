@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Kermit.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Caliburn.Micro">
       <HintPath>..\..\packages\Caliburn.Micro.1.2.0\lib\Net40\Caliburn.Micro.dll</HintPath>
@@ -98,6 +101,9 @@
       <Project>{2204B55B-427F-4922-8E3D-90DB891E373B}</Project>
       <Name>Willow.Kermit</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Kermit.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

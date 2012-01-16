@@ -1,6 +1,6 @@
 ﻿<Window x:Class="Willow.Kermit.Shell.Views.ShellView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Icon="/Willow.Kermit;component/Images/Kermit.ico" Title="{Binding Path=Title}">
     <Window.Resources>
         <LinearGradientBrush x:Key="KermitBrush" StartPoint="0,0" EndPoint="1,1">
             <GradientStopCollection>

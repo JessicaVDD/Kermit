@@ -21,6 +21,7 @@ namespace Willow.Kermit.Shell.ViewModels
 
             Navigation.Events.Subscribe(ActionTabs);
             Search.Events.Subscribe(ActionTabs);
+            Title = "Kermit";
         }
 
         public ShellViewModel(INavigationViewModel navigation, ISearchViewModel search, IArtViewModel art, IStatusViewModel status, IActionTabsViewModel action_tabs)
@@ -31,6 +32,13 @@ namespace Willow.Kermit.Shell.ViewModels
             Status = status;
             ActionTabs = action_tabs;
             Navigation.Events.Subscribe(ActionTabs);
+        }
+
+        string title;
+        public string Title
+        {
+            get { return title; }
+            set { title = value; NotifyOfPropertyChange(() => Title); }
         }
 
         INavigationViewModel navigation;
