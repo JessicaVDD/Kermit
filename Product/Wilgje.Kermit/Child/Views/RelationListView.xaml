@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Willow.Kermit.Child.Views.RelationListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:cal="http://www.caliburnproject.org" >
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="4,20,4,32" Background="Transparent">
+        <ItemsControl Name="Relations" >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Background="Transparent" Orientation="Vertical" CanVerticallyScroll="True" Margin="1,1,1,1" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ContentControl cal:View.Model="{Binding}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </ScrollViewer>
+
+</UserControl>

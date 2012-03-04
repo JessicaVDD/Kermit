@@ -11,7 +11,7 @@ namespace Willow.Kermit.SocialWorkers.ViewModels
         public SocialWorkersViewModel()
         {
             Caption = "Hulpverl.";
-            Image = ImageGetter.SocialWorkers;
+            Image = ImageGetter.SocialWorkersIcon;
 
         }
         public string Caption { get; set; }

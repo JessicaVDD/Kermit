@@ -10,7 +10,7 @@ namespace Willow.Kermit.General.ViewModels
 
         public StatusViewModel(string identity)
         {
-            Welcome = string.Format("Welcome {0}", identity);
+            Welcome = string.Format("Welkom {0}", identity);
         }
 
 

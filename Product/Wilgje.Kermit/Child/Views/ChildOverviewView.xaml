@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Willow.Kermit.Child.Views.ChildOverviewView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Resources>
+        <LinearGradientBrush x:Key="KermitBrush" StartPoint="0,0" EndPoint="1,1">
+            <GradientStopCollection>
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="DarkGray" Offset="0"/>
+            </GradientStopCollection>
+        </LinearGradientBrush>
+    </UserControl.Resources>
+
+    <StackPanel Orientation="Vertical">
+        <StackPanel Name="NamePanel" Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
+            <Label Name="FullName" MinWidth="100" Content="Naam" Opacity="100"/>
+            <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}">
+                <Label Name="Firstname" MinWidth="100" Content="Voornaam" Margin="0, 4, 8, 4"/>
+                <Label Name="Lastname" MinWidth="200" Content="Achternaam"  Margin="0, 4, 8, 4"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Name="BirthPanel" Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
+            <Label Name="Birth" MinWidth="100"  Content="Geboorte"/>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox Name="BirthEstimation" IsChecked="False" Content="Schatting" Margin="0, 4, 8, 4" VerticalContentAlignment="Center" VerticalAlignment="Center" />
+                <DatePicker Name="DateOfBirth" MinWidth="50"  Margin="0, 4, 8, 4" VerticalContentAlignment="Center" VerticalAlignment="Center" DataContext="{Binding}" />
+                <TextBox Name="Birthplace" MinWidth="100" Text="Geboorteplaats"  Margin="0, 4, 8, 4" VerticalContentAlignment="Center" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Name="GenderPanel" Orientation="Horizontal" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
+            <Label Name="Geslacht" MinWidth="100" Content="Geslacht" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
+            <RadioButton Name="Male" Content="Jongen" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Margin="8,4,8,4"/>
+            <RadioButton Name="Female" Content="Meisje" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Margin="8,4,8,4"/>
+        </StackPanel>
+        <StackPanel Name="EmergencyPanel" Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
+            <Label Name="Noodnummers" MinWidth="100" Content="Noodnummers" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
+            <TextBlock Text="--- Geen noodnummers bekend ---"  Margin="0,0,0,4" />
+        </StackPanel>
+        <StackPanel Name="MedicalPanel" Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
+            <Label Name="Huisarts" MinWidth="100" Content="Artsen" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
+            <TextBlock Text="--- Geen huisarts bekend ---"  Margin="0,0,0,4" />
+        </StackPanel>
+        <StackPanel Name="Permissions" Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
+            <Label Name="Toestemmingen" MinWidth="100" Content="Toestemmingen" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
+            <TextBlock Text="Mag gefotografeerd worden" />
+            <TextBlock Text="Mag mee op uitstappen" />
+            <TextBlock Text="Mag verzorgd worden door verzorgers in opleiding" Margin="0,0,0,4" />
+        </StackPanel>
+    </StackPanel>
+
+</UserControl>

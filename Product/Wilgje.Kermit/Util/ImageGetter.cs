@@ -21,6 +21,11 @@ namespace Willow.Kermit.Util
             get { return new ImageGetter().Get("Baby.png"); }
         }
 
+        public static BitmapImage BabyIcon
+        {
+            get { return new ImageGetter().Get("Baby_Icon.png"); }
+        }
+
         public static BitmapImage BabyBoy
         {
             get { return new ImageGetter().Get("BabyBoy.png"); }
@@ -71,6 +76,11 @@ namespace Willow.Kermit.Util
             get { return new ImageGetter().Get("Search.ico"); }
         }
 
+        public static BitmapImage SearchIcon
+        {
+            get { return new ImageGetter().Get("Search_Icon.png"); }
+        }
+
         public static BitmapImage Calendar
         {
             get { return new ImageGetter().Get("Calendar.png"); }
@@ -96,6 +106,11 @@ namespace Willow.Kermit.Util
             get { return new ImageGetter().Get("Doctor.png"); }
         }
 
+        public static BitmapImage SocialWorkersIcon
+        {
+            get { return new ImageGetter().Get("Doctor_Icon.png"); }
+        }
+
         public static BitmapImage ArrowLeft
         {
             get { return new ImageGetter().Get("LeftArrowBlue.ico"); }
@@ -106,7 +121,7 @@ namespace Willow.Kermit.Util
             get { return new ImageGetter().Get("RightArrowBlue.ico"); }
         }
 
-        public static BitmapImage SearchIcon
+        public static BitmapImage SearchSmall
         {
             get { return new ImageGetter().Get("SearchIcon.ico"); }
         }
