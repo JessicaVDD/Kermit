@@ -10,7 +10,7 @@
                 <GradientStop Color="DarkGray" Offset="1"/>
             </GradientStopCollection>
         </LinearGradientBrush>
-        <Converters:RelationTypeConvertor x:Key="RelationTypeConvertor" />
+        <Converters:RelationTypeConverter x:Key="RelationTypeConvertor" />
     </UserControl.Resources>
 
     <StackPanel Background="{StaticResource KermitBrush}" Orientation="Vertical" HorizontalAlignment="Center" Margin="0, 0, 0, 8">

@@ -1,6 +1,6 @@
 ﻿<UserControl x:Class="Willow.Kermit.Child.Views.EditChildView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Child="clr-namespace:Willow.Kermit.Child"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:Converters="clr-namespace:Willow.Kermit.Child.Converters">
 
     <UserControl.Resources>
@@ -10,8 +10,8 @@
                 <GradientStop Color="DarkGray" Offset="0"/>
             </GradientStopCollection>
         </LinearGradientBrush>
-      <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
-      <Converters:GenderConvertor x:Key="GenderToBool" />
+        <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
+        <Converters:GenderConverter x:Key="GenderToBool" />
     </UserControl.Resources>
 
     <StackPanel Orientation="Vertical">
@@ -24,9 +24,9 @@
         </StackPanel>
         <StackPanel Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
             <StackPanel Orientation="Horizontal">
-                <Label MinWidth="100" Content="Geboortedatum (geschat)" Visibility="{Binding Path=IsEstimatedBirthday, Converter={StaticResource BoolToVisibility}}"/>
-                <Label MinWidth="100" Content="Geboortedatum"  Visibility="{Binding Path=IsConfirmedBirthday, Converter={StaticResource BoolToVisibility}}"/>
+                <Label MinWidth="100" Content="Geboortedatum"/>
                 <DatePicker Name="DateOfBirth" MinWidth="50"  Margin="0, 4, 8, 4" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                <Label Content="(voorspelling)" Visibility="{Binding Path=IsEstimatedBirthday, Converter={StaticResource BoolToVisibility}}"/>
                 <Label MinWidth="100" Content="Geboorteplaats" Margin="8,0,0,0"  Visibility="{Binding Path=IsConfirmedBirthday, Converter={StaticResource BoolToVisibility}}"/>
                 <TextBox Name="Birthplace" MinWidth="100" Text="Geboorteplaats"  Margin="0, 4, 8, 4" VerticalContentAlignment="Center" Visibility="{Binding Path=IsConfirmedBirthday, Converter={StaticResource BoolToVisibility}}" />
             </StackPanel>

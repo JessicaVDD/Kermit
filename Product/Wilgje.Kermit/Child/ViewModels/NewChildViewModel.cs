@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Media.Imaging;
 using Caliburn.Micro;
 using Willow.Kermit.Child.Interfaces;
@@ -24,6 +26,7 @@ namespace Willow.Kermit.Child.ViewModels
         public NewChildViewModel(Client client)
         {
             _child = client;
+            _child.PropertyChanged += Child_PropertyChanged;
 
             Caption = client.FirstName;
             Image = ImageGetter.BabyIcon;
@@ -45,11 +48,15 @@ namespace Willow.Kermit.Child.ViewModels
         public BitmapImage Image { get; set; }
         public IEventAggregator Events { get; set; }
 
-        public string FirstNameTitle
+        public string Fullname
         {
-            get { return _child.FirstNameTitle; }
+            get
+            {
+                if (_child.FirstName == null && _child.LastName == null) return null;
+                return string.Format("{0} {1}",_child.FirstName, _child.LastName);
+            }
         }
-        public Gender Geslacht
+        public Gender Gender
         {
             get { return _child.Gender; }
         }
@@ -71,5 +78,24 @@ namespace Willow.Kermit.Child.ViewModels
             if (Events != null)
                 Events.Publish(new CloseTabMessage { Item = this });
         }
+
+        void Child_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case "FirstName":
+                case "LastName":
+                    NotifyOfPropertyChange(() => Fullname);
+                    break;
+                case "Gender":
+                    NotifyOfPropertyChange(() => Gender);
+                    break;
+            }
+            if (String.IsNullOrWhiteSpace(e.PropertyName))
+            {
+                NotifyOfPropertyChange(e.PropertyName);
+            }
+        }
+
     }
 }

@@ -62,8 +62,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Child\Converters\GenderConvertor.cs" />
-    <Compile Include="Child\Converters\RelationTypeConvertor.cs" />
+    <Compile Include="Child\Converters\AgeConverter.cs" />
+    <Compile Include="Child\Converters\GenderConverter.cs" />
+    <Compile Include="Child\Converters\RelationTypeConverter.cs" />
     <Compile Include="Child\ViewModels\ChildOverviewViewModel.cs" />
     <Compile Include="Child\ViewModels\ChildVisualCardViewModel.cs" />
     <Compile Include="Child\ViewModels\EditChildViewModel.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="General\ViewModels\ImageButton.cs" />
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\ClientFactory.cs" />
+    <Compile Include="Model\DefaultBabyImage.cs" />
     <Compile Include="Model\Gender.cs" />
     <Compile Include="Model\Relation.cs" />
     <Compile Include="Model\RelationFactory.cs" />

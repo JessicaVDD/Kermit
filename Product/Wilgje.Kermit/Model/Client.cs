@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Media.Imaging;
 using Caliburn.Micro;
 
@@ -7,75 +7,101 @@ namespace Willow.Kermit.Model
 {
     public class Client : PropertyChangedBase
     {
+        DateTime? birth_date;
+        Gender gender;
+        BitmapImage image;
+        bool is_estimated_birthday;
+        string status;
+        string location;
+        string residential_group;
+        string first_name;
+        string birth_place;
+        string last_name;
+
         public Client()
         {
-            IsEstimatedBirthday = true;
+            is_estimated_birthday = true;
         }
 
-        public BitmapImage Image { get; set; }
+        public BitmapImage Image
+        {
+            get
+            {
+                if (image == null)
+                    return DefaultBabyImage.For(Gender);
+                return image;
+            }
+            set { image = value; NotifyOfPropertyChange(() => Image); }
+        }
 
-        DateTime? birth_date;
         public DateTime? BirthDate
         {
             get { return birth_date; }
             set
             {
                 birth_date = value; 
-                NotifyOfPropertyChange(()=> BirthDate);
-                IsEstimatedBirthday = !birth_date.HasValue || birth_date > DateTime.Today;
+                is_estimated_birthday = !birth_date.HasValue || birth_date > DateTime.Today;
+                NotifyOfPropertyChange(() => BirthDate);
+                NotifyOfPropertyChange(() => IsEstimatedBirthday);
+                if (is_estimated_birthday) BirthPlace = null;
             }
         }
+        public bool IsEstimatedBirthday
+        {
+            get { return is_estimated_birthday; }
+        }
 
-        public bool IsEstimatedBirthday { get; set; }
-        public string AgeFormatted { get { return GetAgeString(); } }
+        public string BirthPlace
+        {
+            get { return birth_place; }
+            set { birth_place = value; NotifyOfPropertyChange(() => BirthPlace); }
+        }
 
-        Gender gender;
         public Gender Gender
         {
             get { return gender; }
-            set { gender = value; NotifyOfPropertyChange(() => Gender); }
+            set
+            {
+                gender = value; 
+                NotifyOfPropertyChange(() => Gender);
+                NotifyOfPropertyChange(() => Image);
+            }
         }
 
-        public string Status { get; set; }
-        public string Location { get; set; }
-        public string ResidentialGroup { get; set; }
-        public string FirstName { get; set; }
-        public string FirstNameTitle { get { return FirstName ?? "(Nog geen naam)"; } }
-
-        public IList<Relation> Relations { get; set; }
-
-        public string LastName { get; set; }
-
-        public string BirthPlace { get; set; }
-
-        string GetAgeString()
+        public string Status
         {
-            if (!BirthDate.HasValue) return "(leeftijd onbekend)";
+            get { return status; }
+            set { status = value; NotifyOfPropertyChange(() => Status); }
+        }
 
-            var bDay = BirthDate.Value;
-            if (bDay <= DateTime.Today)
-            {
-                return (IsEstimatedBirthday ? "Geschatte Leeftijd: " : "Leeftijd: ") + FormatTimeSpan(DateTime.Today - bDay);
-            }
-            else
-            {
-                return "Geboorte in: " + FormatTimeSpan(bDay - DateTime.Today);
-            }
-        }
-        string FormatTimeSpan(TimeSpan time_span)
+        public string Location
         {
-            if (time_span.Days < 31)
-                return time_span.Days == 1 ? "1 dag" : time_span.Days.ToString("N0") + " dagen";
-            if (time_span.Days < 366)
-                return (time_span.Days / 30) < 2 ? "1 maand" : (time_span.Days / 30).ToString("N0") + " maanden";
-            if (time_span.Days <= 366 * 2)
-            {
-                double days = (time_span.Days - 365);
-                if (days < 31)
-                    return "1 jaar";
-                return "1 jaar " + (days / 30 < 2 ? "1 maand" : (days / 30).ToString("N0") + " maanden");
-            }
-            return (time_span.Days / 365).ToString("N0") + "jaar";
+            get { return location; }
+            set { location = value; NotifyOfPropertyChange(() => Location); }
         }
+
+        public string ResidentialGroup
+        {
+            get { return residential_group; }
+            set { residential_group = value; NotifyOfPropertyChange(() => ResidentialGroup); }
+        }
+
+        public string FirstName
+        {
+            get { return first_name; }
+            set
+            {
+                first_name = value;
+                NotifyOfPropertyChange(() => FirstName);
+            }
+        }
+
+        public string LastName
+        {
+            get { return last_name; }
+            set { last_name = value; NotifyOfPropertyChange(() => LastName);}
+        }
+
+        public ObservableCollection<Relation> Relations { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Willow.Kermit.Util;
 
 namespace Willow.Kermit.Model
@@ -7,14 +8,13 @@ namespace Willow.Kermit.Model
     {
         public static Client CreateNew()
         {
-            var rs = new List<Relation>
+            var rs = new ObservableCollection<Relation>
             {
                 RelationFactory.CreateNew()
             };
 
             return new Client
             {
-                Image = ImageGetter.Baby, 
                 BirthDate = null, 
                 Location = "", 
                 ResidentialGroup = "", 

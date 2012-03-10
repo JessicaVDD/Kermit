@@ -2,13 +2,12 @@ using System;
 using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Media;
-using Willow.Kermit.Child.ViewModels;
 using Willow.Kermit.Model;
 using Willow.Kermit.Util;
 
 namespace Willow.Kermit.Child.Converters
 {
-    public class RelationTypeConvertor : IValueConverter
+    public class RelationTypeConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

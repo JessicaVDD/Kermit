@@ -1,8 +1,8 @@
 ﻿<UserControl x:Class="Willow.Kermit.Child.Views.NewChildView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-             xmlns:Child="clr-namespace:Willow.Kermit.Child" xmlns:Converters="clr-namespace:Willow.Kermit.Child.Converters"
-             BorderBrush="{x:Null}">
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:Converters="clr-namespace:Willow.Kermit.Child.Converters" BorderBrush="{x:Null}">
     <UserControl.Resources>
         <LinearGradientBrush x:Key="KermitBrush" StartPoint="0,0" EndPoint="1,1">
             <GradientStopCollection>
@@ -10,7 +10,8 @@
                 <GradientStop Color="DarkGray" Offset="0"/>
             </GradientStopCollection>
         </LinearGradientBrush>
-        <Converters:GenderConvertor x:Key="GeslachtConvertor" />
+        <Converters:GenderConverter x:Key="GeslachtConvertor" />
+        <System:String x:Key="GeenNaamBekend">Naam: Onbekend</System:String>
     </UserControl.Resources>
 
     <DockPanel Background="{StaticResource KermitBrush}" LastChildFill="True">
@@ -23,7 +24,7 @@
             <ContentControl Name="ChildVisualCard" DockPanel.Dock="Left" />
             <ContentControl Name="RelationList" DockPanel.Dock="Right" />
             <DockPanel LastChildFill="True">
-                <Label Name="FirstNameTitle" DockPanel.Dock="Top" Content="Ons Jefke" Foreground="{Binding Path=Geslacht, Converter={StaticResource GeslachtConvertor}}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="20,8,20,8"/>
+                <Label DockPanel.Dock="Top" Content="{Binding Path=Fullname, TargetNullValue={StaticResource GeenNaamBekend} }" Foreground="{Binding Path=Gender, Converter={StaticResource GeslachtConvertor}}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Heavy" Margin="20,8,20,8"/>
                 <TabControl Name="ChildActionPanels" TabStripPlacement="Bottom" Background="Transparent">
                     <TabControl.ItemTemplate>
                         <DataTemplate>

@@ -1,18 +1,15 @@
 ﻿<UserControl x:Class="Willow.Kermit.Child.Views.ChildVisualCardView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  BorderBrush="{x:Null}">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:System="clr-namespace:System;assembly=mscorlib" BorderBrush="{x:Null}">
     <UserControl.Resources>
-        <LinearGradientBrush x:Key="KermitBrush" StartPoint="0,0" EndPoint="1,1">
-            <GradientStopCollection>
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="DarkGray" Offset="0"/>
-            </GradientStopCollection>
-        </LinearGradientBrush>
+        <System:String x:Key="GeenNaamBekend">Naam: Onbekend</System:String>
     </UserControl.Resources>
+
     <StackPanel Orientation="Vertical" Margin="4,20,4,32">
         <Image Name="ChildImage" Height="300" Width="200" HorizontalAlignment="Center" />
-        <Label Name="Naam" Content="Ons Jefke" HorizontalAlignment="Center" Padding="0" />
-        <Label Name="Age" Content="Niet geboren" HorizontalAlignment="Center" Padding="0" />
+        <Label Content="{Binding Path=Naam, TargetNullValue={StaticResource GeenNaamBekend}}" HorizontalAlignment="Center" Padding="0" />
+        <Label Name="Age" Content="Leeftijdloos" Padding="0" HorizontalAlignment="Center"/>
         <Label Name="Status" Content="Inschrijving" HorizontalAlignment="Center" Padding="0" />
         <Label Name="Location" Content="(geen locatie)" HorizontalAlignment="Center" Padding="0" />
         <Label Name="ResidentialGroup" Content="(geen leefgroep)" HorizontalAlignment="Center" Padding="0" />
