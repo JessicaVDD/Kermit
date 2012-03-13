@@ -68,6 +68,7 @@
     <Compile Include="Child\ViewModels\ChildOverviewViewModel.cs" />
     <Compile Include="Child\ViewModels\ChildVisualCardViewModel.cs" />
     <Compile Include="Child\ViewModels\EditChildViewModel.cs" />
+    <Compile Include="Child\ViewModels\GezinViewModel.cs" />
     <Compile Include="Child\ViewModels\IChildInfoPanel.cs" />
     <Compile Include="Child\ViewModels\RelationListViewModel.cs" />
     <Compile Include="Child\ViewModels\RelationVisualCardViewModel.cs" />
@@ -79,6 +80,9 @@
     </Compile>
     <Compile Include="Child\Views\EditChildView.xaml.cs">
       <DependentUpon>EditChildView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Child\Views\GezinView.xaml.cs">
+      <DependentUpon>GezinView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Child\Views\RelationListView.xaml.cs">
       <DependentUpon>RelationListView.xaml</DependentUpon>
@@ -165,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Child\Views\EditChildView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Child\Views\GezinView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

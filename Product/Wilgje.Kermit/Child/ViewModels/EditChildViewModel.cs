@@ -8,11 +8,13 @@ namespace Willow.Kermit.Child.ViewModels
     public class EditChildViewModel : Screen, IChildInfoPanel
     {
         Client child;
+        GezinViewModel gezin;
 
         public EditChildViewModel(Client child)
         {
             this.child = child;
             this.child.PropertyChanged += Child_PropertyChanged;
+            gezin = new GezinViewModel(child);
         }
 
         public string Caption
@@ -54,6 +56,11 @@ namespace Willow.Kermit.Child.ViewModels
         {
             get { return child.Gender; }
             set { child.Gender = value; }
+        }
+        public GezinViewModel Gezin
+        {
+            get { return gezin; }
+            set { gezin = value; NotifyOfPropertyChange(() => Gezin); }
         }
 
         void Child_PropertyChanged(object sender, PropertyChangedEventArgs e)

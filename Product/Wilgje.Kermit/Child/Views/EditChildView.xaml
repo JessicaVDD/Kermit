@@ -18,8 +18,8 @@
         <StackPanel Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
             <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}">
                 <Label Name="NameTitle" MinWidth="100" Content="Naam" Opacity="100"/>
-                <TextBox Name="Firstname" MinWidth="100" Text="Voornaam" Margin="0, 4, 8, 4"/>
-                <TextBox Name="Lastname" MinWidth="200" Text="Achternaam"  Margin="0, 4, 8, 4"/>
+                <TextBox Name="Firstname" MinWidth="100" Margin="0, 4, 8, 4"/>
+                <TextBox Name="Lastname" MinWidth="200" Margin="0, 4, 8, 4"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
@@ -37,5 +37,6 @@
             <RadioButton IsChecked="{Binding Path=Gender, Mode=TwoWay, Converter={StaticResource GenderToBool}, ConverterParameter=Female}" GroupName="GenderGroup" Content="Meisje" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Margin="8,4,8,4"/>
             <RadioButton IsChecked="{Binding Path=Gender, Mode=TwoWay, Converter={StaticResource GenderToBool}, ConverterParameter=Unknown}" GroupName="GenderGroup" Content="Nog niet gekend" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Margin="8,4,8,4"/>
         </StackPanel>
+        <ContentControl Name="Gezin"/>
     </StackPanel>
 </UserControl>
