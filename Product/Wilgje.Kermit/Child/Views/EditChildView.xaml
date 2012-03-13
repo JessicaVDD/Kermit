@@ -24,9 +24,9 @@
         </StackPanel>
         <StackPanel Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
             <StackPanel Orientation="Horizontal">
-                <Label MinWidth="100" Content="Geboortedatum"/>
+                <Label MinWidth="100" Content="Geboortedatum" Visibility="{Binding Path=IsConfirmedBirthday, Converter={StaticResource BoolToVisibility}}"/>
+                <Label MinWidth="100" Content="Verwachte geboortedatum" Visibility="{Binding Path=IsEstimatedBirthday, Converter={StaticResource BoolToVisibility}}"/>
                 <DatePicker Name="DateOfBirth" MinWidth="50"  Margin="0, 4, 8, 4" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
-                <Label Content="(voorspelling)" Visibility="{Binding Path=IsEstimatedBirthday, Converter={StaticResource BoolToVisibility}}"/>
                 <Label MinWidth="100" Content="Geboorteplaats" Margin="8,0,0,0"  Visibility="{Binding Path=IsConfirmedBirthday, Converter={StaticResource BoolToVisibility}}"/>
                 <TextBox Name="Birthplace" MinWidth="100" Text="Geboorteplaats"  Margin="0, 4, 8, 4" VerticalContentAlignment="Center" Visibility="{Binding Path=IsConfirmedBirthday, Converter={StaticResource BoolToVisibility}}" />
             </StackPanel>

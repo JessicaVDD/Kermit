@@ -6,6 +6,7 @@ _[Rr]e[Ss]harper.*
 *.[Rr]e[Ss]harper
 *.suo
 *.csproj.user
+*.sqlproj.user
 *.cache
 *~
 *.sql
@@ -24,4 +25,5 @@ artifacts
 [Pp]roduct/*.web.ui/*.txt
 *.dbmdl
 *.orig
-*.sln.DotSettings.user
+*.DotSettings.user
+Sandbox

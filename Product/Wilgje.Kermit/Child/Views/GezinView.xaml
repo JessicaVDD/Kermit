@@ -11,18 +11,31 @@
     </UserControl.Resources>
 
     <StackPanel Orientation="Vertical"  Background="{StaticResource KermitBrush}">
-        <Label Content="Gezin" HorizontalAlignment="Left" />
-        <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}">
-            <Label Name="NameTitle" MinWidth="100" Content="Naam" Opacity="100"/>
-            <TextBox Name="Firstname" MinWidth="100" Margin="0, 4, 8, 4"/>
-            <TextBox Name="Lastname" MinWidth="200" Margin="0, 4, 8, 4"/>
-            <TextBox Name="Relatie" Text="Relatie {Papa, Mama, Oma, Opa}" MinWidth="200" Margin="0, 4, 8, 4" />
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Gezin" MinWidth="100"/>
+            <TextBox Name="Gezin" Text="Traditioneel" MinWidth="100" Margin="0, 4, 8, 4"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}">
-            <Label Name="InfoTitle" MinWidth="100" Content="Extra info" Opacity="100" />
-            <TextBox Name="Info" MinWidth="200" Margin="0, 4, 8, 4" />
-        </StackPanel>
-        <Label Content="Beroep" />
-        <Label Content="Leeftijd" />
+        <Border BorderThickness="0.25" BorderBrush="White" Margin="32,0,32,8">
+            <StackPanel Orientation="Vertical" Background="{StaticResource KermitBrush}">
+                <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}">
+                    <Label Name="NameTitle" MinWidth="100" Content="Naam" Opacity="100"/>
+                    <TextBox Name="Firstname" MinWidth="100" Margin="0, 4, 8, 4"/>
+                    <TextBox Name="Lastname" MinWidth="200" Margin="0, 4, 8, 4"/>
+                    <TextBox Name="Relation" Text="Relatie {Papa, Mama, Oma, Opa}" MinWidth="200" Margin="0, 4, 8, 4" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}">
+                    <Label Name="InfoTitle" MinWidth="100" Content="Extra info" Opacity="100" />
+                    <TextBox Name="Info" MinWidth="200" Margin="0, 4, 8, 4" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}">
+                    <Label Content="Beroep" MinWidth="100" Opacity="100"/>
+                    <TextBox Name="Profession" MinWidth="200" Margin="0, 4, 8, 4" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}">
+                    <Label Content="Leeftijd" MinWidth="100" Opacity="100"/>
+                    <DatePicker Name="DateOfBirth" MinWidth="100"  Margin="0, 4, 8, 4" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
     </StackPanel>
 </UserControl>
