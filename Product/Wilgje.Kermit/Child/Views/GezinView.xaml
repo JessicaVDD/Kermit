@@ -21,7 +21,17 @@
                     <Label Name="NameTitle" MinWidth="100" Content="Naam" Opacity="100"/>
                     <TextBox Name="Firstname" MinWidth="100" Margin="0, 4, 8, 4"/>
                     <TextBox Name="Lastname" MinWidth="200" Margin="0, 4, 8, 4"/>
-                    <TextBox Name="Relation" Text="Relatie {Papa, Mama, Oma, Opa}" MinWidth="200" Margin="0, 4, 8, 4" />
+                    <ComboBox Name="Relation" MinWidth="80" Margin="0, 4, 8, 4">
+                        <ComboBoxItem>Papa</ComboBoxItem>
+                        <ComboBoxItem>Mama</ComboBoxItem>
+                        <ComboBoxItem>Broer</ComboBoxItem>
+                        <ComboBoxItem>Zus</ComboBoxItem>
+                        <ComboBoxItem>Opa</ComboBoxItem>
+                        <ComboBoxItem>Oma</ComboBoxItem>
+                        <ComboBoxItem>Voogd</ComboBoxItem>
+                        <ComboBoxItem>Stiefpapa</ComboBoxItem>
+                        <ComboBoxItem>Stiefmama</ComboBoxItem>
+                    </ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}">
                     <Label Name="InfoTitle" MinWidth="100" Content="Extra info" Opacity="100" />
@@ -31,9 +41,11 @@
                     <Label Content="Beroep" MinWidth="100" Opacity="100"/>
                     <TextBox Name="Profession" MinWidth="200" Margin="0, 4, 8, 4" />
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}">
-                    <Label Content="Leeftijd" MinWidth="100" Opacity="100"/>
+                <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}" HorizontalAlignment="Stretch">
+                    <Label Content="GeboorteDatum" MinWidth="100" Opacity="100"/>
                     <DatePicker Name="DateOfBirth" MinWidth="100"  Margin="0, 4, 8, 4" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                    <Button Content="+" HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Width="24" Margin="250,0,0,0" />
+                    <Button Content="-" HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Width="24"/>
                 </StackPanel>
             </StackPanel>
         </Border>

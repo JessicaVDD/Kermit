@@ -17,8 +17,23 @@
             </Button.Content>
         </Button>
 
-        <Grid>
-            <Label Name="SearchString" Grid.Column="0" Grid.Row="0" />
-        </Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Zoeken op: "/>
+                <TextBox Name="SearchString" MinWidth="200"/>
+                <Button Content="Search" Margin="16,0,16,0" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="0,16,0,0">
+                <ListBox Background="{StaticResource KermitBrush}">
+                    <ListBoxItem Content="Resultaat 1" />
+                    <ListBoxItem Content="Resultaat 2" />
+                    <ListBoxItem Content="Resultaat 3" />
+                    <ListBoxItem Content="Resultaat 4" />
+                    <ListBoxItem Content="Resultaat 5" />
+                    <ListBoxItem Content="Resultaat 6" />
+                    <ListBoxItem Content="Resultaat 7" />
+                </ListBox>
+            </StackPanel>
+        </StackPanel>
     </DockPanel>
 </UserControl>

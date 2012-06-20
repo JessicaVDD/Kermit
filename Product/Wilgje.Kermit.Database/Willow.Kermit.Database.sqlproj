@@ -170,7 +170,4 @@
   <ItemGroup>
     <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <Build Include="Permissions.sql" />
-  </ItemGroup>
 </Project>
