@@ -1,3 +1,5 @@
+using System;
+using System.Collections.ObjectModel;
 using System.Windows.Media.Imaging;
 using Caliburn.Micro;
 using Willow.Kermit.General.Messages;
@@ -8,6 +10,8 @@ namespace Willow.Kermit.Search.ViewModels
 {
     public class SearchResultsViewModel : Screen, ISearchResultsViewModel
     {
+        string _SearchString;
+
         public SearchResultsViewModel()
         {
             Caption = "Zoeken";
@@ -22,12 +26,42 @@ namespace Willow.Kermit.Search.ViewModels
 
         public IEventAggregator Events { get; set; }
 
-        public string SearchString { get; set; }
+        public string SearchString
+        {
+            get { return _SearchString; }
+            set { _SearchString = value; NotifyOfPropertyChange(() => SearchString);
+            }
+        }
+
+        public ObservableCollection<string> Results
+        {
+            get
+            {
+                return new ObservableCollection<string>(new[]
+                {
+                    string.Format("{0}: Resultaat {1}", SearchString, 1),
+                    string.Format("{0}: Resultaat {1}", SearchString, 2),
+                    string.Format("{0}: Resultaat {1}", SearchString, 3),
+                    string.Format("{0}: Resultaat {1}", SearchString, 4),
+                    string.Format("{0}: Resultaat {1}", SearchString, 5),
+                    string.Format("{0}: Resultaat {1}", SearchString, 6),
+                    string.Format("{0}: Resultaat {1}", SearchString, 7)
+                });
+            }
+        } 
 
         public void Close()
         {
             if (Events != null)
                 Events.Publish(new CloseTabMessage { Item = this });
         }
+
+        public void Search()
+        {
+            NotifyOfPropertyChange(() => HasResults);
+            NotifyOfPropertyChange(() => Results);
+        }
+
+        public bool HasResults { get { return !string.IsNullOrWhiteSpace(SearchString); } }
     }
 }

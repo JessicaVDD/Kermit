@@ -13,17 +13,17 @@
     </UserControl.Resources>
     <Grid>
         <TabControl Background="{StaticResource KermitBrush}" x:Name="Items" TabStripPlacement="Left" BorderBrush="Black" BorderThickness="1" Padding="0,0,0,0">
-            <i:Interaction.Triggers>
+            <!--<i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
                     <cal:ActionMessage MethodName="CloseItem">
                         <cal:Parameter Value="{Binding ElementName=Items, Path=SelectedItem}" />
                     </cal:ActionMessage>
                 </i:EventTrigger>
-            </i:Interaction.Triggers>
+            </i:Interaction.Triggers>-->
             <TabControl.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Vertical">
-                        <Canvas Height="40" Width="80">
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" cal:Message.Attach="[MouseWheel]=[Action Close]" >
+                        <Canvas VerticalAlignment="Top" HorizontalAlignment="Center" Height="40" Width="80">
                             <Image Name="TabImage" Stretch="Uniform" Height="40" Width="80" Source="{Binding Path=Image}" />
                             <TextBlock Name="TabNameBlur" Text="{Binding Path=Caption}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" TextAlignment="Center" Canvas.Bottom="0" Width="80" FontWeight="Bold" Foreground="White">
                                 <TextBlock.Effect>

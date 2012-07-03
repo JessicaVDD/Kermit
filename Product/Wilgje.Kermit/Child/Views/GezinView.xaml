@@ -11,28 +11,40 @@
     </UserControl.Resources>
 
     <StackPanel Orientation="Vertical"  Background="{StaticResource KermitBrush}">
-        <StackPanel Orientation="Horizontal">
-            <Label Content="Gezin" MinWidth="100"/>
-            <TextBox Name="Gezin" Text="Traditioneel" MinWidth="100" Margin="0, 4, 8, 4"/>
-        </StackPanel>
+        <DockPanel HorizontalAlignment="Stretch">
+            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" HorizontalAlignment="Left">
+                <Label Content="Gezin" MinWidth="100"/>
+                <TextBox Name="Gezin" Text="Traditioneel" MinWidth="100" Margin="0, 4, 8, 4"/>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right" Margin="16,0,16,0">
+                <Button Content="+" HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Width="24" />
+                <Button Content="-" HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Width="24"/>
+            </StackPanel>
+        </DockPanel>
         <Border BorderThickness="0.25" BorderBrush="White" Margin="32,0,32,8">
             <StackPanel Orientation="Vertical" Background="{StaticResource KermitBrush}">
-                <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}">
-                    <Label Name="NameTitle" MinWidth="100" Content="Naam" Opacity="100"/>
-                    <TextBox Name="Firstname" MinWidth="100" Margin="0, 4, 8, 4"/>
-                    <TextBox Name="Lastname" MinWidth="200" Margin="0, 4, 8, 4"/>
-                    <ComboBox Name="Relation" MinWidth="80" Margin="0, 4, 8, 4">
-                        <ComboBoxItem>Papa</ComboBoxItem>
-                        <ComboBoxItem>Mama</ComboBoxItem>
-                        <ComboBoxItem>Broer</ComboBoxItem>
-                        <ComboBoxItem>Zus</ComboBoxItem>
-                        <ComboBoxItem>Opa</ComboBoxItem>
-                        <ComboBoxItem>Oma</ComboBoxItem>
-                        <ComboBoxItem>Voogd</ComboBoxItem>
-                        <ComboBoxItem>Stiefpapa</ComboBoxItem>
-                        <ComboBoxItem>Stiefmama</ComboBoxItem>
-                    </ComboBox>
-                </StackPanel>
+                <DockPanel HorizontalAlignment="Stretch">
+                    <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" OpacityMask="{x:Null}">
+                        <Label Name="NameTitle" MinWidth="100" Content="Naam" Opacity="100"/>
+                        <TextBox Name="Firstname" MinWidth="100" Margin="0, 4, 8, 4"/>
+                        <TextBox Name="Lastname" MinWidth="200" Margin="0, 4, 8, 4"/>
+                        <ComboBox Name="Relation" MinWidth="80" Margin="0, 4, 8, 4">
+                            <ComboBoxItem>Papa</ComboBoxItem>
+                            <ComboBoxItem>Mama</ComboBoxItem>
+                            <ComboBoxItem>Broer</ComboBoxItem>
+                            <ComboBoxItem>Zus</ComboBoxItem>
+                            <ComboBoxItem>Opa</ComboBoxItem>
+                            <ComboBoxItem>Oma</ComboBoxItem>
+                            <ComboBoxItem>Voogd</ComboBoxItem>
+                            <ComboBoxItem>Stiefpapa</ComboBoxItem>
+                            <ComboBoxItem>Stiefmama</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Right" HorizontalAlignment="Right" Orientation="Horizontal" Margin="16,0,16,0">
+                        <Button Content="+" HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Width="24"/>
+                        <Button Content="-" HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Width="24"/>
+                    </StackPanel>
+                </DockPanel>
                 <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}">
                     <Label Name="InfoTitle" MinWidth="100" Content="Extra info" Opacity="100" />
                     <TextBox Name="Info" MinWidth="200" Margin="0, 4, 8, 4" />
@@ -44,8 +56,6 @@
                 <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}" HorizontalAlignment="Stretch">
                     <Label Content="GeboorteDatum" MinWidth="100" Opacity="100"/>
                     <DatePicker Name="DateOfBirth" MinWidth="100"  Margin="0, 4, 8, 4" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
-                    <Button Content="+" HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Width="24" Margin="250,0,0,0" />
-                    <Button Content="-" HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Width="24"/>
                 </StackPanel>
             </StackPanel>
         </Border>

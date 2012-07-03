@@ -8,6 +8,7 @@
                 <GradientStop Color="DarkGray" Offset="0"/>
             </GradientStopCollection>
         </LinearGradientBrush>
+        <BooleanToVisibilityConverter x:Key="visibilityConverter" />
     </UserControl.Resources>
 
     <DockPanel Background="{StaticResource KermitBrush}" LastChildFill="True">
@@ -21,17 +22,17 @@
             <StackPanel Orientation="Horizontal">
                 <Label Content="Zoeken op: "/>
                 <TextBox Name="SearchString" MinWidth="200"/>
-                <Button Content="Search" Margin="16,0,16,0" />
+                <Button Name="Search" Content="Search" Margin="16,0,16,0" />
             </StackPanel>
-            <StackPanel Orientation="Vertical" Margin="0,16,0,0">
-                <ListBox Background="{StaticResource KermitBrush}">
-                    <ListBoxItem Content="Resultaat 1" />
+            <StackPanel Visibility="{Binding HasResults, Converter={StaticResource ResourceKey=visibilityConverter}}" Orientation="Vertical" Margin="0,16,0,0">
+                <ListBox Name="Results" Background="{StaticResource KermitBrush}">
+                    <!--<ListBoxItem Content="Resultaat 1" />
                     <ListBoxItem Content="Resultaat 2" />
                     <ListBoxItem Content="Resultaat 3" />
                     <ListBoxItem Content="Resultaat 4" />
                     <ListBoxItem Content="Resultaat 5" />
                     <ListBoxItem Content="Resultaat 6" />
-                    <ListBoxItem Content="Resultaat 7" />
+                    <ListBoxItem Content="Resultaat 7" />-->
                 </ListBox>
             </StackPanel>
         </StackPanel>
