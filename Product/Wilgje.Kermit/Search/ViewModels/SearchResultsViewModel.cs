@@ -1,13 +1,17 @@
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel.Composition;
 using System.Windows.Media.Imaging;
 using Caliburn.Micro;
+using Willow.Kermit.General.Interfaces;
 using Willow.Kermit.General.Messages;
 using Willow.Kermit.Search.Interfaces;
 using Willow.Kermit.Util;
 
 namespace Willow.Kermit.Search.ViewModels
 {
+    [Export(typeof(ITabViewModel))]
+    [Export(typeof(ISearchResults))]
     public class SearchResultsViewModel : Screen, ISearchResultsViewModel
     {
         string _SearchString;

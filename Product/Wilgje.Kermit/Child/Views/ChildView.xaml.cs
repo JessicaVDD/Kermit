@@ -3,9 +3,9 @@
     /// <summary>
     /// Interaction logic for NewKidView.xaml
     /// </summary>
-    public partial class NewChildView
+    public partial class ChildView
     {
-        public NewChildView()
+        public ChildView()
         {
             InitializeComponent();
         }

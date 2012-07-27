@@ -1,11 +1,14 @@
+using System.ComponentModel.Composition;
 using System.Windows.Media.Imaging;
 using Caliburn.Micro;
+using Willow.Kermit.General.Interfaces;
 using Willow.Kermit.General.Messages;
 using Willow.Kermit.SocialWorkers.Interfaces;
 using Willow.Kermit.Util;
 
 namespace Willow.Kermit.SocialWorkers.ViewModels
 {
+    [Export(typeof(ITabViewModel))]
     public class SocialWorkersViewModel : Screen, ISocialWorkersViewModel
     {
         public SocialWorkersViewModel()

@@ -5,7 +5,7 @@ namespace Willow.Kermit.General.Interfaces
 {
     public interface IHomeViewModel : ITabViewModel
     {
-        IList<ImageButton> AvailableButtons { get; }
+        IEnumerable<ImageButton> AvailableButtons { get; }
         void ShowTab(ITabViewModel view_model);
         void DoShow(ImageButton ib);
     }

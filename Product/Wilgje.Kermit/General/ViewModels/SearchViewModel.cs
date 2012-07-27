@@ -3,14 +3,13 @@ using System.Windows.Media.Imaging;
 using Caliburn.Micro;
 using Willow.Kermit.General.Interfaces;
 using Willow.Kermit.General.Messages;
-using Willow.Kermit.Search.ViewModels;
 using Willow.Kermit.Util;
 
 namespace Willow.Kermit.General.ViewModels
 {
     public class SearchViewModel : PropertyChangedBase, ISearchViewModel
     {
-        IEventAggregator _events;
+        readonly IEventAggregator _events;
 
         public SearchViewModel(IEventAggregator events)
         {
@@ -30,11 +29,13 @@ namespace Willow.Kermit.General.ViewModels
             set { search_text = value; NotifyOfPropertyChange(()=> SearchText); }
         }
 
-        public BitmapImage Search  { get; set; }
+        public BitmapImage Search  { get; private set; }
         public void DoSearch()
         {
-            if (Events != null)
-                Events.Publish(new ShowTabViewMessage { Item = new SearchResultsViewModel {SearchString = SearchText} });
+            if (Events == null) return;
+            var resultsViewFactory = ServiceLocator.Current.GetInstance<ISearchResultsFactory>();
+           
+            Events.Publish(new ShowTabViewMessage { Item = resultsViewFactory.Create(SearchText) });
             SearchText = null;
         }
 

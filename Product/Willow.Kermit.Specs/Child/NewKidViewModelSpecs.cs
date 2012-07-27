@@ -11,12 +11,12 @@ namespace Willow.Kermit.Specs.Child
 {   
     public class NewKidViewModelSpecs
     {
-        public abstract class concern : Observes<INewChildViewModel, NewChildViewModel>
+        public abstract class concern : Observes<IChildViewModel, ChildViewModel>
         {
         
         }
 
-        [Subject(typeof(NewChildViewModel))]
+        [Subject(typeof(ChildViewModel))]
         public class when_closing_the_view : concern
         {
 

@@ -1,16 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Composition;
 using System.Windows.Media.Imaging;
 using Caliburn.Micro;
 using Willow.Kermit.Child.Interfaces;
+using Willow.Kermit.General.Interfaces;
 using Willow.Kermit.General.Messages;
 using Willow.Kermit.Model;
 using Willow.Kermit.Util;
 
 namespace Willow.Kermit.Child.ViewModels
 {
-    public class NewChildViewModel : Screen, INewChildViewModel
+    [Export(typeof(ITabViewModel))]
+    public class ChildViewModel : Screen, IChildViewModel
     {
         Client _child;
 
@@ -19,11 +22,11 @@ namespace Willow.Kermit.Child.ViewModels
         ChildVisualCardViewModel child_visual_card;
         RelationListViewModel relation_list;
 
-        public NewChildViewModel() : this(ClientFactory.CreateNew())
+        public ChildViewModel() : this(ClientFactory.CreateNew())
         {
             Caption = "Nieuw";
         }
-        public NewChildViewModel(Client client)
+        public ChildViewModel(Client client)
         {
             _child = client;
             _child.PropertyChanged += Child_PropertyChanged;

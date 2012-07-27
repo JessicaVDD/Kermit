@@ -65,6 +65,7 @@
     <Compile Include="Child\Converters\AgeConverter.cs" />
     <Compile Include="Child\Converters\GenderConverter.cs" />
     <Compile Include="Child\Converters\RelationTypeConverter.cs" />
+    <Compile Include="Child\Exports\NewChildFactory.cs" />
     <Compile Include="Child\ViewModels\ChildOverviewViewModel.cs" />
     <Compile Include="Child\ViewModels\ChildVisualCardViewModel.cs" />
     <Compile Include="Child\ViewModels\EditChildViewModel.cs" />
@@ -93,6 +94,8 @@
     <Compile Include="General\Controls\ImageButton.xaml.cs">
       <DependentUpon>ImageButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="General\Interfaces\ISearchResults.cs" />
+    <Compile Include="General\Interfaces\ITabViewModelFactory.cs" />
     <Compile Include="General\Messages\CloseTabMessage.cs" />
     <Compile Include="General\Messages\ICloseTabMessage.cs" />
     <Compile Include="General\Messages\IShowHomeMessage.cs" />
@@ -107,8 +110,14 @@
     <Compile Include="Model\Relation.cs" />
     <Compile Include="Model\RelationFactory.cs" />
     <Compile Include="Model\RelationType.cs" />
+    <Compile Include="Search\Exports\SearchResultsViewModelFactory.cs" />
+    <Compile Include="SocialWorkers\Exports\SocialWorkersViewModelFactory.cs" />
+    <Compile Include="Util\Container.cs" />
+    <Compile Include="Util\ContainerFactory.cs" />
     <Compile Include="Util\ImageGetter.cs" />
     <Compile Include="Util\IUriResolver.cs" />
+    <Compile Include="Util\PathLocator.cs" />
+    <Compile Include="Util\ServiceLocator.cs" />
     <Compile Include="Util\UriResolver.cs" />
     <Compile Include="Util\WindowsSecurity.cs" />
     <Compile Include="General\ViewModels\ActionTabsViewModel.cs" />
@@ -126,7 +135,7 @@
     <Compile Include="General\Interfaces\IStatusViewModel.cs" />
     <Compile Include="General\Interfaces\ITabViewModel.cs" />
     <Compile Include="General\ViewModels\NavigationViewModel.cs" />
-    <Compile Include="Child\ViewModels\NewChildViewModel.cs" />
+    <Compile Include="Child\ViewModels\ChildViewModel.cs" />
     <Compile Include="Search\ViewModels\SearchResultsViewModel.cs" />
     <Compile Include="General\ViewModels\SearchViewModel.cs" />
     <Compile Include="Shell\ViewModels\ShellViewModel.cs" />
@@ -145,8 +154,8 @@
     <Compile Include="General\Views\NavigationView.xaml.cs">
       <DependentUpon>NavigationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Child\Views\NewChildView.xaml.cs">
-      <DependentUpon>NewChildView.xaml</DependentUpon>
+    <Compile Include="Child\Views\ChildView.xaml.cs">
+      <DependentUpon>ChildView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Search\Views\SearchResultsView.xaml.cs">
       <DependentUpon>SearchResultsView.xaml</DependentUpon>
@@ -204,7 +213,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Child\Views\NewChildView.xaml">
+    <Page Include="Child\Views\ChildView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

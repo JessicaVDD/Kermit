@@ -10,7 +10,7 @@ namespace Willow.Kermit.Application
 {
     public class AppBootstrapper : Bootstrapper<IShell>
 	{
-		CompositionContainer container;
+		CompositionContainer _container;
 
 		/// <summary>
 		/// By default, we are configured to use MEF
@@ -21,22 +21,22 @@ namespace Willow.Kermit.Application
 		        AssemblySource.Instance.Select(x => new AssemblyCatalog(x))
 		        );
 
-			container = new CompositionContainer(catalog);
+			_container = new CompositionContainer(catalog);
 
 			var batch = new CompositionBatch();
 
 			batch.AddExportedValue<IWindowManager>(new WindowManager());
 			batch.AddExportedValue<IEventAggregator>(new EventAggregator());
-            batch.AddExportedValue(container);
+            batch.AddExportedValue(_container);
 		    batch.AddExportedValue(catalog);
 
-			container.Compose(batch);
+			_container.Compose(batch);
 		}
 
 		protected override object GetInstance(Type serviceType, string key)
 		{
 			string contract = string.IsNullOrEmpty(key) ? AttributedModelServices.GetContractName(serviceType) : key;
-			var exports = container.GetExportedValues<object>(contract);
+			var exports = _container.GetExportedValues<object>(contract);
 
 		    var result = exports.FirstOrDefault();
             if (result != null) return result;
@@ -46,12 +46,12 @@ namespace Willow.Kermit.Application
 
 		protected override IEnumerable<object> GetAllInstances(Type serviceType)
 		{
-			return container.GetExportedValues<object>(AttributedModelServices.GetContractName(serviceType));
+			return _container.GetExportedValues<object>(AttributedModelServices.GetContractName(serviceType));
 		}
 
 		protected override void BuildUp(object instance)
 		{
-			container.SatisfyImportsOnce(instance);
+			_container.SatisfyImportsOnce(instance);
 		}
 	}
 }

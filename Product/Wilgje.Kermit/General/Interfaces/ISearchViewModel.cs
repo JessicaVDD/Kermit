@@ -7,7 +7,7 @@ namespace Willow.Kermit.General.Interfaces
     public interface ISearchViewModel
     {
         string SearchText { get; set; }
-        BitmapImage Search { get; set; }
+        BitmapImage Search { get; }
         IEventAggregator Events { get; }
         void DoSearch();
         void DoSearchWithEnter(KeyEventArgs e);

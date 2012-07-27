@@ -2,8 +2,7 @@ using Willow.Kermit.General.Interfaces;
 
 namespace Willow.Kermit.Search.Interfaces
 {
-    public interface ISearchResultsViewModel : ITabViewModel
+    public interface ISearchResultsViewModel : ISearchResults
     {
-        string SearchString { get; set; }
     }
 }

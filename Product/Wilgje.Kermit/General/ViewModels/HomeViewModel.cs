@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Media.Imaging;
 using Caliburn.Micro;
-using Willow.Kermit.Child.ViewModels;
 using Willow.Kermit.General.Interfaces;
 using Willow.Kermit.General.Messages;
-using Willow.Kermit.Search.ViewModels;
-using Willow.Kermit.SocialWorkers.ViewModels;
 using Willow.Kermit.Util;
 
 namespace Willow.Kermit.General.ViewModels
@@ -22,16 +20,11 @@ namespace Willow.Kermit.General.ViewModels
             
             Image = ImageGetter.Home;
 
-            AvailableButtons = new List<ImageButton>
-            {
-                new ImageButton {Text = "Nieuw kindjes", Image = ImageGetter.Baby, DoClick = () => ShowTab(new NewChildViewModel())},
-                new ImageButton {Text = "Zoeken", Image = ImageGetter.Search, DoClick = () => ShowTab(new SearchResultsViewModel())},
-                new ImageButton {Text = "Hulpverleners", Image = ImageGetter.SocialWorkers, DoClick = () => ShowTab(new SocialWorkersViewModel())},
-                new ImageButton {Text = "Kalender", Image = ImageGetter.Calendar, DoClick = () => { }}
-            };
+            AvailableButtons = ServiceLocator.Current.GetInstances<ITabViewModelFactory>()
+                .Select(x => new ImageButton { Text = x.Caption, Image = x.Image, DoClick = () => ShowTab(x.Create()) });
         }
 
-        public IList<ImageButton> AvailableButtons { get; private set; }
+        public IEnumerable<ImageButton> AvailableButtons { get; private set; }
 
         string tab_name;
         public string Caption
