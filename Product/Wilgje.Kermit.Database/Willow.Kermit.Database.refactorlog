@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="cdcdf74f-fd15-4403-bc8e-fa0e046014f3" ChangeDateTime="04/17/2013 20:56:42">
+    <Property Name="ElementName" Value="[dbo].[Person].[ID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Person]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IdentityCard" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6197efea-2baf-46df-9545-a4dd81c34b8b" ChangeDateTime="04/17/2013 21:03:18">
+    <Property Name="ElementName" Value="[dbo].[FK_City_ToCountry]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[City]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_City_To_Country]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="470993a0-0775-46d6-8946-fbd13a0cbf93" ChangeDateTime="04/17/2013 21:25:32">
+    <Property Name="ElementName" Value="[dbo].[Family].[Address]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Family]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Street" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9f6e563a-2200-484e-b059-e5f898f987ef" ChangeDateTime="04/17/2013 21:54:01">
+    <Property Name="ElementName" Value="[dbo].[Street].[Country]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Street]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="City" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a0aeac4e-9f7c-476c-b50f-a243adeeb696" ChangeDateTime="04/17/2013 22:09:36">
+    <Property Name="ElementName" Value="[dbo].[FamilyParticipants].[Child]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[FamilyParticipants]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Family" />
+  </Operation>
+</Operations>
