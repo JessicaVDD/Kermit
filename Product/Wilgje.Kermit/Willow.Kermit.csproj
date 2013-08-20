@@ -110,6 +110,17 @@
     <Compile Include="Model\Relation.cs" />
     <Compile Include="Model\RelationFactory.cs" />
     <Compile Include="Model\RelationType.cs" />
+    <Compile Include="Reflection\AccessorCache.cs" />
+    <Compile Include="Reflection\DynamicMethodGenerator.cs" />
+    <Compile Include="Reflection\GetterSetter.cs" />
+    <Compile Include="Reflection\GetterSetterAccessor.cs" />
+    <Compile Include="Reflection\InstanceReflectionWrapper.cs" />
+    <Compile Include="Reflection\MethodCache.cs" />
+    <Compile Include="Reflection\MethodKey.cs" />
+    <Compile Include="Reflection\ReflectedInstance.cs" />
+    <Compile Include="Reflection\ReflectedType.cs" />
+    <Compile Include="Reflection\StaticReflectionWrapper.cs" />
+    <Compile Include="Reflection\TypeReflectionCache.cs" />
     <Compile Include="Search\Exports\SearchResultsViewModelFactory.cs" />
     <Compile Include="SocialWorkers\Exports\SocialWorkersViewModelFactory.cs" />
     <Compile Include="Util\Container.cs" />
