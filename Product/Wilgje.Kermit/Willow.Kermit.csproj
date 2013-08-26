@@ -120,7 +120,6 @@
     <Compile Include="Reflection\ReflectedInstance.cs" />
     <Compile Include="Reflection\ReflectedType.cs" />
     <Compile Include="Reflection\StaticReflectionWrapper.cs" />
-    <Compile Include="Reflection\TypeReflectionCache.cs" />
     <Compile Include="Search\Exports\SearchResultsViewModelFactory.cs" />
     <Compile Include="SocialWorkers\Exports\SocialWorkersViewModelFactory.cs" />
     <Compile Include="Util\Container.cs" />

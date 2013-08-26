@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 
 namespace Willow.Kermit
 {
-    internal static class DynamicMethodGenerator
+    public static class DynamicMethodGenerator
     {
         const BindingFlags _InstanceBinding = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance;
         const BindingFlags _StaticBinding = BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static;
@@ -29,7 +29,7 @@ namespace Willow.Kermit
         {
             return GenerateInstanceFieldSetter<TOwner, object>(fld);
         }
-        internal static Action<TOwner, TField> GenerateInstanceFieldSetter<TOwner, TField>(FieldInfo fld)
+        public static Action<TOwner, TField> GenerateInstanceFieldSetter<TOwner, TField>(FieldInfo fld)
         {
             if (fld == null) throw new ArgumentNullException("fld");
             if (fld.ReflectedType != typeof(TOwner)) throw new ArgumentException("The reflected type doesn't match the TOwner", "fld");
@@ -61,7 +61,7 @@ namespace Willow.Kermit
         {
             return GenerateInstanceFieldGetter<TOwner, object>(fld);
         }
-        internal static Func<TOwner, TField> GenerateInstanceFieldGetter<TOwner, TField>(FieldInfo fld)
+        public static Func<TOwner, TField> GenerateInstanceFieldGetter<TOwner, TField>(FieldInfo fld)
         {
             if (fld == null) throw new ArgumentNullException("fld");
             if (fld.ReflectedType != typeof(TOwner)) throw new ArgumentException("The reflected type doesn't match the TOwner", "fld");
@@ -92,7 +92,7 @@ namespace Willow.Kermit
         {
             return GenerateInstancePropertySetter<TOwner, object>(prop);
         }
-        internal static Action<TOwner, TProperty> GenerateInstancePropertySetter<TOwner, TProperty>(PropertyInfo prop)
+        public static Action<TOwner, TProperty> GenerateInstancePropertySetter<TOwner, TProperty>(PropertyInfo prop)
         {
             if (prop == null) throw new ArgumentNullException("prop");
             if (prop.ReflectedType != typeof(TOwner)) throw new ArgumentException("The reflected type doesn't match the TOwner", "prop");
@@ -105,8 +105,8 @@ namespace Willow.Kermit
             var gen = dyn.GetILGenerator();
             gen.Emit(OpCodes.Ldarg_0);
             gen.Emit(OpCodes.Ldarg_1);
-            if (typeof(TProperty) != prop.PropertyType)
-                gen.Emit(OpCodes.Castclass, prop.PropertyType);
+            if (typeof(TProperty) == typeof(object) && prop.PropertyType.IsValueType)
+                gen.Emit(OpCodes.Unbox_Any, prop.PropertyType);
             if (setMethod.IsVirtual)
                 gen.Emit(OpCodes.Callvirt, setMethod);
             else
@@ -129,7 +129,7 @@ namespace Willow.Kermit
         {
             return GenerateInstancePropertyGetter<TOwner, object>(prop);
         }
-        internal static Func<TOwner, TProperty> GenerateInstancePropertyGetter<TOwner, TProperty>(PropertyInfo prop)
+        public static Func<TOwner, TProperty> GenerateInstancePropertyGetter<TOwner, TProperty>(PropertyInfo prop)
         {
             if (prop == null) throw new ArgumentNullException("prop");
             if (prop.ReflectedType != typeof(TOwner)) throw new ArgumentException("The reflected type doesn't match the TOwner", "prop");
@@ -145,7 +145,7 @@ namespace Willow.Kermit
                 gen.Emit(OpCodes.Callvirt, getMethod);
             else
                 gen.Emit(OpCodes.Call, getMethod);
-            if (prop.PropertyType.IsValueType && prop.PropertyType != typeof(TProperty))
+            if (typeof(TProperty) == typeof(object) && prop.PropertyType.IsValueType)
                 gen.Emit(OpCodes.Box, prop.PropertyType);
             gen.Emit(OpCodes.Ret);
             return dyn.CreateDelegate(typeof(Func<TOwner, TProperty>)) as Func<TOwner, TProperty>;
@@ -165,7 +165,7 @@ namespace Willow.Kermit
         {
             return GenerateStaticFieldGetter<TOwner, object>(fld);
         }
-        internal static Func<TField> GenerateStaticFieldGetter<TOwner, TField>(FieldInfo fld)
+        public static Func<TField> GenerateStaticFieldGetter<TOwner, TField>(FieldInfo fld)
         {
             if (fld == null) throw new ArgumentNullException("fld");
             if (fld.ReflectedType != typeof(TOwner)) throw new ArgumentException("The reflected type doesn't match the TOwner", "fld");
@@ -194,7 +194,7 @@ namespace Willow.Kermit
         {
             return GenerateStaticFieldSetter<TOwner, object>(fld);
         }
-        internal static Action<TField> GenerateStaticFieldSetter<TOwner, TField>(FieldInfo fld)
+        public static Action<TField> GenerateStaticFieldSetter<TOwner, TField>(FieldInfo fld)
         {
             if (fld == null) throw new ArgumentNullException("fld");
             if (fld.ReflectedType != typeof(TOwner)) throw new ArgumentException("The reflected type doesn't match the TOwner", "fld");
@@ -224,7 +224,7 @@ namespace Willow.Kermit
         {
             return GenerateStaticPropertyGetter<TOwner, object>(prop);
         }
-        internal static Func<TProperty> GenerateStaticPropertyGetter<TOwner, TProperty>(PropertyInfo prop)
+        public static Func<TProperty> GenerateStaticPropertyGetter<TOwner, TProperty>(PropertyInfo prop)
         {
             if (prop == null) throw new ArgumentNullException("prop");
             if (prop.ReflectedType != typeof(TOwner)) throw new ArgumentException("The reflected type doesn't match the TOwner", "prop");
@@ -259,7 +259,7 @@ namespace Willow.Kermit
         {
             return GenerateStaticPropertySetter<TOwner, object>(prop);
         }
-        internal static Action<TProperty> GenerateStaticPropertySetter<TOwner, TProperty>(PropertyInfo prop)
+        public static Action<TProperty> GenerateStaticPropertySetter<TOwner, TProperty>(PropertyInfo prop)
         {
             if (prop == null) throw new ArgumentNullException("prop");
             if (prop.ReflectedType != typeof(TOwner)) throw new ArgumentException("The reflected type doesn't match the TOwner", "prop");
@@ -290,7 +290,7 @@ namespace Willow.Kermit
         {
             return GenerateInstanceMethod(methodName, typeof (T), owner, argumentParameters) as T;
         }
-        internal static Delegate GenerateInstanceMethod(MethodInfo method, Type delegateType)
+        public static Delegate GenerateInstanceMethod(MethodInfo method, Type delegateType)
         {
             if (method == null) throw new ArgumentNullException("method");
 
@@ -322,7 +322,7 @@ namespace Willow.Kermit
             var staticMethod = owner.GetMethod(methodName, _StaticBinding, null, argumentParameters, null);
             return GenerateStaticMethod<T>(staticMethod);
         }
-        internal static Delegate GenerateStaticMethod(MethodInfo method, Type delegateType)
+        public static Delegate GenerateStaticMethod(MethodInfo method, Type delegateType)
         {
             if (method == null) throw new ArgumentNullException("method");
 
