@@ -14,15 +14,21 @@
         <Converters:GenderConverter x:Key="GenderToBool" />
     </UserControl.Resources>
 
-    <StackPanel Orientation="Vertical">
-        <StackPanel Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
             <StackPanel Orientation="Horizontal" OpacityMask="{x:Null}">
                 <Label Name="NameTitle" MinWidth="100" Content="Naam" Opacity="100"/>
                 <TextBox Name="Firstname" MinWidth="100" Margin="0, 4, 8, 4"/>
                 <TextBox Name="Lastname" MinWidth="200" Margin="0, 4, 8, 4"/>
             </StackPanel>
         </StackPanel>
-        <StackPanel Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
+        <StackPanel Grid.Row="1" Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
             <StackPanel Orientation="Horizontal">
                 <Label MinWidth="100" Content="Geboortedatum" Visibility="{Binding Path=IsConfirmedBirthday, Converter={StaticResource BoolToVisibility}}"/>
                 <Label MinWidth="100" Content="Verwachte geboortedatum" Visibility="{Binding Path=IsEstimatedBirthday, Converter={StaticResource BoolToVisibility}}"/>
@@ -31,12 +37,14 @@
                 <TextBox Name="Birthplace" MinWidth="100" Text="Geboorteplaats"  Margin="0, 4, 8, 4" VerticalContentAlignment="Center" Visibility="{Binding Path=IsConfirmedBirthday, Converter={StaticResource BoolToVisibility}}" />
             </StackPanel>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
             <Label MinWidth="100" Content="Geslacht" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
             <RadioButton IsChecked="{Binding Path=Gender, Mode=TwoWay, Converter={StaticResource GenderToBool}, ConverterParameter=Male}" GroupName="GenderGroup" Content="Jongen" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Margin="8,4,8,4"/>
             <RadioButton IsChecked="{Binding Path=Gender, Mode=TwoWay, Converter={StaticResource GenderToBool}, ConverterParameter=Female}" GroupName="GenderGroup" Content="Meisje" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Margin="8,4,8,4"/>
             <RadioButton IsChecked="{Binding Path=Gender, Mode=TwoWay, Converter={StaticResource GenderToBool}, ConverterParameter=Unknown}" GroupName="GenderGroup" Content="Nog niet gekend" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Margin="8,4,8,4"/>
         </StackPanel>
-        <ContentControl Name="Gezin"/>
-    </StackPanel>
+        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" >
+            <ItemsControl Name="Gezinnen" VerticalAlignment="Stretch" />
+        </ScrollViewer>
+    </Grid>
 </UserControl>

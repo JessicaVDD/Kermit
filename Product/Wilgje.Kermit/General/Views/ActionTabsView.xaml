@@ -11,8 +11,8 @@
             </GradientStopCollection>
         </LinearGradientBrush>
     </UserControl.Resources>
-    <Grid>
-        <TabControl Background="{StaticResource KermitBrush}" x:Name="Items" TabStripPlacement="Left" BorderBrush="Black" BorderThickness="1" Padding="0,0,0,0">
+    <Grid VerticalAlignment="Stretch">
+        <TabControl Background="{StaticResource KermitBrush}" x:Name="Items" TabStripPlacement="Left" BorderBrush="Black" BorderThickness="1" Padding="0,0,0,0" VerticalAlignment="Stretch">
             <!--<i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseDoubleClick">
                     <cal:ActionMessage MethodName="CloseItem">

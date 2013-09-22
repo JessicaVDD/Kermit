@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Willow.Kermit</RootNamespace>
     <AssemblyName>Willow.Kermit</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -26,6 +26,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -35,19 +36,21 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Caliburn.Micro">
-      <HintPath>..\..\packages\Caliburn.Micro.1.2.0\lib\Net40\Caliburn.Micro.dll</HintPath>
+    <Reference Include="Caliburn.Micro, Version=1.5.2.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Caliburn.Micro.1.5.2\lib\net45\Caliburn.Micro.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Interactivity">
-      <HintPath>..\..\packages\Caliburn.Micro.1.2.0\lib\Net40\System.Windows.Interactivity.dll</HintPath>
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Caliburn.Micro.1.5.2\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -71,8 +74,6 @@
     <Compile Include="Child\ViewModels\EditChildViewModel.cs" />
     <Compile Include="Child\ViewModels\GezinViewModel.cs" />
     <Compile Include="Child\ViewModels\IChildInfoPanel.cs" />
-    <Compile Include="Child\ViewModels\RelationListViewModel.cs" />
-    <Compile Include="Child\ViewModels\RelationVisualCardViewModel.cs" />
     <Compile Include="Child\Views\ChildOverviewView.xaml.cs">
       <DependentUpon>ChildOverviewView.xaml</DependentUpon>
     </Compile>
@@ -103,13 +104,15 @@
     <Compile Include="General\Messages\ShowHomeMessage.cs" />
     <Compile Include="General\Messages\ShowTabViewMessage.cs" />
     <Compile Include="General\ViewModels\ImageButton.cs" />
+    <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\ClientFactory.cs" />
     <Compile Include="Model\DefaultBabyImage.cs" />
+    <Compile Include="Model\Family.cs" />
+    <Compile Include="Model\FamilyFactory.cs" />
     <Compile Include="Model\Gender.cs" />
     <Compile Include="Model\Relation.cs" />
     <Compile Include="Model\RelationFactory.cs" />
-    <Compile Include="Model\RelationType.cs" />
     <Compile Include="Reflection\AccessorCache.cs" />
     <Compile Include="Reflection\DynamicMethodGenerator.cs" />
     <Compile Include="Reflection\GetterSetter.cs" />

@@ -11,25 +11,25 @@ namespace Willow.Kermit.Child.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var r = (RelationType) value;
+            var r = (string) value;
 
             if (targetType == typeof(ImageSource))
             {
                 switch (r)
                 {
-                    case RelationType.Broer:
+                    case "Broer":
                         return new ImageGetter().Get("Brother.png");
-                    case RelationType.Zus:
+                    case "Zus":
                         return new ImageGetter().Get("Sister.jpg");
-                    case RelationType.Papa:
+                    case "Papa":
                         return new ImageGetter().Get("Daddy.jpg");
-                    case RelationType.Mama:
+                    case "Mama":
                         return new ImageGetter().Get("Mommy.jpg");
-                    case RelationType.Opa:
+                    case "Opa":
                         return new ImageGetter().Get("Man.png");
-                    case RelationType.Oma:
+                    case "Oma":
                         return new ImageGetter().Get("Woman.png");
-                    case RelationType.Man:
+                    case "Man":
                         return new ImageGetter().Get("Man.png");
                     default:
                         return new ImageGetter().Get("Woman.png");

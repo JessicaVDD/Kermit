@@ -14,18 +14,31 @@
         <System:String x:Key="GeenNaamBekend">Naam: Onbekend</System:String>
     </UserControl.Resources>
 
-    <DockPanel Background="{StaticResource KermitBrush}" LastChildFill="True">
-        <Button DockPanel.Dock="Top" Name="Close" Width="32" Height="16" HorizontalAlignment="Right" VerticalAlignment="Center" Background="{StaticResource KermitBrush}" Margin="4,2,8,2" BorderThickness="1" BorderBrush="Black">
+    <Grid Background="{StaticResource KermitBrush}" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" Name="Close" Width="32" Height="16" HorizontalAlignment="Right" VerticalAlignment="Center" Background="{StaticResource KermitBrush}" Margin="4,2,8,2" BorderThickness="1" BorderBrush="Black">
             <Button.Content>
                 <TextBlock Text="X" VerticalAlignment="Center" Foreground="Crimson" FontWeight="Bold" FontStretch="UltraExpanded"/>
             </Button.Content>
         </Button>
-        <DockPanel Background="Transparent" LastChildFill="True">
-            <ContentControl Name="ChildVisualCard" DockPanel.Dock="Left" />
-            <ContentControl Name="RelationList" DockPanel.Dock="Right" />
-            <DockPanel LastChildFill="True">
-                <Label DockPanel.Dock="Top" Content="{Binding Path=Fullname, TargetNullValue={StaticResource GeenNaamBekend} }" Foreground="{Binding Path=Gender, Converter={StaticResource GeslachtConvertor}}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Heavy" Margin="20,8,20,8"/>
-                <TabControl Name="ChildActionPanels" TabStripPlacement="Bottom" Background="Transparent">
+
+        <Grid Grid.Row="1" Background="Transparent" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ContentControl Grid.Column="0" Name="ChildVisualCard" DockPanel.Dock="Left" />
+
+            <Grid Grid.Column="1" VerticalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="{Binding Path=Fullname, TargetNullValue={StaticResource GeenNaamBekend} }" Foreground="{Binding Path=Gender, Converter={StaticResource GeslachtConvertor}}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="20" FontWeight="Heavy" Margin="20,8,20,8"/>
+                <TabControl Grid.Row="1" Name="ChildActionPanels" TabStripPlacement="Bottom" Background="Transparent" VerticalAlignment="Stretch">
                     <TabControl.ItemTemplate>
                         <DataTemplate>
                             <Label Name="CaptionTitle" Content="{Binding Path=Caption}" Margin="5,10,5,10"/>
@@ -38,8 +51,7 @@
                             "Tijdslijn"
                             "Blydhove"  -->
                 </TabControl>
-            </DockPanel>
-        </DockPanel>
-    </DockPanel>
-
+            </Grid>
+        </Grid>
+    </Grid>
 </UserControl>

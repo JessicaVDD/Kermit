@@ -13,7 +13,8 @@ namespace Willow.Kermit.Util
 
         public BitmapImage Get(string imageFileName)
         {
-            return new BitmapImage(_uriResolver.Resolve(imageFileName));
+            var uri = _uriResolver.Resolve(imageFileName);
+            return uri == null ? new BitmapImage() : new BitmapImage(_uriResolver.Resolve(imageFileName));
         }
 
         public static BitmapImage Baby

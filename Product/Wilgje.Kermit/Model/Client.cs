@@ -7,6 +7,7 @@ namespace Willow.Kermit.Model
 {
     public class Client : PropertyChangedBase
     {
+        readonly IObservableCollection<Family> families = new BindableCollection<Family>();
         DateTime? birth_date;
         Gender gender;
         BitmapImage image;
@@ -102,6 +103,6 @@ namespace Willow.Kermit.Model
             set { last_name = value; NotifyOfPropertyChange(() => LastName);}
         }
 
-        public ObservableCollection<Relation> Relations { get; set; }
+        public IObservableCollection<Family> Families { get { return families; } }
     }
 }

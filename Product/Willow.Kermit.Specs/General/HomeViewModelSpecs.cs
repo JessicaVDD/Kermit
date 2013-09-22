@@ -6,6 +6,7 @@ using Willow.Kermit.General.ViewModels;
 using developwithpassion.specifications.rhino;
 using developwithpassion.specifications.extensions;
 using Machine.Specifications;
+using System.Linq;
 using Action = System.Action;
 
 namespace Willow.Kermit.Specs.General
@@ -26,7 +27,7 @@ namespace Willow.Kermit.Specs.General
 
             private It should_initialize_the_quick_start_buttons = () =>
             {
-                sut.AvailableButtons.Count.ShouldBeGreaterThan(0);
+                sut.AvailableButtons.Count().ShouldBeGreaterThan(0);
             };
         }
 

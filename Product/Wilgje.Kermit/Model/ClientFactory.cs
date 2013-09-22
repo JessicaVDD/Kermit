@@ -19,8 +19,7 @@ namespace Willow.Kermit.Model
                 Location = "", 
                 ResidentialGroup = "", 
                 Status = "Eerste Inschrijving",
-                FirstName = null,
-                Relations = rs
+                FirstName = null
             };
         }
     }

@@ -7,7 +7,7 @@
     </UserControl.Resources>
 
     <StackPanel Orientation="Vertical" Margin="4,20,4,32">
-        <Image Name="ChildImage" Height="300" Width="200" HorizontalAlignment="Center" />
+        <Image Name="ChildImage" Height="300" Width="200" HorizontalAlignment="Center" Source="{Binding Path=ChildImage, Mode=OneWay}" />
         <Label Content="{Binding Path=Naam, TargetNullValue={StaticResource GeenNaamBekend}}" HorizontalAlignment="Center" Padding="0" />
         <Label Name="Age" Content="Leeftijdloos" Padding="0" HorizontalAlignment="Center"/>
         <Label Name="Status" Content="Inschrijving" HorizontalAlignment="Center" Padding="0" />

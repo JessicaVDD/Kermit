@@ -2,19 +2,20 @@ using System;
 using System.ComponentModel;
 using Caliburn.Micro;
 using Willow.Kermit.Model;
+using System.Collections.ObjectModel;
 
 namespace Willow.Kermit.Child.ViewModels
 {
     public class EditChildViewModel : Screen, IChildInfoPanel
     {
         Client child;
-        GezinViewModel gezin;
+        IObservableCollection<GezinViewModel> gezinnen;
 
         public EditChildViewModel(Client child)
         {
             this.child = child;
             this.child.PropertyChanged += Child_PropertyChanged;
-            gezin = new GezinViewModel(child);
+            gezinnen = new BindableCollection<GezinViewModel>(new[] { new GezinViewModel(child) });
         }
 
         public string Caption
@@ -57,10 +58,9 @@ namespace Willow.Kermit.Child.ViewModels
             get { return child.Gender; }
             set { child.Gender = value; }
         }
-        public GezinViewModel Gezin
+        public IObservableCollection<GezinViewModel> Gezinnen
         {
-            get { return gezin; }
-            set { gezin = value; NotifyOfPropertyChange(() => Gezin); }
+            get { return gezinnen; }
         }
 
         void Child_PropertyChanged(object sender, PropertyChangedEventArgs e)

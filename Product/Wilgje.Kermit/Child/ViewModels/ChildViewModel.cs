@@ -20,7 +20,6 @@ namespace Willow.Kermit.Child.ViewModels
         string _caption;
 
         ChildVisualCardViewModel child_visual_card;
-        RelationListViewModel relation_list;
 
         public ChildViewModel() : this(ClientFactory.CreateNew())
         {
@@ -35,10 +34,8 @@ namespace Willow.Kermit.Child.ViewModels
             Image = ImageGetter.BabyIcon;
 
             ChildVisualCard = new ChildVisualCardViewModel(_child);
-            RelationList = new RelationListViewModel(_child);
             ChildActionPanels = new List<IChildInfoPanel>
             {
-                new ChildOverviewViewModel(_child),
                 new EditChildViewModel(_child)
             };
         }
@@ -69,11 +66,6 @@ namespace Willow.Kermit.Child.ViewModels
         {
             get { return child_visual_card; }
             set { child_visual_card = value; NotifyOfPropertyChange(() => ChildVisualCard); }
-        }
-        public RelationListViewModel RelationList
-        {
-            get { return relation_list; }
-            set { relation_list = value; NotifyOfPropertyChange(() => RelationList); }
         }
 
         public void Close()

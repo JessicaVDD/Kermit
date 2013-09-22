@@ -17,7 +17,7 @@
         <DockPanel DockPanel.Dock="Left" LastChildFill="True" VerticalAlignment="Center" Width="200">
             <ContentControl Name="Art" />
         </DockPanel>
-        <DockPanel LastChildFill="True">
+        <DockPanel LastChildFill="True" VerticalAlignment="Stretch">
             <DockPanel DockPanel.Dock="Top" LastChildFill="True">
                 <ContentControl Name="Status" MinWidth="400" Margin="0,0,8,0"/>
             </DockPanel>

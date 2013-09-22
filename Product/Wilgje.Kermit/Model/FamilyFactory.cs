@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Willow.Kermit.Model
+{
+    public class FamilyFactory
+    {
+        public static Family AddNewFor(Client child)
+        {
+            var fam = new Family() { };
+            RelationFactory.AddNewFor(fam);
+            child.Families.Add(fam);
+            return fam;
+        }
+    }
+}
