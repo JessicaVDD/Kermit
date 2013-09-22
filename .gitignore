@@ -27,3 +27,4 @@ artifacts
 *.orig
 *.DotSettings.user
 Sandbox
+![Ii]nstall/*/*.sql
