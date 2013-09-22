@@ -36,9 +36,39 @@
                             <RowDefinition />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
-                            <TextBox Name="Name" Text="Traditioneel" MinWidth="100" Margin="0, 4, 0, 4"/>
-                        </StackPanel>
+                        <Grid Grid.Row="0" Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="133" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox Grid.Column="0" Name="Name" Text="Traditioneel" MinWidth="100" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                            <ContentControl Grid.Column="1" Name="Address" Content="{Binding Address}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,0,32,0">
+                                <ContentControl.ContentTemplate>
+                                    <DataTemplate>
+                                        <Grid HorizontalAlignment="Stretch">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                                <TextBox Name="Street" Text="{Binding Street}" MinWidth="160"  VerticalAlignment="Center" />
+                                                <TextBox Name="NumberBus" Text="{Binding NumberBus}" MinWidth="30"  VerticalAlignment="Center"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                                                <TextBox Name="PostalCode" Text="{Binding PostalCode}" MinWidth="40" VerticalAlignment="Center"/>
+                                                <TextBox Name="City" Text="{Binding City}" MinWidth="60"  VerticalAlignment="Center"/>
+                                                <Label Content="(" Margin="14,0,0,0" />
+                                                <TextBox Name="Country" Text="{Binding Country}" MinWidth="60" VerticalAlignment="Center" />
+                                                <Label Content=")"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ContentControl.ContentTemplate>
+                            </ContentControl>
+                        </Grid>
                         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="16,0,16,0">
                             <Button cal:Message.Attach="[Click] = [Action RemoveFamily($dataContext)]" Content="-" HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Width="24"/>
                             <Button cal:Message.Attach="[Click] = [Action AddRelation($dataContext)]" Content="+" HorizontalAlignment="Right" VerticalAlignment="Center" Height="24" Width="24"/>

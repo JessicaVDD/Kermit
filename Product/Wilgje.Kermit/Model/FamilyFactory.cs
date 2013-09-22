@@ -10,7 +10,7 @@ namespace Willow.Kermit.Model
     {
         public static Family AddNewFor(Client child)
         {
-            var fam = new Family() { };
+            var fam = new Family() { Name = "Een gezin", Address = new Address { Street="Urselweg", NumberBus="21A", PostalCode="9990", City="Maldegem", Country="België" } };
             RelationFactory.AddNewFor(fam);
             child.Families.Add(fam);
             return fam;
