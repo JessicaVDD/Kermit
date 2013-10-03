@@ -4,20 +4,21 @@ using System.Windows.Data;
 
 namespace Willow.Kermit.Child.Converters
 {
-    public class AgeConverter : IValueConverter
+    public class AgeConverter : IMultiValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            var bday = (DateTime?)value;
-            var isEstimated = false;
-            if (!ReferenceEquals(parameter, null) && parameter is bool)
-                isEstimated = (bool) parameter;
+            if (values == null || values.Length != 2) return null;
+
+            var bday = (DateTime?)values[0];
+            var isEstimated = System.Convert.ToBoolean(values[1] ?? false);
             return GetAgeString(bday, isEstimated);
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
-            return null;
+            return new object[] {null, null};
         }
 
         static string GetAgeString(DateTime? birthDate, bool isEstimated)
@@ -28,6 +29,8 @@ namespace Willow.Kermit.Child.Converters
             if (bDay > DateTime.Today)
             {
                 var weken = (bDay - DateTime.Today).Days / 7;
+                if (weken == 0)
+                    return string.Format("Geboorte in: {0} dagen", (bDay - DateTime.Today).Days);
                 return string.Format("Geboorte in: {0} {1}", weken, weken == 1 ? "week" : "weken");
             }
 
@@ -56,7 +59,8 @@ namespace Willow.Kermit.Child.Converters
             if (today < bday.AddYears(2))
             {
                 var months = today.Month - bday.AddYears(1).Month < 0 ? today.Month - bday.AddYears(1).Month + 12 : today.Month - bday.AddYears(1).Month;
-                if (months == 0)
+                
+                if (months == 0) 
                     return "1 jaar";
 
                 return string.Format("1 jaar en {0} {1}", months, months == 1 ? "maand" : "maanden");

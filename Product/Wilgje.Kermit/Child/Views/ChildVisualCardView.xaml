@@ -1,15 +1,24 @@
 ﻿<UserControl x:Class="Willow.Kermit.Child.Views.ChildVisualCardView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:System="clr-namespace:System;assembly=mscorlib" BorderBrush="{x:Null}">
+             xmlns:System="clr-namespace:System;assembly=mscorlib" BorderBrush="{x:Null}"
+             xmlns:conv="clr-namespace:Willow.Kermit.Child.Converters">
     <UserControl.Resources>
         <System:String x:Key="GeenNaamBekend">Naam: Onbekend</System:String>
+        <conv:AgeConverter x:Key="ageConverter" />
     </UserControl.Resources>
 
     <StackPanel Orientation="Vertical" Margin="4,20,4,32">
         <Image Name="ChildImage" Height="300" Width="200" HorizontalAlignment="Center" Source="{Binding Path=ChildImage, Mode=OneWay}" />
         <Label Content="{Binding Path=Naam, TargetNullValue={StaticResource GeenNaamBekend}}" HorizontalAlignment="Center" Padding="0" />
-        <Label Name="Age" Content="Leeftijdloos" Padding="0" HorizontalAlignment="Center"/>
+        <Label Name="Age" Padding="0" HorizontalAlignment="Center">
+            <Label.Content>
+                <MultiBinding Converter="{StaticResource ageConverter}" >
+                    <Binding Path="BirthDate"/>
+                    <Binding Path="IsEstimatedBirthday" />
+                </MultiBinding>
+            </Label.Content>
+        </Label>
         <Label Name="Status" Content="Inschrijving" HorizontalAlignment="Center" Padding="0" />
         <Label Name="Location" Content="(geen locatie)" HorizontalAlignment="Center" Padding="0" />
         <Label Name="ResidentialGroup" Content="(geen leefgroep)" HorizontalAlignment="Center" Padding="0" />

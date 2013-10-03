@@ -28,9 +28,14 @@ namespace Willow.Kermit.Child.ViewModels
             get { return _child.FirstName; }
         }
 
-        public string Age
+        public DateTime? BirthDate
         {
-            get { return new AgeConverter().Convert(_child.BirthDate, null, _child.IsEstimatedBirthday, null).ToString(); }
+            get { return _child.BirthDate; }
+        }
+
+        public bool IsEstimatedBirthday
+        {
+            get { return _child.IsEstimatedBirthday; }
         }
 
         public string Status
@@ -62,8 +67,10 @@ namespace Willow.Kermit.Child.ViewModels
                     NotifyOfPropertyChange(() => Naam);
                     break;
                 case "BirthDate":
+                    NotifyOfPropertyChange(() => BirthDate);
+                    break;
                 case "IsEstimatedBirthday":
-                    NotifyOfPropertyChange(() => Age);
+                    NotifyOfPropertyChange(() => IsEstimatedBirthday);
                     break;
                 case "Status":
                     NotifyOfPropertyChange(() => Status);
