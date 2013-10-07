@@ -4,12 +4,6 @@
              xmlns:System="clr-namespace:System;assembly=mscorlib"
              xmlns:Converters="clr-namespace:Willow.Kermit.Child.Converters" BorderBrush="{x:Null}">
     <UserControl.Resources>
-        <LinearGradientBrush x:Key="KermitBrush" StartPoint="0,0" EndPoint="1,1">
-            <GradientStopCollection>
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="DarkGray" Offset="0"/>
-            </GradientStopCollection>
-        </LinearGradientBrush>
         <Converters:GenderConverter x:Key="GeslachtConvertor" />
         <System:String x:Key="GeenNaamBekend">Naam: Onbekend</System:String>
     </UserControl.Resources>

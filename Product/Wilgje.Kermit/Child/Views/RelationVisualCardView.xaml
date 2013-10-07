@@ -4,12 +4,6 @@
              xmlns:Child="clr-namespace:Willow.Kermit.Child" xmlns:Converters="clr-namespace:Willow.Kermit.Child.Converters">
 
     <UserControl.Resources>
-        <LinearGradientBrush x:Key="KermitBrush" StartPoint="0,0" EndPoint="1,1">
-            <GradientStopCollection>
-                <GradientStop Color="Black" Offset="0"/>
-                <GradientStop Color="DarkGray" Offset="1"/>
-            </GradientStopCollection>
-        </LinearGradientBrush>
         <Converters:RelationTypeConverter x:Key="RelationTypeConvertor" />
     </UserControl.Resources>
 

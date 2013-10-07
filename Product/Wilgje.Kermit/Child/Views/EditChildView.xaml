@@ -4,12 +4,6 @@
              xmlns:Converters="clr-namespace:Willow.Kermit.Child.Converters">
 
     <UserControl.Resources>
-        <LinearGradientBrush x:Key="KermitBrush" StartPoint="0,0" EndPoint="1,1">
-            <GradientStopCollection>
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="DarkGray" Offset="0"/>
-            </GradientStopCollection>
-        </LinearGradientBrush>
         <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
         <Converters:GenderConverter x:Key="GenderToBool" />
     </UserControl.Resources>

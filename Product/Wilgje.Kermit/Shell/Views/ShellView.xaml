@@ -1,15 +1,8 @@
 ﻿<Window x:Class="Willow.Kermit.Shell.Views.ShellView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Icon="/Willow.Kermit;component/Images/Kermit.ico" Title="{Binding Path=Title}">
-    <Window.Resources>
-        <LinearGradientBrush x:Key="KermitBrush" StartPoint="0,0" EndPoint="1,1">
-            <GradientStopCollection>
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="DarkGray" Offset="0"/>
-            </GradientStopCollection>
-        </LinearGradientBrush>
-    </Window.Resources>
-        <DockPanel LastChildFill="True" Background="{StaticResource KermitBrush}">
+
+    <DockPanel LastChildFill="True" Background="{StaticResource KermitBrush}">
         <DockPanel DockPanel.Dock="Top" LastChildFill="True" Height="64">
             <ContentControl Name="Navigation" DockPanel.Dock="Left"/>
             <ContentControl HorizontalAlignment="Right" Name="Search" DockPanel.Dock="Right" Margin="0,0, 32, 0" />            

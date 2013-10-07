@@ -1,14 +1,6 @@
 ﻿<UserControl x:Class="Willow.Kermit.Child.Views.ChildOverviewView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <UserControl.Resources>
-        <LinearGradientBrush x:Key="KermitBrush" StartPoint="0,0" EndPoint="1,1">
-            <GradientStopCollection>
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="DarkGray" Offset="0"/>
-            </GradientStopCollection>
-        </LinearGradientBrush>
-    </UserControl.Resources>
 
     <StackPanel Orientation="Vertical">
         <StackPanel Name="NamePanel" Orientation="Vertical" Background="{StaticResource KermitBrush}" Margin="0,0,0,8">
