@@ -4,8 +4,6 @@
              xmlns:cal="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="visibilityConverter" />
-
-
     </UserControl.Resources>
 
     <Grid Background="{StaticResource KermitBrush}" VerticalAlignment="Stretch">
