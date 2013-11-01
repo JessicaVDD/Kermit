@@ -5,11 +5,11 @@ namespace Willow.Kermit.Model
     {
         public static Relation CreateNew()
         {
-            return new Relation();
+            return new Relation { IsExpanded = true };
         }
         public static Relation AddNewFor(Family fam)
         {
-            var relation = new Relation { Family = fam };
+            var relation = new Relation { Family = fam, IsExpanded = true };
             fam.Relations.Add(relation);
             return relation;
         }

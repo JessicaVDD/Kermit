@@ -1,0 +1,45 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Address] (Table)
+       [dbo].[Child] (Table)
+       [dbo].[City] (Table)
+       [dbo].[Country] (Table)
+       [dbo].[Family] (Table)
+       [dbo].[FamilyAddress] (Table)
+       [dbo].[FamilyParticipants] (Table)
+       [dbo].[Person] (Table)
+       [dbo].[Relation] (Table)
+       [dbo].[Relative] (Table)
+       [dbo].[Street] (Table)
+       [dbo].[FK_Address_To_Street] (Foreign Key)
+       [dbo].[FK_Child_To_Person] (Foreign Key)
+       [dbo].[FK_City_To_Country] (Foreign Key)
+       [dbo].[FK_FamilyAddress_ToFamily] (Foreign Key)
+       [dbo].[FK_FamilyAddress_ToAddress] (Foreign Key)
+       [dbo].[FK_FamilyParticipants_To_Family] (Foreign Key)
+       [dbo].[FK_FamilyParticipants_To_Person] (Foreign Key)
+       [dbo].[FK_FamilyParticipants_To_Relation] (Foreign Key)
+       [dbo].[FK_Person_To_Country] (Foreign Key)
+       [dbo].[FK_Person_To_City] (Foreign Key)
+       [dbo].[FK_Relative_To_Person] (Foreign Key)
+       [dbo].[FK_Street_To_City] (Foreign Key)
+       [dbo].[CK_Person_Sex] (Check Constraint)
+       [dbo].[Address].[MS_Description] (Extended Property)
+       [dbo].[Child].[MS_Description] (Extended Property)
+       [dbo].[Family].[MS_Description] (Extended Property)
+       [dbo].[FamilyAddress].[MS_Description] (Extended Property)
+       [dbo].[FamilyParticipants].[MS_Description] (Extended Property)
+       [dbo].[Person].[MS_Description] (Extended Property)
+       [dbo].[Relative].[MS_Description] (Extended Property)
+
+** Supporting actions

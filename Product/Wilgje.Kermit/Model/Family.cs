@@ -12,6 +12,7 @@ namespace Willow.Kermit.Model
         string name;
         Address address;
         readonly IObservableCollection<Relation> relations = new BindableCollection<Relation>();
+        private bool isExpanded;
         
         public string Name
         {
@@ -24,7 +25,6 @@ namespace Willow.Kermit.Model
             }
         }
 
-
         public Address Address
         {
             get { return address; }
@@ -35,6 +35,18 @@ namespace Willow.Kermit.Model
                 NotifyOfPropertyChange(() => Address);
             }
         }
+
+        public bool IsExpanded
+        {
+            get { return isExpanded; }
+            set
+            {
+                if (isExpanded == value) return;
+                isExpanded = value;
+                NotifyOfPropertyChange(() => IsExpanded);
+            }
+        }
+
 
         public IObservableCollection<Relation> Relations
         {

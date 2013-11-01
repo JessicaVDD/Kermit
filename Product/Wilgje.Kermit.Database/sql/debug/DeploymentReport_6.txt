@@ -1,0 +1,34 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       The column [dbo].[Family].[Addressee] is being dropped, data loss could occur.
+       The column [dbo].[Family].[NumberAndBus] is being dropped, data loss could occur.
+       The column [dbo].[Family].[Street] is being dropped, data loss could occur.
+
+** User actions
+     Drop
+       [dbo].[FK_Family_To_Street] (Foreign Key)
+       [dbo].[CK_Person_Sex] (Check Constraint)
+     Alter
+       [dbo].[Family] (Table)
+     Create
+       [dbo].[Address] (Table)
+       [dbo].[FamilyAddress] (Table)
+       [dbo].[FK_Address_To_Street] (Foreign Key)
+       [dbo].[FK_FamilyAddress_ToFamily] (Foreign Key)
+       [dbo].[FK_FamilyAddress_ToAddress] (Foreign Key)
+       [dbo].[CK_Person_Sex] (Check Constraint)
+       [dbo].[Address].[MS_Description] (Extended Property)
+       [dbo].[FamilyAddress].[MS_Description] (Extended Property)
+
+** Supporting actions
+
+The column [dbo].[Family].[Addressee] is being dropped, data loss could occur.
+The column [dbo].[Family].[NumberAndBus] is being dropped, data loss could occur.
+The column [dbo].[Family].[Street] is being dropped, data loss could occur.
+

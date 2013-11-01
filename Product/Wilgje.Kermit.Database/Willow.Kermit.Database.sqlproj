@@ -112,6 +112,8 @@
     <Build Include="Street.sql" />
     <Build Include="FamilyParticipants.sql" />
     <Build Include="Relation.sql" />
+    <Build Include="Address.sql" />
+    <Build Include="FamilyAddress.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Willow.Kermit.Database.refactorlog" />

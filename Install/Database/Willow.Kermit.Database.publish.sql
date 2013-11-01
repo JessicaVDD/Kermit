@@ -184,6 +184,22 @@ IF fulltextserviceproperty(N'IsFulltextInstalled') = 1
 
 
 GO
+PRINT N'Creating [dbo].[Address]...';
+
+
+GO
+CREATE TABLE [dbo].[Address] (
+    [Id]           INT            NOT NULL,
+    [Adressee]     VARCHAR (1000) NULL,
+    [Street]       INT            NULL,
+    [NumberAndBus] VARCHAR (50)   NULL,
+    [PTABegin]     DATETIME       NOT NULL,
+    [PTAEnd]       DATETIME       NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+GO
 PRINT N'Creating [dbo].[Child]...';
 
 
@@ -230,13 +246,25 @@ PRINT N'Creating [dbo].[Family]...';
 
 GO
 CREATE TABLE [dbo].[Family] (
-    [Id]           INT            NOT NULL,
-    [Name]         VARCHAR (500)  NULL,
-    [Addressee]    VARCHAR (1000) NULL,
-    [Street]       INT            NULL,
-    [NumberAndBus] VARCHAR (50)   NULL,
-    [PTABegin]     DATETIME       NOT NULL,
-    [PTAEnd]       DATETIME       NULL,
+    [Id]       INT           NOT NULL,
+    [Name]     VARCHAR (500) NULL,
+    [PTABegin] DATETIME      NOT NULL,
+    [PTAEnd]   DATETIME      NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+GO
+PRINT N'Creating [dbo].[FamilyAddress]...';
+
+
+GO
+CREATE TABLE [dbo].[FamilyAddress] (
+    [Id]       INT      NOT NULL,
+    [Family]   INT      NOT NULL,
+    [Address]  INT      NOT NULL,
+    [PTABegin] DATETIME NOT NULL,
+    [PTAEnd]   DATETIME NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
@@ -320,6 +348,15 @@ CREATE TABLE [dbo].[Street] (
 
 
 GO
+PRINT N'Creating FK_Address_To_Street...';
+
+
+GO
+ALTER TABLE [dbo].[Address]
+    ADD CONSTRAINT [FK_Address_To_Street] FOREIGN KEY ([Street]) REFERENCES [dbo].[Street] ([Id]);
+
+
+GO
 PRINT N'Creating FK_Child_To_Person...';
 
 
@@ -338,12 +375,21 @@ ALTER TABLE [dbo].[City]
 
 
 GO
-PRINT N'Creating FK_Family_To_Street...';
+PRINT N'Creating FK_FamilyAddress_ToFamily...';
 
 
 GO
-ALTER TABLE [dbo].[Family]
-    ADD CONSTRAINT [FK_Family_To_Street] FOREIGN KEY ([Street]) REFERENCES [dbo].[Street] ([Id]);
+ALTER TABLE [dbo].[FamilyAddress]
+    ADD CONSTRAINT [FK_FamilyAddress_ToFamily] FOREIGN KEY ([Family]) REFERENCES [dbo].[Family] ([Id]);
+
+
+GO
+PRINT N'Creating FK_FamilyAddress_ToAddress...';
+
+
+GO
+ALTER TABLE [dbo].[FamilyAddress]
+    ADD CONSTRAINT [FK_FamilyAddress_ToAddress] FOREIGN KEY ([Address]) REFERENCES [dbo].[Address] ([Id]);
 
 
 GO
@@ -419,6 +465,14 @@ ALTER TABLE [dbo].[Person]
 
 
 GO
+PRINT N'Creating [dbo].[Address].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'PTA Candidate', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'Address';
+
+
+GO
 PRINT N'Creating [dbo].[Child].[MS_Description]...';
 
 
@@ -432,6 +486,14 @@ PRINT N'Creating [dbo].[Family].[MS_Description]...';
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'PTA Candidate', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'Family';
+
+
+GO
+PRINT N'Creating [dbo].[FamilyAddress].[MS_Description]...';
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'PTA Candidate', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'TABLE', @level1name = N'FamilyAddress';
 
 
 GO
@@ -481,6 +543,8 @@ IF NOT EXISTS (SELECT OperationKey FROM [dbo].[__RefactorLog] WHERE OperationKey
 INSERT INTO [dbo].[__RefactorLog] (OperationKey) values ('0cf7dc00-dd16-4bdd-8b6c-7af0685b7139')
 IF NOT EXISTS (SELECT OperationKey FROM [dbo].[__RefactorLog] WHERE OperationKey = '416de8c2-e379-41c8-a348-5532fbf570ef')
 INSERT INTO [dbo].[__RefactorLog] (OperationKey) values ('416de8c2-e379-41c8-a348-5532fbf570ef')
+IF NOT EXISTS (SELECT OperationKey FROM [dbo].[__RefactorLog] WHERE OperationKey = '30006b75-12f7-4b3c-8aa5-348ff15e3590')
+INSERT INTO [dbo].[__RefactorLog] (OperationKey) values ('30006b75-12f7-4b3c-8aa5-348ff15e3590')
 
 GO
 

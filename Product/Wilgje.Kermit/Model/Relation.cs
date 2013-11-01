@@ -7,10 +7,13 @@ namespace Willow.Kermit.Model
         string first_name;
         string last_name;
         string extra_info;
+        string telephone;
+        string mail;
         string relation_type;
         bool isMan;
         DateTime? birthDate;
         string profession;
+        private bool isExpanded;
         
         public string FirstName
         {
@@ -20,6 +23,17 @@ namespace Willow.Kermit.Model
                 if (first_name == value) return;
                 first_name = value;
                 NotifyOfPropertyChange(() => FirstName);
+            }
+        }
+
+        public bool IsExpanded
+        {
+            get { return isExpanded; }
+            set
+            {
+                if (isExpanded == value) return;
+                isExpanded = value;
+                NotifyOfPropertyChange(() => IsExpanded);
             }
         }
 
@@ -34,6 +48,27 @@ namespace Willow.Kermit.Model
             }
         }
 
+        public string Telephone
+        {
+            get { return telephone; }
+            set
+            {
+                if (telephone == value) return;
+                telephone = value;
+                NotifyOfPropertyChange(() => Telephone);
+            }
+        }
+
+        public string Mail
+        {
+            get { return mail; }
+            set
+            {
+                if (mail == value) return;
+                mail = value;
+                NotifyOfPropertyChange(() => Mail);
+            }
+        }
 
         public string ExtraInfo
         {
