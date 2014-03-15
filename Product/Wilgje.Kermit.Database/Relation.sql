@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Relation]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [Name] VARCHAR(500) NOT NULL
+)

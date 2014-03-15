@@ -9,7 +9,6 @@ _[Rr]e[Ss]harper.*
 *.sqlproj.user
 *.cache
 *~
-*.sql
 *.swp
 *.swo
 artifacts
@@ -25,6 +24,7 @@ artifacts
 [Pp]roduct/*.web.ui/*.txt
 *.dbmdl
 *.orig
+*.publish.sql
 *.DotSettings.user
 Sandbox
 ![Ii]nstall/*/*.sql
