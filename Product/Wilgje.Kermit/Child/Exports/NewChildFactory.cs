@@ -12,7 +12,7 @@ namespace Willow.Kermit.Child.Exports
     {
         public BitmapImage Image
         {
-            get { return ImageGetter.Baby; }
+            get { return new DefaultImageGetter().Baby; }
         }
 
         public string Caption

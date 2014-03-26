@@ -18,21 +18,21 @@ namespace Willow.Kermit.Child.Converters
                 switch (r)
                 {
                     case "Broer":
-                        return new ImageGetter().Get("Brother.png");
+                        return new DefaultImageGetter().Get("Brother.png");
                     case "Zus":
-                        return new ImageGetter().Get("Sister.jpg");
+                        return new DefaultImageGetter().Get("Sister.jpg");
                     case "Papa":
-                        return new ImageGetter().Get("Daddy.jpg");
+                        return new DefaultImageGetter().Get("Daddy.jpg");
                     case "Mama":
-                        return new ImageGetter().Get("Mommy.jpg");
+                        return new DefaultImageGetter().Get("Mommy.jpg");
                     case "Opa":
-                        return new ImageGetter().Get("Man.png");
+                        return new DefaultImageGetter().Get("Man.png");
                     case "Oma":
-                        return new ImageGetter().Get("Woman.png");
+                        return new DefaultImageGetter().Get("Woman.png");
                     case "Man":
-                        return new ImageGetter().Get("Man.png");
+                        return new DefaultImageGetter().Get("Man.png");
                     default:
-                        return new ImageGetter().Get("Woman.png");
+                        return new DefaultImageGetter().Get("Woman.png");
                 }
             }
             return r.ToString();

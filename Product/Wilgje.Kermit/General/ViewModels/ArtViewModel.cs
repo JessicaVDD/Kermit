@@ -11,7 +11,7 @@ namespace Willow.Kermit.General.ViewModels
         BitmapImage _defaultPicture;
         public ArtViewModel()
         {
-            _defaultPicture = ImageGetter.Background;
+            _defaultPicture = new DefaultImageGetter().Background;
             _kid = _defaultPicture;
         }
 

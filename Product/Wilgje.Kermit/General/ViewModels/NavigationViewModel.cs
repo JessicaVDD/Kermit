@@ -16,11 +16,11 @@ namespace Willow.Kermit.General.ViewModels
         {
             Events = events;
 
-            Home = ImageGetter.Home;
-            ArrowBack = ImageGetter.ArrowLeft;
-            ArrowForward = ImageGetter.ArrowRight;
-            Settings = ImageGetter.Settings;
-            Help = ImageGetter.Help;
+            Home = new DefaultImageGetter().Home;
+            ArrowBack = new DefaultImageGetter().ArrowLeft;
+            ArrowForward = new DefaultImageGetter().ArrowRight;
+            Settings = new DefaultImageGetter().Settings;
+            Help = new DefaultImageGetter().Help;
         }
 
         public BitmapImage Home { get; set; }

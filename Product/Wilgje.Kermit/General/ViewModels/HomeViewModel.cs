@@ -17,8 +17,8 @@ namespace Willow.Kermit.General.ViewModels
         public HomeViewModel()
         {
             Caption = "Home";
-            
-            Image = ImageGetter.Home;
+
+            Image = new DefaultImageGetter().Home;
 
             AvailableButtons = ServiceLocator.Current.GetInstances<ITabViewModelFactory>()
                 .Select(x => new ImageButton { Text = x.Caption, Image = x.Image, DoClick = () => ShowTab(x.Create()) });

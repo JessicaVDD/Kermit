@@ -10,11 +10,11 @@ namespace Willow.Kermit.Model
             switch (gender)
             {
                 case Gender.Male:
-                    return ImageGetter.BabyBoy;
+                    return new DefaultImageGetter().BabyBoy;
                 case Gender.Female:
-                    return ImageGetter.BabyGirl;
+                    return new DefaultImageGetter().BabyGirl;
                 default:
-                    return ImageGetter.Baby;
+                    return new DefaultImageGetter().Baby;
             }
         }
     }

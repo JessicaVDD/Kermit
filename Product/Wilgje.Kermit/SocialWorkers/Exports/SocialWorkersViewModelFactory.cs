@@ -11,7 +11,7 @@ namespace Willow.Kermit.SocialWorkers.Exports
     {
         public BitmapImage Image
         {
-            get { return ImageGetter.SocialWorkers; }
+            get { return new DefaultImageGetter().SocialWorkers; }
         }
 
         public string Caption

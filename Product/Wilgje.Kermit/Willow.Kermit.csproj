@@ -106,6 +106,7 @@
     <Compile Include="General\Messages\ShowHomeMessage.cs" />
     <Compile Include="General\Messages\ShowTabViewMessage.cs" />
     <Compile Include="General\ViewModels\ImageButton.cs" />
+    <Compile Include="Shell\ViewModels\SearchPanelViewModel.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\ClientFactory.cs" />
@@ -126,14 +127,34 @@
     <Compile Include="Reflection\ReflectedType.cs" />
     <Compile Include="Reflection\StaticReflectionWrapper.cs" />
     <Compile Include="Search\Exports\SearchResultsViewModelFactory.cs" />
+    <Compile Include="Shell\Interfaces\ArtFiller.cs" />
+    <Compile Include="Shell\Interfaces\SearchPanel.cs" />
+    <Compile Include="Shell\Interfaces\TopNavigation.cs" />
+    <Compile Include="Shell\ViewModels\ArtFillerViewModel.cs" />
+    <Compile Include="Shell\Interfaces\Main.cs" />
+    <Compile Include="Shell\ViewModels\MainViewModel.cs" />
+    <Compile Include="Shell\ViewModels\TopNavigationViewModel.cs" />
+    <Compile Include="Shell\Views\ArtFillerView.xaml.cs">
+      <DependentUpon>ArtFillerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\Views\SearchPanelView.xaml.cs">
+      <DependentUpon>SearchPanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\Views\TopNavigationView.xaml.cs">
+      <DependentUpon>TopNavigationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SocialWorkers\Exports\SocialWorkersViewModelFactory.cs" />
     <Compile Include="Util\Container.cs" />
     <Compile Include="Util\ContainerFactory.cs" />
+    <Compile Include="Util\DefaultImageGetter.cs" />
     <Compile Include="Util\ImageGetter.cs" />
-    <Compile Include="Util\IUriResolver.cs" />
+    <Compile Include="Util\UriResolver.cs" />
     <Compile Include="Util\PathLocator.cs" />
     <Compile Include="Util\ServiceLocator.cs" />
-    <Compile Include="Util\UriResolver.cs" />
+    <Compile Include="Util\DefaultUriResolver.cs" />
     <Compile Include="Util\WindowsSecurity.cs" />
     <Compile Include="General\ViewModels\ActionTabsViewModel.cs" />
     <Compile Include="General\ViewModels\ArtViewModel.cs" />
@@ -205,6 +226,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Child\Views\RelationVisualCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shell\Views\ArtFillerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shell\Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shell\Views\SearchPanelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shell\Views\TopNavigationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

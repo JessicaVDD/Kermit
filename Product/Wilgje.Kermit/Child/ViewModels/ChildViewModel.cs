@@ -31,7 +31,7 @@ namespace Willow.Kermit.Child.ViewModels
             _child.PropertyChanged += Child_PropertyChanged;
 
             Caption = client.FirstName;
-            Image = ImageGetter.BabyIcon;
+            Image = new DefaultImageGetter().BabyIcon;
 
             ChildVisualCard = new ChildVisualCardViewModel(_child);
             ChildActionPanels = new List<IChildInfoPanel>
