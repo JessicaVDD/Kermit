@@ -16,21 +16,21 @@ namespace Willow.Kermit.Application
 		/// By default, we are configured to use MEF
 		/// </summary>
 		protected override void Configure() {
-            AssemblySource.Instance.Add(typeof(IShell).Assembly);
-            var catalog = new AggregateCatalog(
-		        AssemblySource.Instance.Select(x => new AssemblyCatalog(x))
-		        );
+            //Retrieve all the assemblies
+            var pluginAssemblies = new[] { typeof(IShell).Assembly };
+            
+            //Add the assemblies to Caliburn's source & our own catalogue
+            AssemblySource.Instance.AddRange(pluginAssemblies);
+            var catalog = new AggregateCatalog(pluginAssemblies.Select(x =>  new AssemblyCatalog(x)).ToArray());
 
-			_container = new CompositionContainer(catalog);
+            //Add manually created objects
+            var batch = new CompositionBatch();
+            batch.AddExportedValue<IWindowManager>(new WindowManager());
+            batch.AddExportedValue<IEventAggregator>(new EventAggregator());
 
-			var batch = new CompositionBatch();
-
-			batch.AddExportedValue<IWindowManager>(new WindowManager());
-			batch.AddExportedValue<IEventAggregator>(new EventAggregator());
-            batch.AddExportedValue(_container);
-		    batch.AddExportedValue(catalog);
-
-			_container.Compose(batch);
+            //Compose the container with the catalog and add manually created exports
+            _container = new CompositionContainer(catalog);
+            _container.Compose(batch);            
 		}
 
 		protected override object GetInstance(Type serviceType, string key)
