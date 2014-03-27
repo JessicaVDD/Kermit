@@ -6,20 +6,18 @@
              xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Border BorderBrush="Cyan" BorderThickness="3">
-        <ItemsControl Name="Commands">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Button cal:Message.Attach="[Event Click]=[Action Execute]">
-                        <Image Width="48" Height="48" Stretch="Fill" Source="{Binding Image}"/>
-                    </Button>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </Border>
+    <ItemsControl Name="Commands">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Horizontal" Margin="3,3,0,3" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Button cal:Message.Attach="[Event Click]=[Action Execute]" Margin="0,0,3,0">
+                    <Image Width="48" Height="48" Stretch="Fill" Source="{Binding Image}"/>
+                </Button>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
 </UserControl>

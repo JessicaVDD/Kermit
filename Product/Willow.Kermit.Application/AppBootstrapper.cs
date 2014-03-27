@@ -8,7 +8,7 @@ using Willow.Kermit.Shell.Interfaces;
 
 namespace Willow.Kermit.Application
 {
-    public class AppBootstrapper : Bootstrapper<IShell>
+    public class AppBootstrapper : Bootstrapper<KermitShell>
 	{
 		CompositionContainer _container;
 
@@ -17,7 +17,7 @@ namespace Willow.Kermit.Application
 		/// </summary>
 		protected override void Configure() {
             //Retrieve all the assemblies
-            var pluginAssemblies = new[] { typeof(IShell).Assembly };
+            var pluginAssemblies = new[] { typeof(KermitShell).Assembly };
             
             //Add the assemblies to Caliburn's source & our own catalogue
             AssemblySource.Instance.AddRange(pluginAssemblies);

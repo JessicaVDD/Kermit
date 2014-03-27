@@ -10,7 +10,7 @@ namespace Willow.Kermit.Specs.Shell
 {   
     public class ShellViewModelSpecs
     {
-        public abstract class concern : ObservesWithINPC<IShellViewModel, ShellViewModel>
+        public abstract class concern : ObservesWithINPC<KermitShell, KermitShellViewModel>
         {
             Establish c = () =>
             {
@@ -31,7 +31,7 @@ namespace Willow.Kermit.Specs.Shell
             protected static IEventAggregator events;
         }
 
-        [Subject(typeof(ShellViewModel))]
+        [Subject(typeof(KermitShellViewModel))]
         public class when_using_the_view : concern
         {
             Because b = () => { };
@@ -52,7 +52,7 @@ namespace Willow.Kermit.Specs.Shell
         }
 
 
-        [Subject(typeof(ShellViewModel))]
+        [Subject(typeof(KermitShellViewModel))]
         public class when_changing_a_property : concern
         {
             Because b = () => { property_helper.trigger_all_properties(); };

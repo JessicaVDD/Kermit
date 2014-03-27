@@ -8,7 +8,7 @@ using System.Windows.Media.Imaging;
 
 namespace Willow.Kermit.Shell.Interfaces
 {
-    public interface SearchPanel
+    public interface Search
     {
         string SearchText { get; set; }
         BitmapImage Search { get; }

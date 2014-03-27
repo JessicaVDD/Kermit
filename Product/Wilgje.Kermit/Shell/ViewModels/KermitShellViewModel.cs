@@ -2,21 +2,21 @@
 using Caliburn.Micro;
 using Willow.Kermit.Shell.Interfaces;
 
+
 namespace Willow.Kermit.Shell.ViewModels 
 {
-    [Export(typeof(IShell))]
-    public class ShellViewModel : PropertyChangedBase ,IShell, IShellViewModel
+    [Export(typeof(KermitShell))]
+    public class KermitShellViewModel : PropertyChangedBase, KermitShell
     {
 
         [ImportingConstructor]
-        public ShellViewModel(ArtFiller artFiller, TopNavigation topNavigation, Main mainPanel, SearchPanel searchPanel)
+        public KermitShellViewModel(ArtFiller artFiller, TopNavigation topNavigation, Main mainPanel, Search searchPanel, Status statusPanel)
         {
             Navigation = topNavigation;
             Art = artFiller;
             Main = mainPanel;
             Search = searchPanel;
-            //Navigation.Events.Subscribe(ActionTabs);
-            //Search.Events.Subscribe(ActionTabs);
+            Status = statusPanel;
             Title = "Kermit";
         }
 
@@ -30,6 +30,7 @@ namespace Willow.Kermit.Shell.ViewModels
         public TopNavigation Navigation { get; set; }
         public ArtFiller Art { get; set; }
         public Main Main { get; set; }
-        public SearchPanel Search { get; set; }
+        public Search Search { get; set; }
+        public Status Status { get; set; }
     }
 }

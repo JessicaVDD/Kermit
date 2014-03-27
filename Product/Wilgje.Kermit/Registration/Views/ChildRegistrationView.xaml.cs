@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Willow.Kermit.Shell.Views
+namespace Willow.Kermit.Registration.Views
 {
     /// <summary>
-    /// Interaction logic for SearchPanelView.xaml
+    /// Interaction logic for ChildRegistrationView.xaml
     /// </summary>
-    public partial class SearchPanelView : UserControl
+    public partial class ChildRegistrationView : UserControl
     {
-        public SearchPanelView()
+        public ChildRegistrationView()
         {
             InitializeComponent();
         }

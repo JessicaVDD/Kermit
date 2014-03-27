@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Willow.Kermit.Shell.Messages;
+using System.Threading.Tasks;
 
 namespace Willow.Kermit.Shell.Interfaces
 {
-    public interface Main : IConductor, IHandle<ScreenItemMessage>, IHandle<NavigationMessage>
+    public interface Home : ScreenItem
     {
+        IObservableCollection<KermitModule> Modules { get; }
     }
 }

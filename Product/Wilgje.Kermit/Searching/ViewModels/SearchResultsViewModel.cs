@@ -5,10 +5,10 @@ using System.Windows.Media.Imaging;
 using Caliburn.Micro;
 using Willow.Kermit.General.Interfaces;
 using Willow.Kermit.General.Messages;
-using Willow.Kermit.Search.Interfaces;
+using Willow.Kermit.Searching.Interfaces;
 using Willow.Kermit.Util;
 
-namespace Willow.Kermit.Search.ViewModels
+namespace Willow.Kermit.Searching.ViewModels
 {
     [Export(typeof(ITabViewModel))]
     [Export(typeof(ISearchResults))]

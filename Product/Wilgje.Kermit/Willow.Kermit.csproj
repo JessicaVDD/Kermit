@@ -106,7 +106,20 @@
     <Compile Include="General\Messages\ShowHomeMessage.cs" />
     <Compile Include="General\Messages\ShowTabViewMessage.cs" />
     <Compile Include="General\ViewModels\ImageButton.cs" />
-    <Compile Include="Shell\ViewModels\SearchPanelViewModel.cs" />
+    <Compile Include="Registration\ChildRegistrationModule.cs" />
+    <Compile Include="Registration\Interfaces\ChildRegistration.cs" />
+    <Compile Include="Registration\ViewModels\ChildRegistrationViewModel.cs" />
+    <Compile Include="Registration\Views\ChildRegistrationView.xaml.cs">
+      <DependentUpon>ChildRegistrationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\Interfaces\Home.cs" />
+    <Compile Include="Shell\Interfaces\KermitModule.cs" />
+    <Compile Include="Shell\Interfaces\ScreenItem.cs" />
+    <Compile Include="Shell\Interfaces\Status.cs" />
+    <Compile Include="Shell\Messages\ScreenItemMessage.cs" />
+    <Compile Include="Shell\Messages\NavigationMessage.cs" />
+    <Compile Include="Shell\ViewModels\HomeViewModel.cs" />
+    <Compile Include="Shell\ViewModels\SearchViewModel.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\ClientFactory.cs" />
@@ -126,22 +139,29 @@
     <Compile Include="Reflection\ReflectedInstance.cs" />
     <Compile Include="Reflection\ReflectedType.cs" />
     <Compile Include="Reflection\StaticReflectionWrapper.cs" />
-    <Compile Include="Search\Exports\SearchResultsViewModelFactory.cs" />
+    <Compile Include="Searching\Exports\SearchResultsViewModelFactory.cs" />
     <Compile Include="Shell\Interfaces\ArtFiller.cs" />
-    <Compile Include="Shell\Interfaces\SearchPanel.cs" />
+    <Compile Include="Shell\Interfaces\Search.cs" />
     <Compile Include="Shell\Interfaces\TopNavigation.cs" />
     <Compile Include="Shell\ViewModels\ArtFillerViewModel.cs" />
     <Compile Include="Shell\Interfaces\Main.cs" />
     <Compile Include="Shell\ViewModels\MainViewModel.cs" />
+    <Compile Include="Shell\ViewModels\StatusViewModel.cs" />
     <Compile Include="Shell\ViewModels\TopNavigationViewModel.cs" />
     <Compile Include="Shell\Views\ArtFillerView.xaml.cs">
       <DependentUpon>ArtFillerView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Shell\Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shell\Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Shell\Views\SearchPanelView.xaml.cs">
-      <DependentUpon>SearchPanelView.xaml</DependentUpon>
+    <Compile Include="Shell\Views\SearchView.xaml.cs">
+      <DependentUpon>SearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\Views\StatusView.xaml.cs">
+      <DependentUpon>StatusView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shell\Views\TopNavigationView.xaml.cs">
       <DependentUpon>TopNavigationView.xaml</DependentUpon>
@@ -164,18 +184,17 @@
     <Compile Include="General\Interfaces\IHomeViewModel.cs" />
     <Compile Include="General\Interfaces\INavigationViewModel.cs" />
     <Compile Include="Child\Interfaces\INewChildViewModel.cs" />
-    <Compile Include="Search\Interfaces\ISearchResultsViewModel.cs" />
+    <Compile Include="Searching\Interfaces\ISearchResultsViewModel.cs" />
     <Compile Include="General\Interfaces\ISearchViewModel.cs" />
-    <Compile Include="Shell\Interfaces\IShellViewModel.cs" />
     <Compile Include="SocialWorkers\Interfaces\ISocialWorkersViewModel.cs" />
     <Compile Include="General\Interfaces\IStatusViewModel.cs" />
     <Compile Include="General\Interfaces\ITabViewModel.cs" />
     <Compile Include="General\ViewModels\NavigationViewModel.cs" />
     <Compile Include="Child\ViewModels\ChildViewModel.cs" />
-    <Compile Include="Search\ViewModels\SearchResultsViewModel.cs" />
+    <Compile Include="Searching\ViewModels\SearchResultsViewModel.cs" />
     <Compile Include="General\ViewModels\SearchViewModel.cs" />
-    <Compile Include="Shell\ViewModels\ShellViewModel.cs" />
-    <Compile Include="Shell\Interfaces\IShell.cs" />
+    <Compile Include="Shell\ViewModels\KermitShellViewModel.cs" />
+    <Compile Include="Shell\Interfaces\KermitShell.cs" />
     <Compile Include="SocialWorkers\ViewModels\SocialWorkersViewModel.cs" />
     <Compile Include="General\ViewModels\StatusViewModel.cs" />
     <Compile Include="General\Views\ActionTabsView.xaml.cs">
@@ -193,7 +212,7 @@
     <Compile Include="Child\Views\ChildView.xaml.cs">
       <DependentUpon>ChildView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Search\Views\SearchResultsView.xaml.cs">
+    <Compile Include="Searching\Views\SearchResultsView.xaml.cs">
       <DependentUpon>SearchResultsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="General\Views\SearchView.xaml.cs">
@@ -229,7 +248,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Registration\Views\ChildRegistrationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Shell\Views\ArtFillerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shell\Views\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -237,7 +264,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Shell\Views\SearchPanelView.xaml">
+    <Page Include="Shell\Views\SearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shell\Views\StatusView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -273,7 +304,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Search\Views\SearchResultsView.xaml">
+    <Page Include="Searching\Views\SearchResultsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -281,7 +312,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Shell\Views\ShellView.xaml">
+    <Page Include="Shell\Views\KermitShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

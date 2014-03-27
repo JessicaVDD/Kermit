@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.Composition;
 using System.Windows.Media.Imaging;
 using Willow.Kermit.General.Interfaces;
-using Willow.Kermit.Search.ViewModels;
+using Willow.Kermit.Searching.ViewModels;
 using Willow.Kermit.Util;
 
-namespace Willow.Kermit.Search.Exports
+namespace Willow.Kermit.Searching.Exports
 {
     [Export(typeof(ITabViewModelFactory))]
     [Export(typeof(ISearchResultsFactory))]

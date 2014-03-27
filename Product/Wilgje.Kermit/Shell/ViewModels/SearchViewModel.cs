@@ -9,13 +9,13 @@ using System.Windows.Media.Imaging;
 using Willow.Kermit.Shell.Interfaces;
 using Willow.Kermit.Util;
 
-namespace Willow.Kermit.General.ViewModels
+namespace Willow.Kermit.Shell.ViewModels
 {
-    [Export(typeof(SearchPanel))]
-    public class SearchPanelViewModel : PropertyChangedBase, SearchPanel
+    [Export(typeof(Search))]
+    public class SearchViewModel : PropertyChangedBase, Search
     {
         [ImportingConstructor]
-        public SearchPanelViewModel(ImageGetter getter)
+        public SearchViewModel(ImageGetter getter)
         {
             Search = getter.SearchSmall;
         }

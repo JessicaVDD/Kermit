@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Willow.Kermit.Search.Views.SearchResultsView"
+﻿<UserControl x:Class="Willow.Kermit.Searching.Views.SearchResultsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <UserControl.Resources>
