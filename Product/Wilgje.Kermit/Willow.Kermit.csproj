@@ -94,18 +94,6 @@
     <Compile Include="Child\Views\RelationVisualCardView.xaml.cs">
       <DependentUpon>RelationVisualCardView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="General\Controls\ImageButton.xaml.cs">
-      <DependentUpon>ImageButton.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="General\Interfaces\ISearchResults.cs" />
-    <Compile Include="General\Interfaces\ITabViewModelFactory.cs" />
-    <Compile Include="General\Messages\CloseTabMessage.cs" />
-    <Compile Include="General\Messages\ICloseTabMessage.cs" />
-    <Compile Include="General\Messages\IShowHomeMessage.cs" />
-    <Compile Include="General\Messages\IShowTabViewMessage.cs" />
-    <Compile Include="General\Messages\ShowHomeMessage.cs" />
-    <Compile Include="General\Messages\ShowTabViewMessage.cs" />
-    <Compile Include="General\ViewModels\ImageButton.cs" />
     <Compile Include="Registration\ChildRegistrationModule.cs" />
     <Compile Include="Registration\Interfaces\ChildRegistration.cs" />
     <Compile Include="Registration\ViewModels\ChildRegistrationViewModel.cs" />
@@ -176,53 +164,22 @@
     <Compile Include="Util\ServiceLocator.cs" />
     <Compile Include="Util\DefaultUriResolver.cs" />
     <Compile Include="Util\WindowsSecurity.cs" />
-    <Compile Include="General\ViewModels\ActionTabsViewModel.cs" />
-    <Compile Include="General\ViewModels\ArtViewModel.cs" />
-    <Compile Include="General\ViewModels\HomeViewModel.cs" />
-    <Compile Include="General\Interfaces\IActionTabsViewModel.cs" />
-    <Compile Include="General\Interfaces\IArtViewModel.cs" />
-    <Compile Include="General\Interfaces\IHomeViewModel.cs" />
-    <Compile Include="General\Interfaces\INavigationViewModel.cs" />
     <Compile Include="Child\Interfaces\INewChildViewModel.cs" />
     <Compile Include="Searching\Interfaces\ISearchResultsViewModel.cs" />
-    <Compile Include="General\Interfaces\ISearchViewModel.cs" />
     <Compile Include="SocialWorkers\Interfaces\ISocialWorkersViewModel.cs" />
-    <Compile Include="General\Interfaces\IStatusViewModel.cs" />
-    <Compile Include="General\Interfaces\ITabViewModel.cs" />
-    <Compile Include="General\ViewModels\NavigationViewModel.cs" />
     <Compile Include="Child\ViewModels\ChildViewModel.cs" />
     <Compile Include="Searching\ViewModels\SearchResultsViewModel.cs" />
-    <Compile Include="General\ViewModels\SearchViewModel.cs" />
     <Compile Include="Shell\ViewModels\KermitShellViewModel.cs" />
     <Compile Include="Shell\Interfaces\KermitShell.cs" />
     <Compile Include="SocialWorkers\ViewModels\SocialWorkersViewModel.cs" />
-    <Compile Include="General\ViewModels\StatusViewModel.cs" />
-    <Compile Include="General\Views\ActionTabsView.xaml.cs">
-      <DependentUpon>ActionTabsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="General\Views\ArtView.xaml.cs">
-      <DependentUpon>ArtView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="General\Views\HomeView.xaml.cs">
-      <DependentUpon>HomeView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="General\Views\NavigationView.xaml.cs">
-      <DependentUpon>NavigationView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Child\Views\ChildView.xaml.cs">
       <DependentUpon>ChildView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Searching\Views\SearchResultsView.xaml.cs">
       <DependentUpon>SearchResultsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="General\Views\SearchView.xaml.cs">
-      <DependentUpon>SearchView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SocialWorkers\Views\SocialWorkersView.xaml.cs">
       <DependentUpon>SocialWorkersView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="General\Views\StatusView.xaml.cs">
-      <DependentUpon>StatusView.xaml</DependentUpon>
     </Compile>
     <Page Include="Child\Views\ChildOverviewView.xaml">
       <SubType>Designer</SubType>
@@ -280,26 +237,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="General\Controls\ImageButton.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="General\Views\ActionTabsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="General\Views\ArtView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="General\Views\HomeView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="General\Views\NavigationView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Child\Views\ChildView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -308,19 +245,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="General\Views\SearchView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Shell\Views\KermitShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="SocialWorkers\Views\SocialWorkersView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="General\Views\StatusView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

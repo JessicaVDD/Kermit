@@ -9,5 +9,6 @@ namespace Willow.Kermit.Shell.Interfaces
 {
     public interface Main : IConductor, IHandle<ScreenItemMessage>, IHandle<NavigationMessage>
     {
+        IObservableCollection<ScreenItem> Items { get; }
     }
 }

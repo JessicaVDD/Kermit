@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.Composition;
 using System.Windows.Media.Imaging;
-using Willow.Kermit.General.Interfaces;
+//using Willow.Kermit.General.Interfaces;
 using Willow.Kermit.SocialWorkers.ViewModels;
 using Willow.Kermit.Util;
 
 namespace Willow.Kermit.SocialWorkers.Exports
 {
-    [Export(typeof(ITabViewModelFactory))]
-    public class SocialWorkersViewModelFactory : ITabViewModelFactory
+//    [Export(typeof(ITabViewModelFactory))]
+    public class SocialWorkersViewModelFactory //: ITabViewModelFactory
     {
         public BitmapImage Image
         {
@@ -19,10 +19,10 @@ namespace Willow.Kermit.SocialWorkers.Exports
             get { return "Hulpverleners"; }
         }
 
-        public ITabViewModel Create()
-        {
-            return new SocialWorkersViewModel();
-        }
+        //public ITabViewModel Create()
+        //{
+        //    return new SocialWorkersViewModel();
+        //}
     }
 
 }

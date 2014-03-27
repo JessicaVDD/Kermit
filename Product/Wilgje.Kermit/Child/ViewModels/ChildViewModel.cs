@@ -5,14 +5,14 @@ using System.ComponentModel.Composition;
 using System.Windows.Media.Imaging;
 using Caliburn.Micro;
 using Willow.Kermit.Child.Interfaces;
-using Willow.Kermit.General.Interfaces;
-using Willow.Kermit.General.Messages;
+//using Willow.Kermit.General.Interfaces;
+//using Willow.Kermit.General.Messages;
 using Willow.Kermit.Model;
 using Willow.Kermit.Util;
 
 namespace Willow.Kermit.Child.ViewModels
 {
-    [Export(typeof(ITabViewModel))]
+//    [Export(typeof(ITabViewModel))]
     public class ChildViewModel : Screen, IChildViewModel
     {
         Client _child;
@@ -70,8 +70,8 @@ namespace Willow.Kermit.Child.ViewModels
 
         public void Close()
         {
-            if (Events != null)
-                Events.Publish(new CloseTabMessage { Item = this });
+            //if (Events != null)
+            //    Events.Publish(new CloseTabMessage { Item = this });
         }
 
         void Child_PropertyChanged(object sender, PropertyChangedEventArgs e)

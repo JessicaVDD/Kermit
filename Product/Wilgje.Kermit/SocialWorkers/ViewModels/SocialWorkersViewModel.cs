@@ -1,14 +1,14 @@
 using System.ComponentModel.Composition;
 using System.Windows.Media.Imaging;
 using Caliburn.Micro;
-using Willow.Kermit.General.Interfaces;
-using Willow.Kermit.General.Messages;
+//using Willow.Kermit.General.Interfaces;
+//using Willow.Kermit.General.Messages;
 using Willow.Kermit.SocialWorkers.Interfaces;
 using Willow.Kermit.Util;
 
 namespace Willow.Kermit.SocialWorkers.ViewModels
 {
-    [Export(typeof(ITabViewModel))]
+    //[Export(typeof(ITabViewModel))]
     public class SocialWorkersViewModel : Screen, ISocialWorkersViewModel
     {
         public SocialWorkersViewModel()
@@ -24,8 +24,8 @@ namespace Willow.Kermit.SocialWorkers.ViewModels
         public IEventAggregator Events { get; set; }
         public void Close()
         {
-            if (Events != null)
-                Events.Publish(new CloseTabMessage {Item = this});
+            //if (Events != null)
+            //    Events.Publish(new CloseTabMessage {Item = this});
         }
     }
 }
