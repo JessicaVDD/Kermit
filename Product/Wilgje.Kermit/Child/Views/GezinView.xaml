@@ -24,7 +24,7 @@
         <ItemsControl Grid.Row="1" Name="Families" >
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Expander Style="{StaticResource MyExpander}" IsExpanded="{Binding IsExpanded}">
+                    <Expander Style="{StaticResource KermitExpander}" IsExpanded="{Binding IsExpanded}">
                         <Expander.Header>
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -75,7 +75,7 @@
                             <ItemsControl ItemsSource="{Binding Relations}" Grid.Row="1" Grid.Column="0">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <Expander ExpandDirection="Down" Style="{StaticResource MyExpander}" IsExpanded="{Binding IsExpanded}">
+                                        <Expander ExpandDirection="Down" Style="{StaticResource KermitExpander}" IsExpanded="{Binding IsExpanded}">
                                             <Expander.Header>
                                                 <Grid>
                                                     <Grid.ColumnDefinitions>

@@ -93,7 +93,7 @@
         </Border>
     </ControlTemplate>
 
-    <Style TargetType="{x:Type Expander}" x:Key="MyExpander">
+    <Style TargetType="{x:Type Expander}" x:Key="KermitExpander">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Expander}">

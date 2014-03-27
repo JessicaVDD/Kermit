@@ -4,6 +4,8 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Expander.xaml"/>
         <ResourceDictionary Source="Kermit.xaml"/>
+        <ResourceDictionary Source="TabItem.xaml" />
+        <ResourceDictionary Source="CloseButton.xaml" />
     </ResourceDictionary.MergedDictionaries>
  
 </ResourceDictionary>
