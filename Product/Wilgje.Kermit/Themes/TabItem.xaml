@@ -1,44 +1,42 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <Thickness x:Key="TabItemMargin_Base">0,8,-4,0</Thickness>
     <Thickness x:Key="TabItemMargin_Selected">-4,0,-4,0</Thickness>
+    <Thickness x:Key="TabItemMargin_Hover_Start">0,2,0,0</Thickness>
     <Thickness x:Key="TabItemMargin_Hover_Final">0,4,0,0</Thickness>
-    <Color x:Key="BorderColor_Base">#888</Color>
-    <Color x:Key="TabControl_BackgroundColor_Base">#EEF7FF</Color>
-    <Color x:Key="TabItem_ForegroundColor_Base">#4971A3</Color>
-    
-    <SolidColorBrush x:Key="TabItem_TextBrush_Disabled" Color="#888" />
-    <SolidColorBrush x:Key="TabItem_TextBrush_Hover" Color="#2D2C8A" />
-    <SolidColorBrush x:Key="TabItem_TextBrush_Selected" Color="#0D3288" />
+    <Color x:Key="BorderColor_Base">LightGray</Color>
+    <Color x:Key="TabControl_BackgroundColor_Base">LightGray</Color>
+    <Color x:Key="TabItem_ForegroundColor_Base">White</Color>
+
+    <SolidColorBrush x:Key="TabItem_TextBrush_Disabled" Color="White" />
+    <SolidColorBrush x:Key="TabItem_TextBrush_Hover" Color="White" />
+    <SolidColorBrush x:Key="TabItem_TextBrush_Selected" Color="Black" />
     <SolidColorBrush x:Key="TabItem_BorderBrush_Selected" Color="{StaticResource BorderColor_Base}" />
     <SolidColorBrush x:Key="TabItem_TextBrush_Unselected" Color="{StaticResource TabItem_ForegroundColor_Base}" />
 
     <LinearGradientBrush x:Key="TabItem_BackgroundBrush_Unselected" StartPoint="0,0" EndPoint="0,1">
         <LinearGradientBrush.GradientStops>
-            <GradientStop Color="#E8F2FF" Offset="0.0"/>
-            <GradientStop Color="#DFE9F6" Offset="0.3"/>
-            <GradientStop Color="#C7D8EE" Offset="0.7"/>
-            <GradientStop Color="#B9CADE" Offset="0.98"/>
-            <!-- See the TabPanel_BackgroundBrush comment. -->
+            <GradientStop Color="LightGray" Offset="0.0"/>
             <GradientStop Color="{StaticResource BorderColor_Base}" Offset="0.99"/>
         </LinearGradientBrush.GradientStops>
     </LinearGradientBrush>
     
     <LinearGradientBrush x:Key="TabItem_Border_Unselected" StartPoint="0,0" EndPoint="0,1">
-        <GradientStop Color="#AAA" Offset="0"/>
+        <GradientStop Color="LightGray" Offset="0"/>
         <GradientStop Color="{StaticResource BorderColor_Base}" Offset="0.8"/>
     </LinearGradientBrush>
 
     <LinearGradientBrush x:Key="TabItem_DisabledBorderBrush" StartPoint="0,0" EndPoint="0,1">
-        <GradientStop Color="#CCC" Offset="0"/>
+        <GradientStop Color="LightGray" Offset="0"/>
         <GradientStop Color="{StaticResource BorderColor_Base}" Offset="0.8"/>
     </LinearGradientBrush>
 
     <LinearGradientBrush x:Key="TabItem_BackgroundBrush_Disabled" StartPoint="0,0" EndPoint="0,1">
         <LinearGradientBrush.GradientStops>
-            <GradientStop Color="#EEE" Offset="0"/>
-            <GradientStop Color="#BBB" Offset="0.98"/>
+            <GradientStop Color="LightGray" Offset="0"/>
+            <GradientStop Color="LightGray" Offset="0.98"/>
             <!-- This is the same trick as with the TabPanel_BackgroundBrush (see there). -->
             <GradientStop Color="{StaticResource BorderColor_Base}" Offset="0.99"/>
         </LinearGradientBrush.GradientStops>
@@ -46,27 +44,41 @@
 
     <LinearGradientBrush x:Key="TabItem_HoverBorderBrush" StartPoint="0,0" EndPoint="0,1">
         <LinearGradientBrush.GradientStops>
-            <GradientStop Offset="0.98" Color="DarkOrange"/>
+            <GradientStop Offset="0.98" Color="LightGray"/>
             <!-- See the TabPanel_BackgroundBrush comment. -->
             <GradientStop Offset="0.99" Color="{StaticResource BorderColor_Base}"/>
         </LinearGradientBrush.GradientStops>
     </LinearGradientBrush>
 
     <LinearGradientBrush x:Key="TabItem_HoverBackgroundBrush" EndPoint="0.5,1" StartPoint="0.5,0">
-        <GradientStop Color="#FFFFD5A0" Offset="0.3" />
-        <GradientStop Color="#FFFFA335" Offset="0.51" />
-        <GradientStop Color="#FFFFC14A" Offset="0.98" />
+        <GradientStop Color="LightGray" Offset="0.3" />
+        <GradientStop Color="LightGray" Offset="0.51" />
+        <GradientStop Color="LightGray" Offset="0.98" />
     </LinearGradientBrush>
 
     <LinearGradientBrush x:Key="TabItem_BackgroundBrush_Selected" StartPoint="0,0" EndPoint="0,1">
         <LinearGradientBrush.GradientStops>
-            <GradientStop Color="#FFFFC14A" Offset="0.1" />
+            <GradientStop Color="LightGray" Offset="0.1" />
             <GradientStop Color="{StaticResource TabControl_BackgroundColor_Base}" Offset="0.15"/>
-            <GradientStop Color="#C5DBF6" Offset="0.8"/>
+            <GradientStop Color="LightGray" Offset="0.8"/>
             <GradientStop Color="{StaticResource TabControl_BackgroundColor_Base}" Offset="1.0"/>
         </LinearGradientBrush.GradientStops>
     </LinearGradientBrush>
 
+    <Storyboard x:Key="TabItemStoryBoard_Unselected">
+        <ThicknessAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="Margin" To="{StaticResource TabItemMargin_Base}" FillBehavior="HoldEnd" Duration="0:0:0.1"/>
+    </Storyboard>
+    
+    <Storyboard x:Key="TabItemStoryBoard_Selected">
+        <ThicknessAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="Margin" To="{StaticResource TabItemMargin_Selected}" FillBehavior="HoldEnd" Duration="0:0:0.1"/>
+    </Storyboard>
+
+    <Storyboard x:Key="TabItemStoryBoard_Hover">
+        <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Margin" FillBehavior="HoldEnd"> 
+            <SplineThicknessKeyFrame KeyTime="0:0:0.1" Value="{StaticResource TabItemMargin_Hover_Start}"/>
+            <SplineThicknessKeyFrame KeyTime="0:0:0.2" Value="{StaticResource TabItemMargin_Hover_Final}"/>
+        </ThicknessAnimationUsingKeyFrames>
+    </Storyboard>
     <!-- The Style for TabItems (strips). -->
     <Style TargetType="{x:Type TabItem}">
         <Setter Property="Template">
@@ -113,7 +125,7 @@
                               (bubble up to the parent TabItem).
                            -->
                                 <Button x:Name="cmdTabItemCloseButton"
-                                   Style="{StaticResource CloseButtonStyle}"
+                                   Style="{DynamicResource CloseButtonStyle}"
                                    Command="{Binding Path=Content.DataContext.CloseCommand}"
                                    CommandParameter="{Binding  
                                        RelativeSource={RelativeSource FindAncestor, 

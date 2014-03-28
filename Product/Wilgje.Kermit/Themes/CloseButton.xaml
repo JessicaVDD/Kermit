@@ -1,12 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    
+    <Color x:Key="CloseButton_ForegroundColor_Base">DarkGray</Color>
 
     <sys:Double x:Key="CloseButtonWidthAndHeight">14</sys:Double>
 
     <Geometry x:Key="X_CloseButton">M0,0 L10,10 M0,10 L10,0</Geometry>
 
-    <SolidColorBrush x:Key="TabItemCloseButtonNormalForegroundBrush" Color="{StaticResource TabItem_ForegroundColor_Base}"/>
+    <SolidColorBrush x:Key="TabItemCloseButtonNormalForegroundBrush" Color="{StaticResource CloseButton_ForegroundColor_Base}"/>
     <SolidColorBrush x:Key="TabItemCloseButtonHoverForegroundBrush" Color="White"/>
     <SolidColorBrush x:Key="TabItemCloseButtonPressedForegroundBrush" Color="#EEEE"/>
 
@@ -121,4 +123,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
+
+
 </ResourceDictionary>
