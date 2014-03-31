@@ -2,8 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Expander.xaml"/>
         <ResourceDictionary Source="Kermit.xaml"/>
+        <ResourceDictionary Source="Expander.xaml"/>
         <ResourceDictionary Source="CloseButton.xaml" />
         <ResourceDictionary Source="TabItem.xaml" />
     </ResourceDictionary.MergedDictionaries>

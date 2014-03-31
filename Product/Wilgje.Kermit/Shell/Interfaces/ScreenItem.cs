@@ -9,5 +9,6 @@ namespace Willow.Kermit.Shell.Interfaces
 {
     public interface ScreenItem : IScreen
     {
+        bool HasClose { get; set; }
     }
 }

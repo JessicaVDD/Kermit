@@ -15,6 +15,9 @@ namespace Willow.Kermit.Registration.ViewModels
         public ChildRegistrationViewModel()
         {
             DisplayName = "Inschrijving";
+            HasClose = true;
         }
+
+        public bool HasClose { get; set; }
     }
 }

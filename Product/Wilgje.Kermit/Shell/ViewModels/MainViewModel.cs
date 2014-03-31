@@ -5,6 +5,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Willow.Kermit.Shell.Interfaces;
 using Willow.Kermit.Shell.Messages;
 
@@ -38,6 +39,15 @@ namespace Willow.Kermit.Shell.ViewModels
             if (ReferenceEquals(message, null)) return;
             if (message.Action == NavigationCommand.Home)
                 ActivateItem(_Home);
+        }
+
+        public void CloseCommand()
+        {
+            MessageBox.Show("Gotcha!");
+        }
+        public void CloseCommand(ScreenItem d)
+        {
+            DeactivateItem(d, true);
         }
     }
 }

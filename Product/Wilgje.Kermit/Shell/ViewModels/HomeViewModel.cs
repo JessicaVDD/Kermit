@@ -5,6 +5,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Willow.Kermit.Shell.Interfaces;
 using Willow.Kermit.Shell.Messages;
 
@@ -35,6 +36,16 @@ namespace Willow.Kermit.Shell.ViewModels
             if (ReferenceEquals(screenItem, null)) return;
 
             _Events.Publish(new ScreenItemMessage { ScreenItem = screenItem });
+        }
+
+        public override void CanClose(Action<bool> callback)
+        {
+            callback(false);
+        }
+        public bool HasClose
+        {
+            get { return false; }
+            set { }
         }
     }
 }
