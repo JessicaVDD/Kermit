@@ -96,9 +96,14 @@
     </Compile>
     <Compile Include="Registration\ChildRegistrationModule.cs" />
     <Compile Include="Registration\Interfaces\ChildRegistration.cs" />
+    <Compile Include="Registration\Interfaces\Person.cs" />
     <Compile Include="Registration\ViewModels\ChildRegistrationViewModel.cs" />
+    <Compile Include="Registration\ViewModels\PersonViewModel.cs" />
     <Compile Include="Registration\Views\ChildRegistrationView.xaml.cs">
       <DependentUpon>ChildRegistrationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Registration\Views\PersonView.xaml.cs">
+      <DependentUpon>PersonView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shell\Interfaces\Home.cs" />
     <Compile Include="Shell\Interfaces\KermitModule.cs" />
@@ -206,6 +211,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Registration\Views\ChildRegistrationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Registration\Views\PersonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

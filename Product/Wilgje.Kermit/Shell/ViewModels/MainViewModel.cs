@@ -41,10 +41,6 @@ namespace Willow.Kermit.Shell.ViewModels
                 ActivateItem(_Home);
         }
 
-        public void CloseCommand()
-        {
-            MessageBox.Show("Gotcha!");
-        }
         public void CloseCommand(ScreenItem d)
         {
             DeactivateItem(d, true);

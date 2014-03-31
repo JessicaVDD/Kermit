@@ -6,18 +6,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Willow.Kermit.Registration.Interfaces;
+using Willow.Kermit.Shell.Messages;
 
 namespace Willow.Kermit.Registration.ViewModels
 {
     [Export(typeof(ChildRegistration))]
     public class ChildRegistrationViewModel : Screen, ChildRegistration
     {
-        public ChildRegistrationViewModel()
+        private IEventAggregator _Events;
+
+        [ImportingConstructor]
+        public ChildRegistrationViewModel(IEventAggregator events)
         {
+            _Events = events;
             DisplayName = "Inschrijving";
             HasClose = true;
         }
 
         public bool HasClose { get; set; }
+
+        public void NewFamily()
+        {
+
+        }
+
+        public void NewPerson()
+        {
+            _Events.Publish(new ScreenItemMessage { Action = ScreenAction.Activate, ScreenItem = new PersonViewModel() });
+        }
+
+        public void NewChild()
+        {
+
+        }
     }
 }
