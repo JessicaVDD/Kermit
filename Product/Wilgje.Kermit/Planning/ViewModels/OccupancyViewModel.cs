@@ -9,7 +9,7 @@ using Willow.Kermit.Planning.Interfaces;
 
 namespace Willow.Kermit.Planning.ViewModels
 {
-    [Export(typeof(Occupancy))]
+    [Export(typeof(Occupancy))][PartCreationPolicy(CreationPolicy.NonShared)]
     public class OccupancyViewModel : Screen, Occupancy
     {
         public OccupancyViewModel()

@@ -9,7 +9,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     
-    <StackPanel Background="Transparent" Orientation="Vertical">
+    <StackPanel Background="Transparent" Orientation="Vertical" HorizontalAlignment="Left">
         
         <Label Name="FirstnameLabel" />
         <TextBox Name="Firstname" />

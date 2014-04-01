@@ -12,7 +12,7 @@ using Willow.Kermit.Registration.Interfaces;
 
 namespace Willow.Kermit.Registration.ViewModels
 {
-    [Export(typeof(Person))]
+    [Export(typeof(Person))][PartCreationPolicy(CreationPolicy.NonShared)]
     public class PersonViewModel : Screen, Person
     {
         public PersonViewModel()
@@ -22,7 +22,7 @@ namespace Willow.Kermit.Registration.ViewModels
             FirstnameLabel = "Voornaam";
             SurnameLabel = "Achternaam";
             BirthDayLabel = "Geboortedatum";
-            Professions = new BindableCollection<TestClass> { new TestClass { Profession = "Arbeider", Time = 5 }, new TestClass { Profession = "Zoeker", Time = 3 } };
+            Professions = new BindableCollection<TestClass> { new TestClass { Profession = "Arbeider", Time = 5 }, new TestClass { Profession = "Bediende", Time = 3 } };
         }
         public bool HasClose { get; set; }
 
@@ -36,9 +36,22 @@ namespace Willow.Kermit.Registration.ViewModels
 
         public BindableCollection<TestClass> Professions { get; set; }
 
+        private int _currIndex = 0;
         public void AddProfession()
         {
-            Professions.Add(new TestClass { Profession = "Failure", Time = 99 });
+            var p = NextProfession()[_currIndex++];
+            Professions.Add(p);
+            _currIndex = _currIndex % NextProfession().Count;
+        }
+
+        public List<TestClass> NextProfession()
+        {
+            return new List<TestClass> {
+                new TestClass { Profession = "Directie", Time = 7 },
+                new TestClass { Profession = "Schoonmaker", Time = 11 },
+                new TestClass { Profession = "Kok", Time = 2 },
+                new TestClass { Profession = "Chauffeur", Time = 4 }
+            };
         }
 
         public void RemoveProfession(object d)
