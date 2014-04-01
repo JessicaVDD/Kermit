@@ -6,7 +6,7 @@ using Willow.Kermit.Model;
 
 namespace Willow.Kermit.Child.Converters
 {
-    public class GenderConverter : IValueConverter
+    public class MyGenderConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

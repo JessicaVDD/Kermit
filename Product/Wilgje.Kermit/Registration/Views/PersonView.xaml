@@ -1,11 +1,40 @@
-﻿<UserControl x:Class="Willow.Kermit.Registration.Views.PersonView"
+﻿<UserControl xmlns:kctrl="clr-namespace:Willow.Kermit.General.Controls"
+             x:Class="Willow.Kermit.Registration.Views.PersonView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cal="http://www.caliburnproject.org"
+             
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <TextBlock Text="Person is here" />
-    </Grid>
+    
+    <StackPanel Background="Transparent" Orientation="Vertical">
+        
+        <Label Name="FirstnameLabel" />
+        <TextBox Name="Firstname" />
+        <Label Name="SurnameLabel" />
+        <TextBox Name="Surname" />
+        <Label Name="BirthDayLabel" />
+        <TextBox Name="BirthDay" />
+        <kctrl:GenderControl x:Name="Gender" />
+        <kctrl:EasyListControl Items="{Binding Professions}" cal:Message.Attach="[Event AddListItem]=[Action AddProfession]; [Event RemoveListItem]=[Action RemoveProfession($eventArgs)]">
+            <kctrl:EasyListControl.EasyListPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </kctrl:EasyListControl.EasyListPanel>
+            <kctrl:EasyListControl.EasyListItem>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Time}" MinWidth="50" />
+                        <TextBox Text="{Binding Profession}" MinWidth="200" />
+                    </StackPanel>
+                </DataTemplate>
+            </kctrl:EasyListControl.EasyListItem>
+
+        </kctrl:EasyListControl>
+        
+        
+    </StackPanel>
 </UserControl>

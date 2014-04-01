@@ -4,7 +4,7 @@
              xmlns:System="clr-namespace:System;assembly=mscorlib"
              xmlns:Converters="clr-namespace:Willow.Kermit.Child.Converters" BorderBrush="{x:Null}">
     <UserControl.Resources>
-        <Converters:GenderConverter x:Key="GeslachtConvertor" />
+        <Converters:MyGenderConverter x:Key="GeslachtConvertor" />
         <System:String x:Key="GeenNaamBekend">Naam: Onbekend</System:String>
     </UserControl.Resources>
 

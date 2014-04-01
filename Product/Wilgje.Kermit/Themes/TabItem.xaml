@@ -6,10 +6,12 @@
 
     <Thickness x:Key="TabItem_BorderThickness_Selected">1</Thickness>
     <Thickness x:Key="TabItem_BorderThickness_Hover">1</Thickness>
-
+    <Thickness x:Key="TabItem_BorderThickness_Disabled">1</Thickness>
+    <Thickness x:Key="TabItem_BorderThickness_Unselected">1</Thickness>
+    
     <Thickness x:Key="TabItem_Margin_Disabled">4,0,-1,0</Thickness>
     <Thickness x:Key="TabItem_Margin_Selected">0,0,-1,0</Thickness>
-    <Thickness x:Key="TabItem_Margin_Unselected">4,-1,0,0</Thickness>
+    <Thickness x:Key="TabItem_Margin_Unselected">4,0,-1,0</Thickness>
     <Thickness x:Key="TabItem_Margin_Hover">2,0,-1,0</Thickness>
     
     <SolidColorBrush x:Key="TabItem_TextBrush_Disabled" Color="White" />
@@ -69,17 +71,8 @@
                                 <!-- This is where the Content of the TabItem will be rendered. -->
                                 <ContentPresenter x:Name="ContentSite" Grid.Column="0" Margin="5,2,5,2" VerticalAlignment="Center" HorizontalAlignment="Center" 
                                                   ContentSource="Header" RecognizesAccessKey="True"/>
-                                <!--<Button x:Name="TabItem_CloseButton" Grid.Column="1" Margin="5,5,5,5" VerticalAlignment="Top" HorizontalAlignment="Right"
-                                        Style="{DynamicResource CloseButtonStyle}" Command="{Binding Path=DataContext.CloseCommand}"
-                                        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TabItem}}}" >-->
                                 <Button x:Name="CloseButton" Grid.Column="1" Margin="5,5,5,5" VerticalAlignment="Top" HorizontalAlignment="Right"
-                                        Style="{DynamicResource CloseButtonStyle}" cal:Message.Attach="[Event Click]=[Action CloseCommand($dataContext)]" >
-                                    <!--<i:Interaction.Triggers>
-                                        <i:EventTrigger EventName="Click">
-                                            <cal:ActionMessage MethodName="CloseCommand" />
-                                        </i:EventTrigger>
-                                    </i:Interaction.Triggers>-->
-                                </Button>
+                                        Style="{DynamicResource CloseButtonStyle}" cal:Message.Attach="[Event Click]=[Action CloseCommand($dataContext)]" />
                             </Grid>
                         </Border>
                     </Grid>
@@ -90,21 +83,24 @@
                             <MultiTrigger.Conditions>
                                 <Condition Property="Border.IsMouseOver" Value="False"/>
                                 <Condition Property="IsSelected" Value="False"/>
+                                <Condition Property="IsEnabled" Value="True"/>
                             </MultiTrigger.Conditions>                            
                             <Setter Property="Panel.ZIndex" Value="90" />
-                            <Setter TargetName="Border" Property="Background" Value="{StaticResource TabItem_BackgroundBrush_Unselected}" />
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource TabItem_BorderBrush_Unselected}" />
-                            <Setter TargetName="Border" Property="Margin" Value="{StaticResource TabItem_Margin_Unselected}"/>
                             <Setter Property="Foreground" Value="{StaticResource TabItem_TextBrush_Unselected}" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource TabItem_BorderBrush_Unselected}" />
+                            <Setter TargetName="Border" Property="BorderThickness" Value="{StaticResource TabItem_BorderThickness_Unselected}" />
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource TabItem_BackgroundBrush_Unselected}" />
+                            <Setter TargetName="Border" Property="Margin" Value="{StaticResource TabItem_Margin_Unselected}"/>
                         </MultiTrigger>
 
                         <!-- The appearance of a TabItem when it's disabled (in addition to Selected=False) -->
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Panel.ZIndex" Value="80" />
+                            <Setter Property="Foreground" Value="{StaticResource TabItem_TextBrush_Disabled}" />
                             <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource TabItem_BorderBrush_Disabled}" />
+                            <Setter TargetName="Border" Property="BorderThickness" Value="{StaticResource TabItem_BorderThickness_Disabled}" />
                             <Setter TargetName="Border" Property="Background" Value="{StaticResource TabItem_BackgroundBrush_Disabled}" />
                             <Setter TargetName="Border" Property="Margin" Value="{StaticResource TabItem_Margin_Disabled}"/>
-                            <Setter Property="Foreground" Value="{StaticResource TabItem_TextBrush_Disabled}" />
                         </Trigger>
 
                         <!-- The appearance of a TabItem when the mouse hovers over it -->
@@ -112,6 +108,7 @@
                             <MultiTrigger.Conditions>
                                 <Condition Property="Border.IsMouseOver" Value="True"/>
                                 <Condition Property="IsSelected" Value="False"/>
+                                <Condition Property="IsEnabled" Value="True"/>
                             </MultiTrigger.Conditions>
                             <Setter Property="Panel.ZIndex" Value="99" />
                             <Setter Property="Foreground" Value="{StaticResource TabItem_TextBrush_Hover}" />
@@ -122,14 +119,18 @@
                         </MultiTrigger>
 
                         <!-- The appearance of a TabItem when it's active/selected -->
-                        <Trigger Property="IsSelected" Value="True">
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsSelected" Value="True"/>
+                                <Condition Property="IsEnabled" Value="True"/>
+                            </MultiTrigger.Conditions>
                             <Setter Property="Panel.ZIndex" Value="100" />
-                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource TabItem_BorderBrush_Selected}" />
-                            <Setter TargetName="Border" Property="Background" Value="{StaticResource TabItem_BackgroundBrush_Selected}" />
-                            <Setter TargetName="Border" Property="BorderThickness" Value="{StaticResource TabItem_BorderThickness_Selected}" />
-                            <Setter TargetName="Border" Property="Margin" Value="{StaticResource TabItem_Margin_Selected}"/>
                             <Setter Property="Foreground" Value="{StaticResource TabItem_TextBrush_Selected}"/>
-                        </Trigger>
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource TabItem_BorderBrush_Selected}" />
+                            <Setter TargetName="Border" Property="BorderThickness" Value="{StaticResource TabItem_BorderThickness_Selected}" />
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource TabItem_BackgroundBrush_Selected}" />
+                            <Setter TargetName="Border" Property="Margin" Value="{StaticResource TabItem_Margin_Selected}"/>
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

@@ -94,6 +94,10 @@
     <Compile Include="Child\Views\RelationVisualCardView.xaml.cs">
       <DependentUpon>RelationVisualCardView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="General\Controls\EasyListControl.cs" />
+    <Compile Include="General\Controls\GenderControl.cs" />
+    <Compile Include="General\Converters\GenderConverter.cs" />
+    <Compile Include="General\Interfaces\Genders.cs" />
     <Compile Include="Registration\ChildRegistrationModule.cs" />
     <Compile Include="Registration\Interfaces\ChildRegistration.cs" />
     <Compile Include="Registration\Interfaces\Person.cs" />
@@ -266,6 +270,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\CustomControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -399,7 +407,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="General\ViewModels\" />
+    <Folder Include="General\Views\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

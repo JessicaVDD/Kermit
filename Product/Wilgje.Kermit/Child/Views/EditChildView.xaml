@@ -5,7 +5,7 @@
 
     <UserControl.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
-        <Converters:GenderConverter x:Key="GenderToBool" />
+        <Converters:MyGenderConverter x:Key="GenderToBool" />
     </UserControl.Resources>
 
     <Grid>

@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Border BorderBrush="Yellow" BorderThickness="0">
-        <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
 
             <TextBlock Text="Hier ben ik" />
             <Button Name="NewPerson" Content="Nieuwe persoon" />

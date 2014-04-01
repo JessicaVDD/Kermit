@@ -2,10 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Kermit.xaml"/>
-        <ResourceDictionary Source="Expander.xaml"/>
-        <ResourceDictionary Source="CloseButton.xaml" />
-        <ResourceDictionary Source="TabItem.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Willow.Kermit;component/Themes/Kermit.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Willow.Kermit;component/Themes/Expander.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Willow.Kermit;component/Themes/CloseButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Willow.Kermit;component/Themes/TabItem.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Willow.Kermit;component/Themes/CustomControls.xaml" />
     </ResourceDictionary.MergedDictionaries>
- 
 </ResourceDictionary>
