@@ -98,6 +98,12 @@
     <Compile Include="General\Controls\GenderControl.cs" />
     <Compile Include="General\Converters\GenderConverter.cs" />
     <Compile Include="General\Interfaces\Genders.cs" />
+    <Compile Include="Planning\Interfaces\Occupancy.cs" />
+    <Compile Include="Planning\PlanningModule.cs" />
+    <Compile Include="Planning\ViewModels\OccupancyViewModel.cs" />
+    <Compile Include="Planning\Views\OccupancyView.xaml.cs">
+      <DependentUpon>OccupancyView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Registration\ChildRegistrationModule.cs" />
     <Compile Include="Registration\Interfaces\ChildRegistration.cs" />
     <Compile Include="Registration\Interfaces\Person.cs" />
@@ -211,6 +217,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Child\Views\RelationVisualCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Planning\Views\OccupancyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

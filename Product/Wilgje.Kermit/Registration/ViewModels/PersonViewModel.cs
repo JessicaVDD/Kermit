@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using Willow.Kermit.Registration.Interfaces;
 
 namespace Willow.Kermit.Registration.ViewModels
 {
+    [Export(typeof(Person))]
     public class PersonViewModel : Screen, Person
     {
         public PersonViewModel()

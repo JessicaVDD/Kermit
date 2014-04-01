@@ -10,7 +10,7 @@ using Willow.Kermit.Shell.Messages;
 
 namespace Willow.Kermit.Registration.ViewModels
 {
-    [Export(typeof(ChildRegistration))]
+    [Export(typeof(ChildRegistration))][PartCreationPolicy(CreationPolicy.NonShared)]
     public class ChildRegistrationViewModel : Screen, ChildRegistration
     {
         private IEventAggregator _Events;
@@ -32,7 +32,7 @@ namespace Willow.Kermit.Registration.ViewModels
 
         public void NewPerson()
         {
-            _Events.Publish(new ScreenItemMessage { Action = ScreenAction.Activate, ScreenItem = new PersonViewModel() });
+            _Events.Publish(new ScreenItemMessage { Action = ScreenAction.Activate, ScreenItem = IoC.Get<Person>() });
         }
 
         public void NewChild()
