@@ -18,7 +18,7 @@
         <Label Name="BirthDayLabel" />
         <TextBox Name="BirthDay" />
         <kctrl:GenderControl x:Name="Gender" />
-        <kctrl:EasyListControl Items="{Binding Professions}" cal:Message.Attach="[Event AddListItem]=[Action AddProfession]; [Event RemoveListItem]=[Action RemoveProfession($eventArgs)]">
+        <kctrl:EasyListControl Margin="5,0,0,0" Items="{Binding Professions}" cal:Message.Attach="[Event AddListItem]=[Action AddProfession]; [Event RemoveListItem]=[Action RemoveProfession($eventArgs)]">
             <kctrl:EasyListControl.EasyListPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Vertical"/>

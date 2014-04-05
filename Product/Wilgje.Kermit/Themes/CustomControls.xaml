@@ -4,7 +4,12 @@
                     xmlns:kconv="clr-namespace:Willow.Kermit.General.Converters"
                     xmlns:kctrl="clr-namespace:Willow.Kermit.General.Controls">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Willow.Kermit;component/Themes/CloseButton.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <kconv:GenderConverter x:Key="GenderToBool" />
+    <SolidColorBrush x:Key="EasyList_Border" Color="White" Opacity="0.2" />
 
     <Style TargetType="RadioButton" x:Key="GenderRadioButton">
         <Setter Property="Background" Value="Transparent" />
@@ -28,36 +33,49 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource AddButtonStyle}" x:Key="EasyListControl_AddButtonStyle">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Margin" Value="4, 2, 0, 0" />
+    </Style>
 
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource CloseButtonStyle}" x:Key="EasyListControl_CloseButtonStyle">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Margin" Value="2, 3, 0, 0" />
+    </Style>
 
     <Style TargetType="{x:Type kctrl:EasyListControl}">
+        <Setter Property="BorderBrush" Value="{StaticResource EasyList_Border}" />
+        <Setter Property="BorderThickness" Value="0.5,0.5,2,2" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type kctrl:EasyListControl}">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="35" />
+                                <ColumnDefinition Width="25" />
                             </Grid.ColumnDefinitions>
-                            <Button Name="PART_AddButton" Grid.Column="1" Style="{DynamicResource AddButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Top" />
-                            <ItemsControl ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type kctrl:EasyListControl}}, Path=Items}"
+                        <Button Grid.Column="1" Name="PART_AddButton" Style="{StaticResource EasyListControl_AddButtonStyle}"/>
+                            <Border Grid.Column="0" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <ItemsControl ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type kctrl:EasyListControl}}, Path=Items}"
                                           ItemsPanel="{Binding RelativeSource={RelativeSource AncestorType={x:Type kctrl:EasyListControl}}, Path=EasyListPanel}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="35" />
-                                            </Grid.ColumnDefinitions>
-                                            <Button Name="PART_CloseButton" Grid.Column="1" Style="{DynamicResource CloseButtonStyle}" HorizontalAlignment="Center" VerticalAlignment="Top" Command="{Binding DeleteCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type kctrl:EasyListControl}}}" CommandParameter="{Binding}"/>
-                                            <ContentControl Content="{Binding}" ContentTemplate="{Binding RelativeSource={RelativeSource AncestorType={x:Type kctrl:EasyListControl}}, Path=EasyListItem}" />
-                                        </Grid>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="30" />
+                                                </Grid.ColumnDefinitions>
+                                                <Button Grid.Column="1" Name="PART_CloseButton" Style="{StaticResource EasyListControl_CloseButtonStyle}" Command="{Binding DeleteCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type kctrl:EasyListControl}}}" CommandParameter="{Binding}"/>
+                                                <ContentControl Grid.Column="0" Content="{Binding}" ContentTemplate="{Binding RelativeSource={RelativeSource AncestorType={x:Type kctrl:EasyListControl}}, Path=EasyListItem}" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Border>
                         </Grid>
-                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
