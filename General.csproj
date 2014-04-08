@@ -381,12 +381,6 @@
   <ItemGroup>
     <Folder Include="artifacts\specs\report\resources\" />
   </ItemGroup>
-  <ItemGroup>
-    <Page Include="packages\Callisto.1.2.9\lib\winrt45\Callisto\Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
