@@ -25,9 +25,9 @@
                 <ControlTemplate TargetType="{x:Type kctrl:GenderControl}">
                     <StackPanel Orientation="Horizontal" Background="Transparent">
                         <Label MinWidth="100" Content="Geslacht" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
-                        <RadioButton Content="Mannelijk" IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Gender, Mode=TwoWay, Converter={StaticResource GenderToBool}, ConverterParameter=Male}" Style="{StaticResource GenderRadioButton}"/>
-                        <RadioButton Content="Vrouwelijk" IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Gender, Mode=TwoWay, Converter={StaticResource GenderToBool}, ConverterParameter=Female}" Style="{StaticResource GenderRadioButton}"/>
-                        <RadioButton Content="Onbekend" IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Gender, Mode=TwoWay, Converter={StaticResource GenderToBool}, ConverterParameter=Unknown}" Style="{StaticResource GenderRadioButton}"/>
+                        <RadioButton Content="{TemplateBinding Male}" IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Gender, Mode=TwoWay, Converter={StaticResource GenderToBool}, ConverterParameter=Male}" Style="{StaticResource GenderRadioButton}"/>
+                        <RadioButton Content="{TemplateBinding Female}" IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Gender, Mode=TwoWay, Converter={StaticResource GenderToBool}, ConverterParameter=Female}" Style="{StaticResource GenderRadioButton}"/>
+                        <RadioButton Content="{TemplateBinding Unknown}" IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Gender, Mode=TwoWay, Converter={StaticResource GenderToBool}, ConverterParameter=Unknown}" Style="{StaticResource GenderRadioButton}"/>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>

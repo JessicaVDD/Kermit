@@ -8,17 +8,33 @@
              
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    
-    <StackPanel Background="Transparent" Orientation="Vertical" HorizontalAlignment="Left">
-        
-        <Label Name="FirstnameLabel" />
-        <TextBox Name="Firstname" />
-        <Label Name="SurnameLabel" />
-        <TextBox Name="Surname" />
-        <Label Name="BirthDayLabel" />
-        <TextBox Name="BirthDay" />
-        <kctrl:GenderControl x:Name="Gender" />
-        <kctrl:EasyListControl Margin="5,0,0,0" Items="{Binding Professions}" cal:Message.Attach="[Event AddListItem]=[Action AddProfession]; [Event RemoveListItem]=[Action RemoveProfession($eventArgs)]">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0" Name="FirstnameLabel" />
+        <TextBox Grid.Column="1" Grid.Row="0" Name="Firstname" HorizontalAlignment="Left" MinWidth="200" />
+        <Label Grid.Column="2" Grid.Row="0" Name="SurnameLabel" />
+        <TextBox Grid.Column="3" Grid.Row="0" Name="Surname"  HorizontalAlignment="Left" MinWidth="400"/>
+
+        <Label Grid.Column="0" Grid.Row="1" Name="BirthDayLabel" />
+        <DatePicker Grid.Column="1" Grid.Row="1" Name="BirthDay" HorizontalAlignment="Left"/>
+        <Label Grid.Column="2" Grid.Row="1" Name="GenderLabel" />
+        <kctrl:GenderControl Grid.Column="3" Grid.Row="1" x:Name="Gender" />
+
+        <Label Grid.Column="0" Grid.Row="2" Name="ProfessionLabel" />
+        <kctrl:EasyListControl Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Items="{Binding Professions}" cal:Message.Attach="[Event AddListItem]=[Action AddProfession]; [Event RemoveListItem]=[Action RemoveProfession($originalsource)]">
             <kctrl:EasyListControl.EasyListPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Vertical"/>
@@ -27,14 +43,43 @@
             <kctrl:EasyListControl.EasyListItem>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding Time}" MinWidth="50" />
                         <TextBox Text="{Binding Profession}" MinWidth="200" />
                     </StackPanel>
                 </DataTemplate>
             </kctrl:EasyListControl.EasyListItem>
-
         </kctrl:EasyListControl>
-        
-        
-    </StackPanel>
+
+        <Label Grid.Column="0" Grid.Row="3" Name="TelephoneLabel" />
+        <kctrl:EasyListControl Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Items="{Binding Telephones}" cal:Message.Attach="[Event AddListItem]=[Action AddTelephone]; [Event RemoveListItem]=[Action RemoveTelephone($originalsource)]">
+            <kctrl:EasyListControl.EasyListPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </kctrl:EasyListControl.EasyListPanel>
+            <kctrl:EasyListControl.EasyListItem>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Text="{Binding}" MinWidth="200" />
+                    </StackPanel>
+                </DataTemplate>
+            </kctrl:EasyListControl.EasyListItem>
+        </kctrl:EasyListControl>
+
+        <Label Grid.Column="0" Grid.Row="4" Name="MailAddressLabel" />
+        <kctrl:EasyListControl Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Items="{Binding MailAddresses}" cal:Message.Attach="[Event AddListItem]=[Action AddMailAddress]; [Event RemoveListItem]=[Action RemoveMailAddress($originalsource)]">
+            <kctrl:EasyListControl.EasyListPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </kctrl:EasyListControl.EasyListPanel>
+            <kctrl:EasyListControl.EasyListItem>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Text="{Binding}" MinWidth="200" />
+                    </StackPanel>
+                </DataTemplate>
+            </kctrl:EasyListControl.EasyListItem>
+        </kctrl:EasyListControl>
+
+    </Grid>
 </UserControl>

@@ -5,6 +5,7 @@ using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using Caliburn.Micro;
 using Willow.Kermit.Shell.Interfaces;
+using System.Windows;
 
 namespace Willow.Kermit.Application
 {
@@ -30,8 +31,19 @@ namespace Willow.Kermit.Application
 
             //Compose the container with the catalog and add manually created exports
             _container = new CompositionContainer(catalog);
-            _container.Compose(batch);            
+            _container.Compose(batch);
+
+            AddActionMessageShortcuts();
 		}
+
+        private void AddActionMessageShortcuts()
+        {
+            MessageBinder.SpecialValues.Add("$originalsource", context =>
+            {
+                var args = context.EventArgs as RoutedEventArgs;
+                return args == null ? null :  args.OriginalSource;
+            });
+        }
 
 		protected override object GetInstance(Type serviceType, string key)
 		{

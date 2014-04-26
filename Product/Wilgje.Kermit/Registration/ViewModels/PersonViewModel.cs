@@ -22,7 +22,10 @@ namespace Willow.Kermit.Registration.ViewModels
             FirstnameLabel = "Voornaam";
             SurnameLabel = "Achternaam";
             BirthDayLabel = "Geboortedatum";
-            Professions = new BindableCollection<TestClass> { new TestClass { Profession = "Arbeider", Time = 5 }, new TestClass { Profession = "Bediende", Time = 3 } };
+            ProfessionLabel = "Beroep";
+            Professions = new BindableCollection<TestClass> { new TestClass() };
+            Telephones = new BindableCollection<string> { "" };
+            MailAddresses = new BindableCollection<string> { "" };
         }
         public bool HasClose { get; set; }
 
@@ -34,35 +37,40 @@ namespace Willow.Kermit.Registration.ViewModels
         public DateTime? BirthDay { get; set; }
         public Genders Gender { get; set; }
 
-        public BindableCollection<TestClass> Professions { get; set; }
+        public string MailAddressLabel { get; set; }
+        public BindableCollection<string> MailAddresses { get; set; }
+        public void AddMailAddress()
+        {
+            MailAddresses.Add("");
+        }
+        public void RemoveMailAddress(string t)
+        {
+            if (t != null)
+                MailAddresses.Remove(t);
+        }
 
-        private int _currIndex = 0;
+        public string TelephoneLabel { get; set; }
+        public BindableCollection<string> Telephones { get; set; }
+        public void AddTelephone()
+        {
+            Telephones.Add("");
+        }
+        public void RemoveTelephone(string t)
+        {
+            if (t != null)
+                Telephones.Remove(t);
+        }
+
+        public string ProfessionLabel { get; set; }
+        public BindableCollection<TestClass> Professions { get; set; }
         public void AddProfession()
         {
-            var p = NextProfession()[_currIndex++];
-            Professions.Add(p);
-            _currIndex = _currIndex % NextProfession().Count;
+            Professions.Add(new TestClass());
         }
-
-        public List<TestClass> NextProfession()
+        public void RemoveProfession(TestClass t)
         {
-            return new List<TestClass> {
-                new TestClass { Profession = "Directie", Time = 7 },
-                new TestClass { Profession = "Schoonmaker", Time = 11 },
-                new TestClass { Profession = "Kok", Time = 2 },
-                new TestClass { Profession = "Chauffeur", Time = 4 }
-            };
-        }
-
-        public void RemoveProfession(object d)
-        {
-            var re = d as RoutedEventArgs;
-            if (re == null) return;
-
-            var tc = re.OriginalSource as TestClass;
-            if (tc == null) return;
-
-            Professions.Remove(tc);
+            if (t != null)
+                Professions.Remove(t);
         }
 
         public bool HasAdd { get { return true; } }
