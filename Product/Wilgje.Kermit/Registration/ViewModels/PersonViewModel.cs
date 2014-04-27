@@ -23,9 +23,14 @@ namespace Willow.Kermit.Registration.ViewModels
             SurnameLabel = "Achternaam";
             BirthDayLabel = "Geboortedatum";
             ProfessionLabel = "Beroep";
-            Professions = new BindableCollection<TestClass> { new TestClass() };
-            Telephones = new BindableCollection<string> { "" };
-            MailAddresses = new BindableCollection<string> { "" };
+            TelephoneLabel = "Telefoon";
+            MailAddressLabel = "Mail";
+            AddressLabel = "Adres";
+            Professions = new BindableCollection<Profession> { new Profession {HasClose=false} };
+            Telephones = new BindableCollection<Telephone> { new Telephone {Usage="Algemeen", HasClose=false} };
+            MailAddresses = new BindableCollection<MailAddress> { new MailAddress {Usage="Algemeen", HasClose=false} };
+            Addresses = new BindableCollection<Address> { new Address { HasClose = false } };
+            ContactUsages = new string[] { "Algemeen", "Werk", "Privé" };
         }
         public bool HasClose { get; set; }
 
@@ -37,50 +42,91 @@ namespace Willow.Kermit.Registration.ViewModels
         public DateTime? BirthDay { get; set; }
         public Genders Gender { get; set; }
 
+        public string[] ContactUsages { get; private set; }
         public string MailAddressLabel { get; set; }
-        public BindableCollection<string> MailAddresses { get; set; }
+        public BindableCollection<MailAddress> MailAddresses { get; set; }
         public void AddMailAddress()
         {
-            MailAddresses.Add("");
+            MailAddresses.Add(new MailAddress { Usage = "Algemeen" });
         }
-        public void RemoveMailAddress(string t)
+        public void RemoveMailAddress(MailAddress t)
         {
             if (t != null)
                 MailAddresses.Remove(t);
         }
 
         public string TelephoneLabel { get; set; }
-        public BindableCollection<string> Telephones { get; set; }
+        public BindableCollection<Telephone> Telephones { get; set; }
         public void AddTelephone()
         {
-            Telephones.Add("");
+            Telephones.Add(new Telephone { Usage = "Algemeen" });
         }
-        public void RemoveTelephone(string t)
+        public void RemoveTelephone(Telephone t)
         {
             if (t != null)
                 Telephones.Remove(t);
         }
 
         public string ProfessionLabel { get; set; }
-        public BindableCollection<TestClass> Professions { get; set; }
+        public BindableCollection<Profession> Professions { get; set; }
         public void AddProfession()
         {
-            Professions.Add(new TestClass());
+            Professions.Add(new Profession());
         }
-        public void RemoveProfession(TestClass t)
+        public void RemoveProfession(Profession t)
         {
             if (t != null)
                 Professions.Remove(t);
         }
 
+        public string AddressLabel { get; set; }
+        public BindableCollection<Address> Addresses { get; set; }
+        public void AddAddress()
+        {
+            Addresses.Add(new Address());
+        }
+        public void RemoveAddress(Address t)
+        {
+            if (t != null)
+                Addresses.Remove(t);
+        }
+
         public bool HasAdd { get { return true; } }
     }
 
-    public class TestClass
+    public class Profession
     {
-        public string Profession { get; set; }
-        public int Time { get; set; }
-        public bool HasClose { get { return true; } }
+        public Profession() { HasClose = true; }
+        public string Title { get; set; }
+        public string Remark { get; set; }
+        public bool HasClose { get; set; }
     }
 
+    public class Telephone
+    {
+        public Telephone() { HasClose = true; }
+        public string Number { get; set; }
+        public string Usage { get; set; }
+        public string Remark { get; set; }
+        public bool HasClose { get; set; }
+    }
+
+    public class MailAddress
+    {
+        public MailAddress() { HasClose = true; }
+        public string Address { get; set; }
+        public string Usage { get; set; }
+        public bool HasClose { get; set; }
+    }
+
+    public class Address
+    {
+        public Address() { HasClose = true; }
+        public string Street { get; set; }
+        public string Number { get; set; }
+        public string PostalCode { get; set; }
+        public string City { get; set; }
+        public string Country { get; set; }
+        public bool HasClose { get; set; }
+    }
 }

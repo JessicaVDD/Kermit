@@ -8,6 +8,46 @@
              
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <DataTemplate x:Key="TelephoneNumberTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="{Binding Number}" MinWidth="200" VerticalAlignment="Center"/>
+                <ComboBox SelectedItem="{Binding Usage}" ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type kctrl:EasyListControl}}, Path=DataContext.ContactUsages, Mode=OneWay}" MinWidth="200" />
+                <TextBox Text="{Binding Remark}" MinWidth="200" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="MailAddressTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="{Binding Address}" MinWidth="200" VerticalAlignment="Center"/>
+                <ComboBox SelectedItem="{Binding Usage}" ItemsSource="{Binding RelativeSource={RelativeSource AncestorType={x:Type kctrl:EasyListControl}}, Path=DataContext.ContactUsages, Mode=OneWay}" MinWidth="200" />
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ProfessionTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="{Binding Title}" MinWidth="200" VerticalAlignment="Center" />
+                <TextBox Text="{Binding Remark}" MinWidth="200" VerticalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="AddressTemplate">
+            <Border BorderThickness="0.5" BorderBrush="White" Margin="3">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBox Text="{Binding Street}" MinWidth="290" Margin="0,0,10,0" />
+                        <TextBox Text="{Binding Number}" MinWidth="60" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBox Text="{Binding PostalCode}" MinWidth="70" Margin="0,0,10,0" />
+                        <TextBox Text="{Binding City}" MinWidth="180"  Margin="0,0,10,0"/>
+                        <TextBox Text="{Binding Country}" MinWidth="90" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+    </UserControl.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -21,12 +61,13 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Label Grid.Column="0" Grid.Row="0" Name="FirstnameLabel" />
-        <TextBox Grid.Column="1" Grid.Row="0" Name="Firstname" HorizontalAlignment="Left" MinWidth="200" />
+        <TextBox Grid.Column="1" Grid.Row="0" Name="Firstname" HorizontalAlignment="Left" MinWidth="200" VerticalAlignment="Center" />
         <Label Grid.Column="2" Grid.Row="0" Name="SurnameLabel" />
-        <TextBox Grid.Column="3" Grid.Row="0" Name="Surname"  HorizontalAlignment="Left" MinWidth="400"/>
+        <TextBox Grid.Column="3" Grid.Row="0" Name="Surname"  HorizontalAlignment="Left" MinWidth="400" VerticalAlignment="Center"/>
 
         <Label Grid.Column="0" Grid.Row="1" Name="BirthDayLabel" />
         <DatePicker Grid.Column="1" Grid.Row="1" Name="BirthDay" HorizontalAlignment="Left"/>
@@ -34,52 +75,21 @@
         <kctrl:GenderControl Grid.Column="3" Grid.Row="1" x:Name="Gender" />
 
         <Label Grid.Column="0" Grid.Row="2" Name="ProfessionLabel" />
-        <kctrl:EasyListControl Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Items="{Binding Professions}" cal:Message.Attach="[Event AddListItem]=[Action AddProfession]; [Event RemoveListItem]=[Action RemoveProfession($originalsource)]">
-            <kctrl:EasyListControl.EasyListPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Vertical"/>
-                </ItemsPanelTemplate>
-            </kctrl:EasyListControl.EasyListPanel>
-            <kctrl:EasyListControl.EasyListItem>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox Text="{Binding Profession}" MinWidth="200" />
-                    </StackPanel>
-                </DataTemplate>
-            </kctrl:EasyListControl.EasyListItem>
-        </kctrl:EasyListControl>
+        <kctrl:EasyListControl Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Items="{Binding Professions}" EasyListItem="{StaticResource ResourceKey=ProfessionTemplate}"
+                               cal:Message.Attach="[Event AddListItem]=[Action AddProfession]; [Event RemoveListItem]=[Action RemoveProfession($originalsource)]" />
+
 
         <Label Grid.Column="0" Grid.Row="3" Name="TelephoneLabel" />
-        <kctrl:EasyListControl Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Items="{Binding Telephones}" cal:Message.Attach="[Event AddListItem]=[Action AddTelephone]; [Event RemoveListItem]=[Action RemoveTelephone($originalsource)]">
-            <kctrl:EasyListControl.EasyListPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Vertical"/>
-                </ItemsPanelTemplate>
-            </kctrl:EasyListControl.EasyListPanel>
-            <kctrl:EasyListControl.EasyListItem>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox Text="{Binding}" MinWidth="200" />
-                    </StackPanel>
-                </DataTemplate>
-            </kctrl:EasyListControl.EasyListItem>
-        </kctrl:EasyListControl>
+        <kctrl:EasyListControl Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Items="{Binding Telephones}" EasyListItem="{StaticResource ResourceKey=TelephoneNumberTemplate}" 
+                               cal:Message.Attach="[Event AddListItem]=[Action AddTelephone]; [Event RemoveListItem]=[Action RemoveTelephone($originalsource)]" />
 
         <Label Grid.Column="0" Grid.Row="4" Name="MailAddressLabel" />
-        <kctrl:EasyListControl Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Items="{Binding MailAddresses}" cal:Message.Attach="[Event AddListItem]=[Action AddMailAddress]; [Event RemoveListItem]=[Action RemoveMailAddress($originalsource)]">
-            <kctrl:EasyListControl.EasyListPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Vertical"/>
-                </ItemsPanelTemplate>
-            </kctrl:EasyListControl.EasyListPanel>
-            <kctrl:EasyListControl.EasyListItem>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox Text="{Binding}" MinWidth="200" />
-                    </StackPanel>
-                </DataTemplate>
-            </kctrl:EasyListControl.EasyListItem>
-        </kctrl:EasyListControl>
+        <kctrl:EasyListControl Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Items="{Binding MailAddresses}" EasyListItem="{StaticResource ResourceKey=MailAddressTemplate}" 
+                               cal:Message.Attach="[Event AddListItem]=[Action AddMailAddress]; [Event RemoveListItem]=[Action RemoveMailAddress($originalsource)]" />
+
+        <Label Grid.Column="0" Grid.Row="5" Name="AddressLabel" />
+        <kctrl:EasyListControl Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" Items="{Binding Addresses}" EasyListItem="{StaticResource ResourceKey=AddressTemplate}" 
+                               cal:Message.Attach="[Event AddListItem]=[Action AddAddress]; [Event RemoveListItem]=[Action RemoveAddress($originalsource)]" />
 
     </Grid>
 </UserControl>
